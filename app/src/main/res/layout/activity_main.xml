@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,82 +11,95 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
-    <Button
-        android:id="@+id/live_region"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-android:text="@string/liveregion_title" />
-    <Button
-        android:id="@+id/label_for"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/label_for_title"/>
-
-    <Button
-        android:id="@+id/carousel"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/carousel_title" />
-    <Button
-        android:id="@+id/fix_focus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/stay_focus" />
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/progressBar"
-    android:layout_gravity="center"
-android:text="@string/progressBar"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timeLimit"
-        android:layout_gravity="center"
-        android:text="@string/timeLimit"/>
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/live_region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/liveregion_title" />
+        <Button
+            android:id="@+id/label_for"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/label_for_title"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/musicPlayer"
-        android:layout_gravity="center"
-        android:text="@string/musicPlayer"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/overlay"
-        android:layout_gravity="center"
-        android:text="@string/overlay"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:layout_gravity="center"
-        android:text="@string/main_ratingBar"/>
+        <Button
+            android:id="@+id/carousel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/carousel_title" />
+        <Button
+            android:id="@+id/fix_focus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/stay_focus" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_gravity="center"
+            android:text="@string/progressBar"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timeLimit"
+            android:layout_gravity="center"
+            android:text="@string/timeLimit"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/nestedScroll"
-        android:layout_gravity="center"
-        android:text="@string/nestedScroll"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/musicPlayer"
+            android:layout_gravity="center"
+            android:text="@string/musicPlayer"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/overlay"
+            android:layout_gravity="center"
+            android:text="@string/overlay"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingBar"
+            android:layout_gravity="center"
+            android:text="@string/main_ratingBar"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tabControl"
-        android:layout_gravity="center"
-        android:text="@string/tabControl"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nestedScroll"
+            android:layout_gravity="center"
+            android:text="@string/nestedScroll"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/collapseExpand"
-        android:layout_gravity="center"
-        android:text="@string/collapseExpand"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabControl"
+            android:layout_gravity="center"
+            android:text="@string/tabControl"/>
 
-</LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/collapseExpand"
+            android:layout_gravity="center"
+            android:text="@string/collapseExpand"/>
+
+        <Button
+            android:id="@+id/customControlButton"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="@string/customControl_main" />
+    </LinearLayout>
+
+
+</ScrollView>

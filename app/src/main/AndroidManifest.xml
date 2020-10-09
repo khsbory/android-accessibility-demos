@@ -9,24 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CollapseExpand.CollapseExpandActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".CollapseExpand.CollapseExpandExampleActivity"
-            android:parentActivityName=".CollapseExpand.CollapseExpandActivity"/>
-        <activity android:name=".TabControl.TabControlActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".TabControl.TabGoodActivity"
-            android:parentActivityName=".TabControl.TabControlActivity"/>
-        <activity android:name=".TabControl.TabBadActivity"
-            android:parentActivityName=".TabControl.TabControlActivity"/>
-        <activity android:name=".ratingBar.RatingBarBadActivity"></activity>
-        <activity android:name=".ratingBar.RatingBarGoodActivity" />
-        <activity android:name=".NestedScroll.NestedScrollExampleActivity"
-            android:parentActivityName=".NestedScroll.NestedScrollActivity">
-        </activity>
-        <activity android:name=".NestedScroll.NestedScrollActivity"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".ratingBar.RatingBarActivity" />
+        <activity android:name=".CustomControl.CustomControlBadActivity"></activity>
+        <activity android:name=".CustomControl.CustomControlGoodActivity" />
+        <activity android:name=".CustomControl.CustomControlActivity" />
+        <activity
+            android:name=".CollapseExpand.CollapseExpandActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".CollapseExpand.CollapseExpandExampleActivity"
+            android:parentActivityName=".CollapseExpand.CollapseExpandActivity" />
+        <activity
+            android:name=".TabControl.TabControlActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".TabControl.TabGoodActivity"
+            android:parentActivityName=".TabControl.TabControlActivity" />
+        <activity
+            android:name=".TabControl.TabBadActivity"
+            android:parentActivityName=".TabControl.TabControlActivity" />
+        <activity android:name=".RatingBar.RatingBarBadActivity" />
+        <activity android:name=".RatingBar.RatingBarGoodActivity" />
+        <activity
+            android:name=".NestedScroll.NestedScrollExampleActivity"
+            android:parentActivityName=".NestedScroll.NestedScrollActivity" />
+        <activity
+            android:name=".NestedScroll.NestedScrollActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".RatingBar.RatingBarActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

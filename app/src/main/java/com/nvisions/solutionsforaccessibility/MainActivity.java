@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.nvisions.solutionsforaccessibility.CollapseExpand.CollapseExpandActivity;
+import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
 import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
 import com.nvisions.solutionsforaccessibility.NestedScroll.NestedScrollActivity;
 import com.nvisions.solutionsforaccessibility.TabControl.TabControlActivity;
@@ -16,7 +17,7 @@ import com.nvisions.solutionsforaccessibility.labelFor.LabelForActivity;
 import com.nvisions.solutionsforaccessibility.music.MusicActivity;
 import com.nvisions.solutionsforaccessibility.overlay.FocusActivity;
 import com.nvisions.solutionsforaccessibility.progress.ProgressBarActivity;
-import com.nvisions.solutionsforaccessibility.ratingBar.RatingBarActivity;
+import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
 import com.nvisions.solutionsforaccessibility.recyclerview.StayFocusActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -132,6 +133,16 @@ startActivity(intent);
                 startActivity(intent);
             }
         });
+
+        Button customControlButton = (Button)findViewById(R.id.customControlButton);
+        customControlButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CustomControlActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
