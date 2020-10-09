@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nvisions.solutionsforaccessibility">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".CollapseExpand.CollapseExpandActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".CollapseExpand.CollapseExpandExampleActivity"
+            android:parentActivityName=".CollapseExpand.CollapseExpandActivity"/>
+        <activity android:name=".TabControl.TabControlActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".TabControl.TabGoodActivity"
+            android:parentActivityName=".TabControl.TabControlActivity"/>
+        <activity android:name=".TabControl.TabBadActivity"
+            android:parentActivityName=".TabControl.TabControlActivity"/>
+        <activity android:name=".ratingBar.RatingBarBadActivity"></activity>
+        <activity android:name=".ratingBar.RatingBarGoodActivity" />
+        <activity android:name=".NestedScroll.NestedScrollExampleActivity"
+            android:parentActivityName=".NestedScroll.NestedScrollActivity">
+        </activity>
+        <activity android:name=".NestedScroll.NestedScrollActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".ratingBar.RatingBarActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LiveRegion.LiveRegionActivity"
+            android:label="@string/liveregion_title"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".LiveRegion.LiveRegionExample1Activity"
+            android:label="@string/liveregionexample1_title"
+            android:parentActivityName=".LiveRegion.LiveRegionActivity" />
+        <activity
+            android:name=".LiveRegion.LiveRegionExample2Activity"
+            android:label="@string/liveregionexample2_title"
+            android:parentActivityName=".LiveRegion.LiveRegionActivity" />
+        <activity
+            android:name=".labelFor.LabelForActivity"
+            android:label="@string/label_for_title"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".labelFor.LabelForExample1Activity"
+            android:label="@string/label_for_example1_title"
+            android:parentActivityName=".labelFor.LabelForActivity" />
+        <activity
+            android:name=".labelFor.LabelForExample2Activity"
+            android:label="@string/label_for_example2_title"
+            android:parentActivityName=".labelFor.LabelForActivity" />
+        <activity
+            android:name=".carousel.CarouselActivity"
+            android:label="@string/carousel_title"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".carousel.CarouselExample1Activity"
+            android:label="@string/carousel_bad_accessibility"
+            android:parentActivityName=".carousel.CarouselActivity" />
+        <activity
+            android:name=".carousel.CarouselExample2Activity"
+            android:label="@string/carousel_good_accessibility"
+            android:parentActivityName=".carousel.CarouselActivity" />
+        <activity
+            android:name=".recyclerview.RecyclerViewFocusActivity"
+            android:label="@string/stay_focus_example"
+            android:parentActivityName=".recyclerview.StayFocusActivity" />
+        <activity
+            android:name=".recyclerview.StayFocusActivity"
+            android:label="@string/stay_focus"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".progress.ProgressBarActivity"
+            android:label="@string/progressBar"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".progress.ProgressBarAccessibleExampleActivity"
+            android:label="@string/progressBarAccessibleExample"
+            android:parentActivityName=".progress.ProgressBarActivity" />
+        <activity
+            android:name=".progress.ProgressBarNoneAccessibleExampleActivity"
+            android:label="@string/progressBarNoneAccessibleExample"
+            android:parentActivityName=".progress.ProgressBarActivity" />
+        <activity
+            android:name=".TimeLimitActivity"
+            android:label="@string/timeLimit"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".music.MusicActivity"
+            android:label="@string/musicPlayer"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".music.MusicGoodActivity"
+            android:label="@string/goodExample"
+            android:parentActivityName=".music.MusicActivity" />
+        <activity
+            android:name=".music.MusicBadActivity"
+            android:label="@string/badExample"
+            android:parentActivityName=".music.MusicActivity" />
+        <activity
+            android:name=".overlay.SubWithAccessibilityActivity"
+            android:label="@string/goodExample" />
+        <activity android:name=".overlay.SubWithoutAccessibilityActivity" />
+        <activity
+            android:name=".overlay.FocusActivity"
+            android:label="@string/overlay"
+            android:parentActivityName=".MainActivity" />
+    </application>
+
+</manifest>
