@@ -30,6 +30,8 @@ open class CustomRadioButton @JvmOverloads constructor(context:Context, attrs:At
                 info?.className = RadioButton::class.java.name
                 info?.isCheckable = true
                 info?.isChecked = button1.isSelected
+                info?.isSelected = false
+
             }
         }
 
@@ -39,6 +41,8 @@ open class CustomRadioButton @JvmOverloads constructor(context:Context, attrs:At
                 info?.className = RadioButton::class.java.name
                 info?.isCheckable = true
                 info?.isChecked = button2.isSelected
+                info?.isSelected = false
+
             }
         }
 
