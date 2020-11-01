@@ -2,15 +2,18 @@ package com.nvisions.solutionsforaccessibility.CustomControl
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.custom_control_radio_view.view.*
 
-open class CustomRadioButton @JvmOverloads constructor(context:Context, attrs:AttributeSet?=null, defStyleAttr:Int = 0)
+open class CustomRadioButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
             :LinearLayout(context, attrs, defStyleAttr) {
+
     init {
         inflate(context, R.layout.custom_control_radio_view, this)
         button1.isSelected = true
@@ -42,10 +45,8 @@ open class CustomRadioButton @JvmOverloads constructor(context:Context, attrs:At
                 info?.isCheckable = true
                 info?.isChecked = button2.isSelected
                 info?.isSelected = false
-
             }
         }
-
     }
 
 
@@ -68,5 +69,6 @@ open class CustomRadioButton @JvmOverloads constructor(context:Context, attrs:At
             button2.isSelected = true
         }
     }
+
 
 }

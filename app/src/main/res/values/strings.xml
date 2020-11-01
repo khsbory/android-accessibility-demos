@@ -172,5 +172,11 @@
     <string name="customControl_radio_set">세트</string>
     <string name="customControl_confirm">확인</string>
     <string name="customControl_confirm_text">밀어서 주문 확인</string>
+    <string name="customControl_banner_dialog_text">배너를 클릭했습니다</string>
+    <string name="customControl_banner_left">이전 배너</string>
+    <string name="customControl_banner_right">다음 배너</string>
+    <string name="customControl_banner_play">배너 재생</string>
+    <string name="customControl_banner_stop">배너 정지</string>
+    <string name="customControl_edittext_hint">수량을 넣으세요</string>
 
 </resources>
