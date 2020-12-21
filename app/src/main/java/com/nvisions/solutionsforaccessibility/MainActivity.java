@@ -11,14 +11,19 @@ import com.nvisions.solutionsforaccessibility.CollapseExpand.CollapseExpandActiv
 import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
 import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
 import com.nvisions.solutionsforaccessibility.NestedScroll.NestedScrollActivity;
+import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
 import com.nvisions.solutionsforaccessibility.TabControl.TabControlActivity;
+import com.nvisions.solutionsforaccessibility.VoiceSearch.VoiceSearchActivity;
+import com.nvisions.solutionsforaccessibility.WebView.WebViewActivity;
 import com.nvisions.solutionsforaccessibility.carousel.CarouselActivity;
+import com.nvisions.solutionsforaccessibility.korailTalk.KorailTalkActivity;
 import com.nvisions.solutionsforaccessibility.labelFor.LabelForActivity;
 import com.nvisions.solutionsforaccessibility.music.MusicActivity;
 import com.nvisions.solutionsforaccessibility.overlay.FocusActivity;
 import com.nvisions.solutionsforaccessibility.progress.ProgressBarActivity;
 import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
 import com.nvisions.solutionsforaccessibility.recyclerview.StayFocusActivity;
+import com.nvisions.solutionsforaccessibility.refreshContents.RefreshContentsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -134,6 +139,42 @@ startActivity(intent);
             }
         });
 
+        Button webView = (Button)findViewById(R.id.webView);
+        webView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WebViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button korailTalk = (Button)findViewById(R.id.korailTalk);
+        korailTalk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), KorailTalkActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button voiceSearch = (Button) findViewById(R.id.voiceSearch);
+        voiceSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), VoiceSearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button refreshContents = (Button) findViewById(R.id.refreshContents);
+        refreshContents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RefreshContentsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Button customControlButton = (Button)findViewById(R.id.customControlButton);
         customControlButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,7 +183,6 @@ startActivity(intent);
                 startActivity(intent);
             }
         });
-
 
     }
 }

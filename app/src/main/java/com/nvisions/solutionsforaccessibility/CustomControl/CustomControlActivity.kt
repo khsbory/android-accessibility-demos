@@ -20,7 +20,7 @@ class CustomControlActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle(getString(R.string.customControl_main))
 
-        //접근성 적용되지 않은 예시
+
         button1.setOnClickListener {
             val intent = Intent(applicationContext, CustomControlBadActivity::class.java)
             startActivity(intent)
