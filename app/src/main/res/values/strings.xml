@@ -126,6 +126,14 @@
     <string name="overlay">화면의 콘텐츠가 중첩되는 경우</string>
     <string name="popularPro">인기 프로</string>
 
+    <!--    내가 개발한것-->
+    <string name="overlay_text">화면 위에 다른 화면을 overlay 형태로 중첩시켜 앱을 구현하는 경우 접근성 적용을 해 주지 않으면 스크린 리더에서는 가려진 요소도 다 읽어주게 되므로 어떤 요소가 실제 콘텐츠인지 알 수 없게 됩니다. 접근성 예시에서 검색 버튼을 눌러 해당 이슈를 체험해 볼 수 있습니다.</string>
+    <string name="main_ratingBar">RatingBar 사용하는 경우</string>
+    <string name="ratingBar_descript">RatingBar 클래스를 사용하여 평점 매기기 화면을 구현하는 경우 스크린 리더 사용자를 위하여 RatingBar 클래스를 스크린리더에서 SeekBar로 인식할 수 있도록 구현해 주어야 합니다. 접근성이 적용된 예시 화면에서는 평점을 볼륨키를 통하여 조절이 가능합니다.</string>
+    <string name="raingBar_text">오늘 수강하신 햄버거 맛있게 먹기 강의는 어떠셨나요?</string>
+    <string name="ratingBar_good">RatingBar 사용, 접근성 적용한 경우</string>
+    <string name="ratingBar_bad">RatingBar 사용, 접근성 적용하지 않은 경우</string>
+
     <string name="nestedScroll">화면 스크롤 접근성 데모</string>
     <string name="nestedScrollDescription">NestedScrollView로 여러 콘텐츠를 구현하는 경우에는 기본적으로 톡백에서 한 손가락 쓸기를 이용하더라도 자동으로 화면 스크롤이 되지 않습니다.</string>
     <string name="a11ySample">접근성 예제</string>
@@ -153,14 +161,43 @@
     <string name="orange">오렌지</string>
     <string name="bean_sprouts">콩나물</string>
     <string name="spinach">시금치</string>
-
-    <!--    내가 개발한것-->
-    <string name="overlay_text">화면 위에 다른 화면을 overlay 형태로 중첩시켜 앱을 구현하는 경우 접근성 적용을 해 주지 않으면 스크린 리더에서는 가려진 요소도 다 읽어주게 되므로 어떤 요소가 실제 콘텐츠인지 알 수 없게 됩니다. 접근성 예시에서 검색 버튼을 눌러 해당 이슈를 체험해 볼 수 있습니다.</string>
-    <string name="main_ratingBar">RatingBar 사용하는 경우</string>
-    <string name="ratingBar_descript">RatingBar 클래스를 사용하여 평점 매기기 화면을 구현하는 경우 스크린 리더 사용자를 위하여 RatingBar 클래스를 스크린리더에서 SeekBar로 인식할 수 있도록 구현해 주어야 합니다. 접근성이 적용된 예시 화면에서는 평점을 볼륨키를 통하여 조절이 가능합니다.</string>
-    <string name="raingBar_text">오늘 수강하신 햄버거 맛있게 먹기 강의는 어떠셨나요?</string>
-    <string name="ratingBar_good">RatingBar 사용, 접근성 적용한 경우</string>
-    <string name="ratingBar_bad">RatingBar 사용, 접근성 적용하지 않은 경우</string>
+    <string name="webView">웹뷰</string>
+    <string name="webview_with_accessibility">접근성이 구현된 웹뷰</string>
+    <string name="webview_without_accessibility">접근성이 구현되지 않은 웹뷰</string>
+    <string name="webViewExplain">앱뷰 내부에 웹뷰 구현시에는 반드시 페이지가 로딩되었을 때 웹뷰 쪽으로 초점을 보내 주어야 하며 페이지가 로딩중이라는 것이 화면에 표시되는 경우 스크린 리더 사용자도 이를 확인할 수 있도록 구현해 주어야 합니다.</string>
+    <string name="korailTalk">코레일톡</string>
+    <string name="without_accessibility">접근성이 적용되지 않은 경우</string>
+    <string name="with_accessibility">접근성이 적용된 경우</string>
+<string name="changeStartStation">출발역 변경</string>
+<string name="changeArrivingStation">도착역 변경</string>
+<string name="seoul">서울</string>
+<string name="daejeon">대전</string>
+<string name="startEndSimulation">출발, 도착역 선택 시뮬레이션</string>
+    <string name="startEndExplain">화면에 레이어가 표시되거나 레이어가 사라지는 경우 초점 이동에 대한 접근성 구현이 필요합니다. 또한 버튼, 체크박스와 같은 각 컨트롤은 스크린 리더 사용자에게 의미에 맞게 제공해 주어야 합니다.</string>
+<string name="startEnd">출발, 도착역 설정 시뮬레이션</string>
+<string name="setStartStation">출발역</string>
+    <string name="setDestinationStation">도착역</string>
+<string name="trainReservation">승차권 예매</string>
+<string name="changeStartEndOrder">출발, 도착역 바꾸기</string>
+    <string name="accessibility_service_description">accessibility service to test Korailtalk accessibility</string>
+    <string name="accessibility_service_label">Korailtalk accessibility service</string>
+    <string name="voiceSearch">음성검색 시뮬레이션</string>
+<string name="busan">부산</string>
+<string name="dongdaegu">동대구</string>
+<string name="peopleCountLabel">인원수</string>
+<string name="peopleCount">1명</string>
+<string name="popupLayer">팝업 레이어</string>
+<string name="choosePeopleCount">인원수를 선택해 주세요.</string>
+<string name="peopleNumber">명</string>
+<string name="voiceSearchExplain">음성 검색이 실행되는 경우에는 톡백이 화면의 내용을 전혀 읽지 못하게 구현을 해야 합니다. 또한 음성 검색을 종료했을 때 에러 메시지가 출력되는 경우에는 반드시 이를 음성 출력할 수 있도록 구형해야 합니다.</string>
+    <string name="voiceListening">듣는 중</string>
+    <string name="voiceCancel">취소</string>
+    <string name="voiceListen">듣기</string>
+    <string name="voiceNotUnderstand">말을 잘 이해하지 못했어요.</string>
+    <string name="refreshContents">콘텐츠 새로고침</string>
+    <string name="refreshContentsExplain">화면을 아래로 당겼을 때 콘텐츠가 새로고침되는 경우에는 이를 반드시 스크린 리더 사용자에게 알려 주어야 합니다.</string>
+    <string name="refreshed">콘텐츠 새로고침: </string>
+    <string name="changePeopleCount">인원수 변경</string>
 
     <string name="customControl_main">커스텀 컨트롤 접근성</string>
     <string name="customControl_descript">스크린 리더 사용자는 각 요소에 포커스 했을 때 스크린 리더가 읽어주는 요소 유형이나 상태 정보를 통해 화면의 레이아웃을 파악하고 어떤 제스처를 할 것인가를 결정합니다. 따라서 커스텀 컨트롤을 사용하는 경우에는 요소 유형 및 상태를 스크린 리더가 정확하게 읽어줄 수 있도록 추가 구현을 해 주어야 합니다. 또한 밀기 동작으로 컨트롤 제어 개발 시 스크린 리더 사용자는 이중탭, 클릭 동작으로 실행 가능하도록 추가 구현해 주어야 합니다.</string>
@@ -177,6 +214,8 @@
     <string name="customControl_banner_right">다음 배너</string>
     <string name="customControl_banner_play">배너 재생</string>
     <string name="customControl_banner_stop">배너 정지</string>
-    <string name="customControl_edittext_hint">수량을 넣으세요</string>
+    <string name="customControl_edittext_hint">수량</string>
+    <string name="hamburgerBrand">햄버거 브랜드, </string>
+
 
 </resources>

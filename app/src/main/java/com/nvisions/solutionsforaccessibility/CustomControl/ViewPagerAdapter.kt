@@ -14,11 +14,10 @@ class ViewPagerAdapter(private val context:Context, private val list:ArrayList<S
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val inflater = LayoutInflater.from(container.context)
         val view = inflater.inflate(R.layout.custom_control_viewpager_layout, container, false)
-
         view.textView.text = list[position]
-        container.addView(view)
-
-        view.setOnClickListener {
+        view.contentDescription = "햄버거 브랜드, " + view.textView.text
+                container.addView(view)
+                view.setOnClickListener {
             val builder = AlertDialog.Builder(context)
             builder.setMessage(list[position] + " "+ context.getString(R.string.customControl_banner_dialog_text))
             builder.setPositiveButton(R.string.confirm ) {_, _-> }
