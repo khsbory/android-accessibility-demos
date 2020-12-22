@@ -39,9 +39,9 @@ class CustomControlGoodActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle(getString(R.string.customControl_good))
         initAdapter()
-//        if (isTalkBackEnabled()){
+        if (isTalkBackEnabled()){
             initAccessibility()
-//        }
+        }
         initListener()
 
     }
@@ -69,12 +69,19 @@ class CustomControlGoodActivity : AppCompatActivity() {
                 info?.isEnabled = false
             }
         }
-        swipeButton.accessibilityDelegate = object : View.AccessibilityDelegate(){
-            override fun addExtraDataToAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo, extraDataKey: String, arguments: Bundle?) {
-                super.addExtraDataToAccessibilityNodeInfo(host, info, extraDataKey, arguments)
+
+        swipeButton.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
                 info?.className = Button::class.java.name
             }
         }
+//        swipeButton.accessibilityDelegate = object : View.AccessibilityDelegate(){
+//            override fun addExtraDataToAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo, extraDataKey: String, arguments: Bundle?) {
+//                super.addExtraDataToAccessibilityNodeInfo(host, info, extraDataKey, arguments)
+//                info?.className = Button::class.java.name
+//            }
+//        }
 
         swipeButton.setOnClickListener {
             if (isTalkBackEnabled()) {

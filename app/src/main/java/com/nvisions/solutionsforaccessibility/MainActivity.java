@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.nvisions.solutionsforaccessibility.CollapseExpand.CollapseExpandActivity;
 import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
+import com.nvisions.solutionsforaccessibility.LayerFocus.LayerFocusActivity;
 import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
 import com.nvisions.solutionsforaccessibility.NestedScroll.NestedScrollActivity;
 import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
@@ -21,7 +22,6 @@ import com.nvisions.solutionsforaccessibility.labelFor.LabelForActivity;
 import com.nvisions.solutionsforaccessibility.music.MusicActivity;
 import com.nvisions.solutionsforaccessibility.overlay.FocusActivity;
 import com.nvisions.solutionsforaccessibility.progress.ProgressBarActivity;
-import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
 import com.nvisions.solutionsforaccessibility.recyclerview.StayFocusActivity;
 import com.nvisions.solutionsforaccessibility.refreshContents.RefreshContentsActivity;
 
@@ -180,6 +180,16 @@ startActivity(intent);
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CustomControlActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button newLayerButton = (Button)findViewById(R.id.newLayerButton);
+        newLayerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LayerFocusActivity.class);
                 startActivity(intent);
             }
         });
