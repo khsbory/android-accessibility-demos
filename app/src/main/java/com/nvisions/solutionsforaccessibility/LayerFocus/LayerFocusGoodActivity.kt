@@ -46,9 +46,9 @@ class LayerFocusGoodActivity : AppCompatActivity() {
                 if (isTalkBackEnabled()){
                     baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
                     newLayout.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
-
-                    newLayout.isFocusable = true
-                    newLayout.isFocusableInTouchMode = true
+                    baseRView.isFocusable = false
+//                    newLayout.isFocusable = true
+//                    newLayout.isFocusableInTouchMode = true
                     newLayout.requestFocus()
                     newLayout.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED)
                     newLayout.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
