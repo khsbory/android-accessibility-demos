@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
 import androidx.recyclerview.widget.RecyclerView
@@ -48,12 +49,12 @@ class LayerFocusGoodActivity : AppCompatActivity() {
                     newLayout.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
                     baseRView.isFocusable = false
                     baseRView.isFocusableInTouchMode = false
+                    baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
 //                    newLayout.isFocusable = true
 //                    newLayout.isFocusableInTouchMode = true
                     newLayout.requestFocus()
                     newLayout.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED)
                     newLayout.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
-                    Log.d("mytag", currentFocus.toString())
                 }
 
 
