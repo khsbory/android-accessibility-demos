@@ -52,8 +52,8 @@
     </LinearLayout>
 
 
-    <com.nvisions.solutionsforaccessibility.CustomControl.CustomRadioButton
-        android:id="@+id/radioButton"
+    <com.nvisions.solutionsforaccessibility.CustomControl.CustomRadioButton2
+        android:id="@+id/radioButton2"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         app:layout_constraintBottom_toTopOf="@+id/swipeButton"
@@ -84,6 +84,12 @@
         android:id="@+id/viewPager"
         app:layout_constraintTop_toBottomOf="@id/swipeButton"/>
 
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/closeBanner"
+        android:gravity="center"
+        android:id="@+id/closeBanner"
+        app:layout_constraintTop_toBottomOf="@+id/bannerButton"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

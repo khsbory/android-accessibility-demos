@@ -2,6 +2,7 @@ package com.nvisions.solutionsforaccessibility.LayerFocus
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -21,7 +22,7 @@ class LayerFocusGoodActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_layer_focus_good)
         init()
-
+        baseRView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
     }
 
     private fun isTalkBackEnabled(): Boolean {
@@ -44,20 +45,12 @@ class LayerFocusGoodActivity : AppCompatActivity() {
                 newLayout.visibility = View.VISIBLE
                 rView.adapter = LayerFocusHorizontalAdapter(this@LayerFocusGoodActivity, contentArray[position])
                 layerTitle.text = titleArray[position]
-                if (isTalkBackEnabled()){
+
                     baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
-                    newLayout.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
                     baseRView.isFocusable = false
-                    baseRView.isFocusableInTouchMode = false
                     baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
-//                    newLayout.isFocusable = true
-//                    newLayout.isFocusableInTouchMode = true
                     newLayout.requestFocus()
-                    newLayout.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED)
-                    newLayout.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
-                }
-
-
+                                        newLayout.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
             }
         }
 
@@ -66,9 +59,9 @@ class LayerFocusGoodActivity : AppCompatActivity() {
         )
 
         button.setOnClickListener {
-            newLayout.visibility = View.INVISIBLE
-            newLayout.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
             baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
+                        newLayout.visibility = View.INVISIBLE
+baseRView.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
         }
     }
 
@@ -80,3 +73,4 @@ class LayerFocusGoodActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 }
+

@@ -3,12 +3,20 @@ package com.nvisions.solutionsforaccessibility.CustomControl
 import android.os.Bundle
 import android.os.Handler
 import android.view.MenuItem
+import android.view.View
 import android.view.accessibility.AccessibilityManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.custom_control_bad_activity.*
+import kotlinx.android.synthetic.main.custom_control_bad_activity.buttonDown
+import kotlinx.android.synthetic.main.custom_control_bad_activity.buttonUp
+import kotlinx.android.synthetic.main.custom_control_bad_activity.closeBanner
+import kotlinx.android.synthetic.main.custom_control_bad_activity.editText
+import kotlinx.android.synthetic.main.custom_control_bad_activity.swipeButton
+import kotlinx.android.synthetic.main.custom_control_bad_activity.viewPager
+import kotlinx.android.synthetic.main.custom_control_good_activity.*
 import java.util.*
 import kotlin.concurrent.timer
 
@@ -22,14 +30,18 @@ class CustomControlBadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.custom_control_bad_activity)
-
-
         init()
     }
 
     fun init(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle(getString(R.string.customControl_bad))
+        closeBanner.setOnClickListener {
+            viewPager.visibility = View.GONE
+            bannerButton.visibility = View.GONE
+            closeBanner.visibility = View.GONE
+            }
+
         initAdapter()
         initListener()
         initTimer()
@@ -44,7 +56,7 @@ class CustomControlBadActivity : AppCompatActivity() {
 
 
     private fun initAdapter(){
-        val adapter = ViewPagerAdapter(this, pagerList)
+        val adapter = ViewPagerAdapter2(this, pagerList)
         viewPager.adapter = adapter
     }
 
@@ -67,7 +79,7 @@ class CustomControlBadActivity : AppCompatActivity() {
         swipeButton.setOnStateChangeListener{
             count = editText.text.toString()
             type = ""
-            when(radioButton.getStateSelected()){
+            when(radioButton2.getStateSelected()){
                 1 -> {//단품
                     type = getString(R.string.customControl_radio_single)
                 }
@@ -83,13 +95,11 @@ class CustomControlBadActivity : AppCompatActivity() {
                 count = "1"
                 type = getString(R.string.customControl_radio_single)
                 editText.setText("1")
-                radioButton.setStateSelected(1)
+                radioButton2.setStateSelected(1)
                 buttonDown.isEnabled = false
             }
             builder.create().show()
         }
-
-
 
     }
 

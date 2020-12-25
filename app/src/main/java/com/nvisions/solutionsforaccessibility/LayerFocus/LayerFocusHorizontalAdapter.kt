@@ -39,3 +39,4 @@ class LayerFocusHorizontalAdapter (val context: Context, val items: Array<String
         }
     }
 }
+

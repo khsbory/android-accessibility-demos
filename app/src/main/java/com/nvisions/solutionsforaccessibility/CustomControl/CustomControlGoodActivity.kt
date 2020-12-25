@@ -1,9 +1,11 @@
 package com.nvisions.solutionsforaccessibility.CustomControl
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
@@ -28,22 +30,33 @@ class CustomControlGoodActivity : AppCompatActivity() {
     private var timerStat = false
     private lateinit var adapter: ViewPagerAdapter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.custom_control_good_activity)
+        Handler().postDelayed( {
+            viewPager.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+        }, 1000)
         init()
     }
 
     fun init(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle(getString(R.string.customControl_good))
+
+        closeBanner.setOnClickListener {
+            viewPager.visibility = View.GONE
+            buttonLeft.visibility = View.GONE
+            buttonRight.visibility = View.GONE
+            bannerButton.visibility = View.GONE
+            closeBanner.visibility = View.GONE
+            buttonDown.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+            buttonDown.requestFocus()
+        }
         initAdapter()
         if (isTalkBackEnabled()){
             initAccessibility()
         }
         initListener()
-
     }
 
     private fun isTalkBackEnabled(): Boolean {
@@ -61,21 +74,6 @@ class CustomControlGoodActivity : AppCompatActivity() {
     }
 
     private fun initAccessibility(){
-        editText.accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_NONE
-
-        editText.accessibilityDelegate = object : View.AccessibilityDelegate() {
-            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
-                super.onInitializeAccessibilityNodeInfo(host, info)
-                info?.isEnabled = false
-            }
-        }
-
-        swipeButton.accessibilityDelegate = object : View.AccessibilityDelegate() {
-            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
-                super.onInitializeAccessibilityNodeInfo(host, info)
-                info?.className = Button::class.java.name
-            }
-        }
 //        swipeButton.accessibilityDelegate = object : View.AccessibilityDelegate(){
 //            override fun addExtraDataToAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo, extraDataKey: String, arguments: Bundle?) {
 //                super.addExtraDataToAccessibilityNodeInfo(host, info, extraDataKey, arguments)
@@ -84,11 +82,10 @@ class CustomControlGoodActivity : AppCompatActivity() {
 //        }
 
         swipeButton.setOnClickListener {
-            if (isTalkBackEnabled()) {
+
                 Toast.makeText(applicationContext, "clicked", Toast.LENGTH_LONG).show()
                 completeOrder()
             }
-        }
 
         timer.cancel()
 
@@ -135,12 +132,8 @@ class CustomControlGoodActivity : AppCompatActivity() {
                 timer.cancel()
                 bannerButton.text = getString(R.string.customControl_banner_play)
                 timerStat = false
-
             }
         }
-
-
-
         ViewCompat.replaceAccessibilityAction(editText, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_ACCESSIBILITY_FOCUS, "") { view, arguments ->
             editText.hint = getString(R.string.customControl_edittext_hint)
             false
@@ -150,6 +143,21 @@ class CustomControlGoodActivity : AppCompatActivity() {
     }
 
     private fun initListener() {
+        swipeButton.contentDescription = getString(R.string.completeOrderContent)
+        editText.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.isEnabled = false
+            }
+        }
+
+        swipeButton.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.className = Button::class.java.name
+            }
+        }
+
         buttonDown.setOnClickListener {
             val num = Integer.parseInt(editText.text.toString()) - 1
             editText.setText(num.toString())
@@ -197,6 +205,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
         }
         builder.create().show()
     }
+
 
     private fun initAdapter(){
         adapter = ViewPagerAdapter(this, pagerList)
