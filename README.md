@@ -1,1 +1,28 @@
 # android-accessibility-demos
+
+## 항목
+### 팝업 화면 접근성 초점 문제
+#### 문제점
++ 팝업 화면을 dialog가 아닌 activity, fragment, layout등으로 구성할 경우 
++ 아이템을 클릭해 팝업 화면을 띄울때 접근성 초점이 팝업 화면이 아닌 기존의 화면에 머물러 있는 문제 발생
+
+#### 데모 화면 구성
++ 리사이클러의 아이템을 클릭하면 팝업에 해당하는 view의 visibility 속성 변경해 팝업 구현
+
+#### 해결
++ 팝업 화면이 떴을때 기존 리사이클러뷰의 초점을 팝업화면의 닫기 버튼으로 이동
+```
+// 터치 접근성 초점 설정
+                baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+//                baseRView.isFocusable = false
+                // 블루투스 키보드 초점 설정
+                baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
+                button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+//                button.requestFocus()
+```
++ 닫기 버튼을 클릭했을때 리사이클러뷰의 선택한 아이템으로 초점 이동
+```
+baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
+baseRView.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
+baseRView.getChildAt(selectedPos).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+```
