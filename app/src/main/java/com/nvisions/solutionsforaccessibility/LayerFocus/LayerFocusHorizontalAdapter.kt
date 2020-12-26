@@ -13,7 +13,6 @@ class LayerFocusHorizontalAdapter (val context: Context, val items: Array<String
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var contentText: TextView
         init {
-            itemView.isFocusable = true
             contentText = itemView.findViewById(R.id.contentText)
         }
     }

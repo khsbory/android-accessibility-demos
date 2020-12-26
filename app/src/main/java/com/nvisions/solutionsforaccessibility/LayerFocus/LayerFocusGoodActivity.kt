@@ -24,7 +24,6 @@ class LayerFocusGoodActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_layer_focus_good)
         init()
-//        baseRView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
     }
 
     private fun init(){
@@ -49,6 +48,7 @@ class LayerFocusGoodActivity : AppCompatActivity() {
 
                 button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
                 button.requestFocus()
+                rView.isFocusable = false
             }
         }
 
