@@ -8,6 +8,8 @@
 
 #### 데모 화면 구성
 + 리사이클러의 아이템을 클릭하면 팝업에 해당하는 view의 visibility 속성 변경해 팝업 구현
+![image](https://user-images.githubusercontent.com/48876807/103150931-6d69b500-47bc-11eb-805d-aba5506c70d6.png)
+
 
 
 #### 해결
