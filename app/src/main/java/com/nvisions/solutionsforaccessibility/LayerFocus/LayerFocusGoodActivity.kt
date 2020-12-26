@@ -48,11 +48,13 @@ class LayerFocusGoodActivity : AppCompatActivity() {
                 newLayout.visibility = View.VISIBLE
                 rView.adapter = LayerFocusHorizontalAdapter(this@LayerFocusGoodActivity, contentArray[position])
                 layerTitle.text = titleArray[position]
-                    baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
-                    baseRView.isFocusable = false
-                    baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
+                // 터치 접근성 초점 설정
+                baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+//                baseRView.isFocusable = false
+                // 블루투스 키보드 초점 설정
+                baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
                 button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-                button.requestFocus()
+//                button.requestFocus()
             }
         }
 
@@ -61,8 +63,9 @@ class LayerFocusGoodActivity : AppCompatActivity() {
         )
 
         button.setOnClickListener {
-            baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
             newLayout.visibility = View.INVISIBLE
+
+            baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
             baseRView.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
             baseRView.getChildAt(selectedPos).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
         }
