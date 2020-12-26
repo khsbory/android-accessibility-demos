@@ -65,7 +65,6 @@ class LayerFocusGoodActivity : AppCompatActivity() {
             newLayout.visibility = View.INVISIBLE
             baseRView.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
             baseRView.getChildAt(selectedPos).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-//            baseRView.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
         }
     }
 

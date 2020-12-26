@@ -9,18 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
 
 class LayerFocusHorizontalAdapter (val context: Context, val items: Array<String>) : RecyclerView.Adapter<LayerFocusHorizontalAdapter.ViewHolder>() {
-    interface OnItemClickListener{
-        fun OnItemClick(holder: LayerFocusHorizontalAdapter.ViewHolder, view: View, position: Int)
-            }
-    var itemClickListener :OnItemClickListener? = null
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var contentText: TextView
         init {
             contentText = itemView.findViewById(R.id.contentText)
-            itemView.isEnabled = false
-            itemView.setOnClickListener {
-                itemClickListener?.OnItemClick(this, it, adapterPosition)
-            }
         }
     }
 
