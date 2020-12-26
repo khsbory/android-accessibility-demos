@@ -20,7 +20,6 @@ import kotlinx.android.synthetic.main.custom_control_good_activity.*
 import java.util.*
 import kotlin.concurrent.timer
 
-
 class CustomControlGoodActivity : AppCompatActivity() {
     private var count:String = "1"
     private var type:String = "단품"
@@ -35,6 +34,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
         setContentView(R.layout.custom_control_good_activity)
         Handler().postDelayed( {
             viewPager.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+            viewPager.requestFocus()
         }, 1000)
         init()
     }
@@ -50,8 +50,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
             bannerButton.visibility = View.GONE
             closeBanner.visibility = View.GONE
             buttonDown.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
-            buttonDown.requestFocus()
-        }
+                    }
         initAdapter()
         if (isTalkBackEnabled()){
             initAccessibility()
@@ -125,12 +124,14 @@ class CustomControlGoodActivity : AppCompatActivity() {
                 }
 
                 bannerButton.text = getString(R.string.customControl_banner_stop)
+                bannerButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_SELECTED)
                 timerStat = true
             }
             else{ //배너 플레이되고있는 상태
                 //배너 정지
                 timer.cancel()
                 bannerButton.text = getString(R.string.customControl_banner_play)
+                bannerButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_SELECTED)
                 timerStat = false
             }
         }

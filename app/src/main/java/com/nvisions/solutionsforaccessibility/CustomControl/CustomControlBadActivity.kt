@@ -38,7 +38,6 @@ class CustomControlBadActivity : AppCompatActivity() {
         setTitle(getString(R.string.customControl_bad))
         closeBanner.setOnClickListener {
             viewPager.visibility = View.GONE
-            bannerButton.visibility = View.GONE
             closeBanner.visibility = View.GONE
             }
 
@@ -116,7 +115,5 @@ class CustomControlBadActivity : AppCompatActivity() {
             handler.post(update)
         }
     }
-
-
 
 }

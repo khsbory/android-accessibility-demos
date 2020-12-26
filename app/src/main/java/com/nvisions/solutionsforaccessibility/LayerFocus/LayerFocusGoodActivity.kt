@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
+import android.view.accessibility.AccessibilityNodeInfo
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.activity_layer_focus_good.*
@@ -35,7 +36,7 @@ class LayerFocusGoodActivity : AppCompatActivity() {
     private fun init(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle(getString(R.string.newLayer_good))
-        baseRView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
+                baseRView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
                 this, RecyclerView.VERTICAL, false
         )
         baseRViewAdapter = LayerFocusBaseAdapter(this, titleArray)
@@ -45,12 +46,11 @@ class LayerFocusGoodActivity : AppCompatActivity() {
                 newLayout.visibility = View.VISIBLE
                 rView.adapter = LayerFocusHorizontalAdapter(this@LayerFocusGoodActivity, contentArray[position])
                 layerTitle.text = titleArray[position]
-
                     baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
                     baseRView.isFocusable = false
                     baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
-                    newLayout.requestFocus()
-                                        newLayout.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+                                button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+                button.requestFocus()
             }
         }
 
@@ -62,6 +62,8 @@ class LayerFocusGoodActivity : AppCompatActivity() {
             baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
                         newLayout.visibility = View.INVISIBLE
 baseRView.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
+
+            baseRView.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
         }
     }
 

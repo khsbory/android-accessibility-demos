@@ -19,13 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/newLayout"
-        android:clickable="true"
         android:background="#22333333"
         android:visibility="invisible">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">

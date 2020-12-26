@@ -90,6 +90,6 @@
         android:text="@string/closeBanner"
         android:gravity="center"
         android:id="@+id/closeBanner"
-        app:layout_constraintTop_toBottomOf="@+id/bannerButton"/>
+        app:layout_constraintTop_toBottomOf="@+id/viewPager"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
