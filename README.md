@@ -9,7 +9,7 @@
 #### 데모 화면 구성
 + 리사이클러의 아이템을 클릭하면 팝업에 해당하는 view의 visibility 속성 변경해 팝업 구현   
 <img src="https://user-images.githubusercontent.com/48876807/103150931-6d69b500-47bc-11eb-805d-aba5506c70d6.png" width="200px"></img>
-<img src="https://user-images.githubusercontent.com/48876807/103150931-6d69b500-47bc-11eb-805d-aba5506c70d6.png" width="200px"></img>
+<img src="https://user-images.githubusercontent.com/48876807/103150979-fd0f6380-47bc-11eb-83c3-d2558f43dae9.png" width="200px"></img>
 
 #### 해결
 + 팝업 화면이 떴을때 기존 리사이클러뷰의 초점을 팝업화면의 닫기 버튼으로 이동
