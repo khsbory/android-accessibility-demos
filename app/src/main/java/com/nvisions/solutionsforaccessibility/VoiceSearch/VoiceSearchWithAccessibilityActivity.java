@@ -25,6 +25,7 @@ setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.voiceSearch));
 final Button example1 = (Button)findViewById(R.id.button1);
+        example1.setEnabled(false);
         ViewCompat.setImportantForAccessibility(getWindow().getDecorView(), ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
 mediaPlayer = MediaPlayer.create(this, R.raw.start);
 mPlayer = MediaPlayer.create(this, R.raw.end);
@@ -43,6 +44,7 @@ new Handler().postDelayed(new Runnable() {
                 mPlayer.start();
                 textView.setText(R.string.voiceNotUnderstand);
                 example1.setText(R.string.voiceListen);
+                example1.setEnabled(true);
                 textView.sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED);
 new Handler().postDelayed(new Runnable() {
     @Override
@@ -64,9 +66,11 @@ new Handler().postDelayed(new Runnable() {
                 TextView textView = (TextView)findViewById(R.id.textView3);
                 if (example1.getText().toString() == getString(R.string.voiceCancel)) {
     example1.setText(R.string.voiceListen);
+                    example1.setEnabled(true);
     textView.setVisibility(View.GONE);
                 } else {
                     example1.setText(R.string.voiceCancel);
+                    example1.setEnabled(false);
                     mediaPlayer.start();
                     textView.setText(R.string.voiceListening);
                 }
@@ -81,6 +85,7 @@ new Handler().postDelayed(new Runnable() {
                 view.announceForAccessibility(getString(R.string.voiceNotUnderstand));
                 Button example1 = (Button)findViewById(R.id.button1);
                 example1.setText(R.string.voiceListen);
+                example1.setEnabled(true);
             }
         }, 5000);
     }

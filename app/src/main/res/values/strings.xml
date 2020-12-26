@@ -223,5 +223,6 @@
 
     <string name="completeOrderContent">주문 완료</string>
     <string name="closeBanner">배너 닫기</string>
+    <string name="layerFocusExplain">기존 콘텐츠를 흐레기 표시하는 레이어를 화면에 표시하는 경우에는 스크린 리더 사용자 역시 흐리게 표시된 콘텐츠는 탐색되지 않도록 반드시 접근성 구현을 해 주어야 합니다.</string>
 
 </resources>

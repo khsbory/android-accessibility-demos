@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.ViewGroup
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.activity_layer_focus.*
 
@@ -17,7 +18,6 @@ class LayerFocusActivity : AppCompatActivity() {
     fun init(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle(getString(R.string.newLayerName))
-
 
         button1.setOnClickListener {
             val intent = Intent(applicationContext, LayerFocusBadActivity::class.java)
