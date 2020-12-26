@@ -20,7 +20,7 @@
 baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
 // 블루투스 키보드 초점 설정
 baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
-
+baseRView.isFocusable = false
 
 // 닫기 버튼으로 초점 이동
 // 터치 접근성 초점 설정
@@ -37,5 +37,8 @@ baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
 baseRView.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
 
 // 선택한 리사이클러뷰의 아이템으로 초점 이동
+// 터치 접근성 초점 설정
 baseRView.getChildAt(selectedPos).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+// 블루투스 접근성 초점 설정
+baseRView.getChildAt(selectedPos).requestFocus()
 ```
