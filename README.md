@@ -15,16 +15,18 @@
 #### 해결
 + 팝업 화면이 떴을때 기존 리사이클러뷰의 초점을 팝업화면의 닫기 버튼으로 이동
 ```
+// 리사이클러뷰의 자식뷰 초점 없애기
 // 터치 접근성 초점 설정
-// 리사이클러뷰의 자식뷰 초점 없애기
 baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
-
 // 블루투스 키보드 초점 설정
-// 리사이클러뷰의 자식뷰 초점 없애기
 baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
 
+
 // 닫기 버튼으로 초점 이동
+// 터치 접근성 초점 설정
 button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+// 블루투스 키보드 초점 설정
+button.requestFocus()
 ```
 
 + 닫기 버튼을 클릭했을때 리사이클러뷰의 선택한 아이템으로 초점 이동
