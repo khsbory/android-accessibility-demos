@@ -5,7 +5,8 @@
 #### 문제점
 <img src="https://user-images.githubusercontent.com/48876807/103151612-e835ce80-47c2-11eb-8082-51b95741ea44.png" width="200px"></img>
   + 팝업 화면을 dialog가 아닌 activity, fragment, layout등으로 구성할 경우 
-  + 아이템을 클릭해 팝업 화면을 띄울때 접근성 초점이 팝업 화면이 아닌 기존의 화면에 머물러 있는 문제 발생
+    아이템을 클릭해 팝업 화면을 띄울때 접근성 초점이 팝업 화면이 아닌 기존의 화면에 머물러 있는 문제 발생
+ 
 
 #### 데모 화면 구성
 + 리사이클러의 아이템을 클릭하면 팝업에 해당하는 view의 visibility 속성 변경해 팝업 구현   
@@ -42,3 +43,5 @@ baseRView.getChildAt(selectedPos).performAccessibilityAction(AccessibilityNodeIn
 // 블루투스 접근성 초점 설정
 baseRView.getChildAt(selectedPos).requestFocus()
 ```
+
+
