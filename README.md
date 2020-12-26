@@ -7,7 +7,8 @@
   + 아이템을 클릭해 팝업 화면을 띄울때 접근성 초점이 팝업 화면이 아닌 기존의 화면에 머물러 있는 문제 발생
 
 #### 데모 화면 구성
-+ 리사이클러의 아이템을 클릭하면 팝업에 해당하는 view의 visibility 속성 변경해 팝업 구현
++ 리사이클러의 아이템을 클릭하면 팝업에 해당하는 view의 visibility 속성 변경해 팝업 구현   
+<img src="https://user-images.githubusercontent.com/48876807/103150931-6d69b500-47bc-11eb-805d-aba5506c70d6.png" width="200px"></img>
 <img src="https://user-images.githubusercontent.com/48876807/103150931-6d69b500-47bc-11eb-805d-aba5506c70d6.png" width="200px"></img>
 
 #### 해결
