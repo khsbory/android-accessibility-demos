@@ -43,7 +43,7 @@ class LayerFocusGoodActivity : AppCompatActivity() {
                 layerTitle.text = titleArray[position]
                 // 터치 접근성 초점 설정
                 baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
-//                baseRView.isFocusable = false
+                baseRView.isFocusable = false
                 // 블루투스 키보드 초점 설정
                 baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
                 button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
@@ -61,6 +61,7 @@ class LayerFocusGoodActivity : AppCompatActivity() {
             baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
             baseRView.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
             baseRView.getChildAt(selectedPos).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+            baseRView.getChildAt(selectedPos).requestFocus()
         }
     }
 
