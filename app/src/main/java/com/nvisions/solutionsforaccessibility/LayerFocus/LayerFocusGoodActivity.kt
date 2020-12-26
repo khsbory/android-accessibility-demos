@@ -24,14 +24,7 @@ class LayerFocusGoodActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_layer_focus_good)
         init()
-        baseRView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
-    }
-
-    private fun isTalkBackEnabled(): Boolean {
-        val accessibilityManager = getSystemService(ACCESSIBILITY_SERVICE) as AccessibilityManager
-        val isAccessibilityEnabled = accessibilityManager.isEnabled
-        val isExploreByTouchEnabled = accessibilityManager.isTouchExplorationEnabled
-        return isAccessibilityEnabled && isExploreByTouchEnabled
+//        baseRView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
     }
 
     private fun init(){
@@ -54,7 +47,7 @@ class LayerFocusGoodActivity : AppCompatActivity() {
                 // 블루투스 키보드 초점 설정
                 baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
                 button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-//                button.requestFocus()
+                button.requestFocus()
             }
         }
 
