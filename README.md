@@ -13,16 +13,24 @@
 + 팝업 화면이 떴을때 기존 리사이클러뷰의 초점을 팝업화면의 닫기 버튼으로 이동
 ```
 // 터치 접근성 초점 설정
-                baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
-//                baseRView.isFocusable = false
-                // 블루투스 키보드 초점 설정
-                baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
-                button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-//                button.requestFocus()
+// 리사이클러뷰의 자식뷰 초점 없애기
+baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+
+// 블루투스 키보드 초점 설정
+// 리사이클러뷰의 자식뷰 초점 없애기
+baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
+
+// 닫기 버튼으로 초점 이동
+button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
 ```
+
 + 닫기 버튼을 클릭했을때 리사이클러뷰의 선택한 아이템으로 초점 이동
 ```
+// 터치, 블루투스 키보드 초점 설정
+// 리사이클러뷰의 자식뷰 초점 적용
 baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
 baseRView.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
+
+// 선택한 리사이클러뷰의 아이템으로 초점 이동
 baseRView.getChildAt(selectedPos).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
 ```
