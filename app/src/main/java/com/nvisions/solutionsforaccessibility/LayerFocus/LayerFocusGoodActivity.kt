@@ -46,6 +46,7 @@ class LayerFocusGoodActivity : AppCompatActivity() {
                 baseRView.isFocusable = false
                 // 블루투스 키보드 초점 설정
                 baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
+
                 button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
                 button.requestFocus()
             }
@@ -60,6 +61,7 @@ class LayerFocusGoodActivity : AppCompatActivity() {
 
             baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
             baseRView.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
+
             baseRView.getChildAt(selectedPos).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
             baseRView.getChildAt(selectedPos).requestFocus()
         }
