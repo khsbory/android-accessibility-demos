@@ -53,7 +53,7 @@
 
 
     <com.nvisions.solutionsforaccessibility.CustomControl.CustomRadioButton2
-        android:id="@+id/radioButton2"
+        android:id="@+id/radioButton"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         app:layout_constraintBottom_toTopOf="@+id/swipeButton"

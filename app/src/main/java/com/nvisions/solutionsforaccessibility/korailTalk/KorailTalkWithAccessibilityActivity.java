@@ -108,7 +108,6 @@ if (startStationName == getString(R.string.seoul)) {
 
         Button closeButton = findViewById(R.id.closeButton);
         closeButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
-        closeButton.requestFocus();
     }
 
     private void hideBoard() {
@@ -118,12 +117,10 @@ if (startStationName == getString(R.string.seoul)) {
             TextView startStationView = findViewById(R.id.startStation);
             startStationView.setSelected(false);
             startStationView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
-            startStationView.requestFocus();
         } else {
             TextView destinationStationView = findViewById(R.id.destinationStation);
             destinationStationView.setSelected(false);
             destinationStationView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
-            destinationStationView.requestFocus();
         }
     }
 
