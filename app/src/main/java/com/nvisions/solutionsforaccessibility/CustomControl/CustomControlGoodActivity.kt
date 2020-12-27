@@ -10,6 +10,7 @@ import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
 import android.widget.EditText
+import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -45,8 +46,6 @@ class CustomControlGoodActivity : AppCompatActivity() {
 
         closeBanner.setOnClickListener {
             viewPager.visibility = View.GONE
-            buttonLeft.visibility = View.GONE
-            buttonRight.visibility = View.GONE
             bannerButton.visibility = View.GONE
             closeBanner.visibility = View.GONE
             buttonDown.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
@@ -88,28 +87,6 @@ class CustomControlGoodActivity : AppCompatActivity() {
 
         timer.cancel()
 
-        buttonLeft.visibility = View.VISIBLE
-        buttonRight.visibility = View.VISIBLE
-
-        buttonLeft.setOnClickListener {
-            currentPage--
-            if (currentPage <= -1) {
-                currentPage = 2
-            }
-            viewPager.setCurrentItem(currentPage, true)
-            it.announceForAccessibility(pagerList[currentPage])
-        }
-
-        buttonRight.setOnClickListener {
-            currentPage++
-            if (currentPage >= 3) {
-                currentPage = 0
-            }
-            viewPager.setCurrentItem(currentPage, true)
-            it.announceForAccessibility(pagerList[currentPage])
-        }
-
-
         bannerButton.visibility = View.VISIBLE
         bannerButton.setOnClickListener {
             if(!timerStat){ //배너 정지된 상태
@@ -135,12 +112,38 @@ class CustomControlGoodActivity : AppCompatActivity() {
                 timerStat = false
             }
         }
+
+        bannerButton.accessibilityDelegate =object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.className = SeekBar::class.java.name
+                info?.tooltipText = getString(R.string.bannerRolling)
+                                            }
+            override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
+                if (action == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
+                    currentPage--
+                    if (currentPage <= -1) {
+                        currentPage = 2
+                    }
+                    viewPager.setCurrentItem(currentPage, true)
+                    bannerButton.announceForAccessibility(pagerList[currentPage])
+                }
+                else if (action == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
+                    currentPage++
+                    if (currentPage >= 3) {
+                        currentPage = 0
+                    }
+                    viewPager.setCurrentItem(currentPage, true)
+                    bannerButton.announceForAccessibility(pagerList[currentPage])
+                }
+                return super.performAccessibilityAction(host, action, args)
+            }
+        }
+
         ViewCompat.replaceAccessibilityAction(editText, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_ACCESSIBILITY_FOCUS, "") { view, arguments ->
             editText.hint = getString(R.string.customControl_edittext_hint)
             false
         }
-//        ViewCompat.replaceAccessibilityAction(viewPager, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_ACCESSIBILITY_FOCUS, "롤링 배너 실행", null)
-
     }
 
     private fun initListener() {

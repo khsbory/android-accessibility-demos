@@ -224,5 +224,6 @@
     <string name="completeOrderContent">주문 완료</string>
     <string name="closeBanner">배너 닫기</string>
     <string name="layerFocusExplain"> 레이어를 표시할 때 기존 콘텐츠를 흐리게 표시하는 경우가 있습니다. 이때 접근성 구현을 하지 않으면 스크린 리더 사용자는 레이어와 뒷배경 콘텐츠를 구분할 수 없어 콘텐츠를 탐색하는데 많은 어려움이 있습니다.</string>
+    <string name="bannerRolling">볼륨키로 배너 넘기기</string>
 
 </resources>
