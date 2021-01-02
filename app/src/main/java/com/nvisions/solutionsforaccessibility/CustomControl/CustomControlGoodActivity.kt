@@ -43,7 +43,8 @@ class CustomControlGoodActivity : AppCompatActivity() {
     fun init(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle(getString(R.string.customControl_good))
-
+        buttonDown.contentDescription = getString(R.string.customControl_edittext_hint) + buttonDown.text
+        buttonUp.contentDescription = getString(R.string.customControl_edittext_hint) + buttonUp.text
         closeBanner.setOnClickListener {
             viewPager.visibility = View.GONE
             bannerButton.visibility = View.GONE
@@ -80,7 +81,6 @@ class CustomControlGoodActivity : AppCompatActivity() {
 //        }
 
         swipeButton.setOnClickListener {
-
                 Toast.makeText(applicationContext, "clicked", Toast.LENGTH_LONG).show()
                 completeOrder()
             }
@@ -120,7 +120,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
                 info?.tooltipText = getString(R.string.bannerRolling)
                                             }
             override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
-                if (action == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
+                if (action == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
                     currentPage--
                     if (currentPage <= -1) {
                         currentPage = 2
@@ -128,7 +128,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
                     viewPager.setCurrentItem(currentPage, true)
                     bannerButton.announceForAccessibility(pagerList[currentPage])
                 }
-                else if (action == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
+                else if (action == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
                     currentPage++
                     if (currentPage >= 3) {
                         currentPage = 0
@@ -139,11 +139,6 @@ class CustomControlGoodActivity : AppCompatActivity() {
                 return super.performAccessibilityAction(host, action, args)
             }
         }
-
-        ViewCompat.replaceAccessibilityAction(editText, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_ACCESSIBILITY_FOCUS, "") { view, arguments ->
-            editText.hint = getString(R.string.customControl_edittext_hint)
-            false
-        }
     }
 
     private fun initListener() {
@@ -152,6 +147,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
             override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
                 super.onInitializeAccessibilityNodeInfo(host, info)
                 info?.isEnabled = false
+                info?.hintText = getString(R.string.customControl_edittext_hint)
             }
         }
 
@@ -170,6 +166,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
             }
             editText.announceForAccessibility("수량 " + num.toString())
         }
+
         buttonUp.setOnClickListener {
             val num = Integer.parseInt(editText.text.toString()) + 1
             editText.setText(num.toString())

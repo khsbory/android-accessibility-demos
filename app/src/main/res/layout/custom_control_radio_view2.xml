@@ -18,8 +18,7 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:importantForAccessibility="no"
-        android:layout_width="wrap_content"
+                android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="50dp"
         android:text="@string/customControl_radio_single"
@@ -41,8 +40,7 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:importantForAccessibility="no"
-        android:layout_width="wrap_content"
+                android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/customControl_radio_set"
         app:layout_constraintEnd_toEndOf="parent"
