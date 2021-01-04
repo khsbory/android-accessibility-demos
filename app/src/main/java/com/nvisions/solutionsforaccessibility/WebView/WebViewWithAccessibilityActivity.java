@@ -26,7 +26,8 @@ public class WebViewWithAccessibilityActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         browser=findViewById(R.id.browser);
         progressBar = findViewById(R.id.progressBar);
-                WebSettings websettings = browser.getSettings();
+
+        WebSettings websettings = browser.getSettings();
         websettings.setDomStorageEnabled(true);  // Open DOM storage function
         websettings.setAppCacheMaxSize(1024*1024*8);
         String appCachePath = getApplicationContext().getCacheDir().getAbsolutePath();
@@ -34,6 +35,7 @@ public class WebViewWithAccessibilityActivity extends AppCompatActivity {
         websettings.setAllowFileAccess(true);    // Readable file cache
         websettings.setAppCacheEnabled(true);    //Turn on the H5(APPCache) caching function
         websettings.setJavaScriptEnabled(true);
+
         browser.setWebViewClient(new WebViewClient() {
             public void onPageStarted(WebView view, String url,
                                       android.graphics.Bitmap favicon) {
@@ -79,4 +81,3 @@ public class WebViewWithAccessibilityActivity extends AppCompatActivity {
         }
     }
 }
-

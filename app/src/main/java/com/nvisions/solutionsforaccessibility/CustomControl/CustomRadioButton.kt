@@ -11,7 +11,7 @@ import android.widget.RadioButton
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.custom_control_radio_view.view.*
 
-open class CustomRadioButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
+ class CustomRadioButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
             :LinearLayout(context, attrs, defStyleAttr) {
 
     init {

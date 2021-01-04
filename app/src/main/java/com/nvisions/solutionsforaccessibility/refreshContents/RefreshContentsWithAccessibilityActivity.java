@@ -52,7 +52,7 @@ mSwipeRefreshLayout.announceForAccessibility(getString(R.string.refreshed));
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-                return true;
+        return true;
     }
 
     @Override
@@ -61,9 +61,9 @@ mSwipeRefreshLayout.announceForAccessibility(getString(R.string.refreshed));
             case R.id.refresh:
                 mSwipeRefreshLayout.setRefreshing(true);
                 refreshList();
-                return false;
+                return true;
         }
-        return false;
+        return super.onOptionsItemSelected(item);
     }
 
     private void refreshList() {

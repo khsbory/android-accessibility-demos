@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.microsoft.accessibilitydemo"
-        multiDexEnabled true
+
         minSdkVersion 27
         targetSdkVersion 29
         versionCode 1
