@@ -42,16 +42,21 @@ class DragAndDropGoodActivity : AppCompatActivity() {
                 itemArr.removeAt(position)
                 rViewAdapter.notifyItemRemoved(position)
                 rViewAdapter.notifyItemRangeChanged(position, itemArr.size)
-                Handler().postDelayed({
+
+                //접근성 개선 코드
+               Handler().postDelayed({
+                   //아이템이 모두 삭제되면 추가 버튼으로 포커스 이동
                     if(rViewAdapter.itemCount == 0){
                         addButton.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
                         addButton.requestFocus()
                     }
                     else{
+                        //제일 마지막 아이템을 삭제한 경우 남아있는 가장 마지막 아이템의 content로 포커스 이동
                         if(position == rViewAdapter.itemCount){
                             (rView.get(position - 1) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
                             (rView.get(position - 1) as ViewGroup).getChildAt(2).requestFocus()
                         }
+                        //삭제된 위치의 새 아이템의 content로 포커스 이동
                         else{
                             (rView.get(position) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
                             (rView.get(position) as ViewGroup).getChildAt(2).requestFocus()
@@ -112,3 +117,4 @@ class DragAndDropGoodActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 }
+

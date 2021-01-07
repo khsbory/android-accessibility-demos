@@ -2,6 +2,8 @@ package com.nvisions.solutionsforaccessibility.DragAndDrop
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,6 +59,17 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
                     return super.performAccessibilityAction(host, action, args)
                 }
             }
+            contentText.setOnKeyListener { v, keyCode, event ->
+                if(keyCode == KeyEvent.KEYCODE_DPAD_DOWN && event.action == KeyEvent.ACTION_DOWN){
+                    itemMoveListener?.onItemMoveDown(adapterPosition)
+                    true
+                }
+                else if(keyCode == KeyEvent.KEYCODE_DPAD_UP && event.action == KeyEvent.ACTION_DOWN){
+                    itemMoveListener?.onItemMoveUp(adapterPosition)
+                    true
+                }
+                false
+            }
         }
     }
 
@@ -91,3 +104,4 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
 
     }
 }
+
