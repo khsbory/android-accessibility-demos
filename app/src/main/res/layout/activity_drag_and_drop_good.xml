@@ -18,10 +18,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:contentDescription="@string/drag_good"
+            android:id="@+id/titleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/drag_title1" />
+            android:background="@drawable/drag_title1"
+            android:contentDescription="@string/drag_good"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="4dp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -41,6 +44,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

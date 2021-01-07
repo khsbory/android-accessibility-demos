@@ -1,15 +1,16 @@
 package com.nvisions.solutionsforaccessibility.DragAndDrop
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
+import kotlinx.android.synthetic.main.custom_control_good_activity.*
+import kotlinx.android.synthetic.main.drag_and_drop_item.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -18,7 +19,13 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
         fun onItemDelete(holder:ViewHolder, position: Int)
     }
 
+    interface OnItemMoveListener {
+        fun onItemMoveUp(position:Int)
+        fun onItemMoveDown(position:Int)
+    }
+
     var itemDeleteListener :OnItemDeleteListener? = null
+    var itemMoveListener: OnItemMoveListener? = null
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var contentText: TextView
         var deleteButton: Button
@@ -29,13 +36,26 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
             deleteButton = itemView.findViewById(R.id.deleteButton)
             dragButton = itemView.findViewById(R.id.dragButton)
             deleteButton.setOnClickListener {
-//                items.removeAt(adapterPosition)
-//                notifyItemRemoved(adapterPosition)
-//                notifyItemRangeChanged(adapterPosition, items.size)
                 itemDeleteListener?.onItemDelete(this, adapterPosition)
             }
             contentText.setOnClickListener {
                 Toast.makeText(context, items[adapterPosition].toString() + " 클릭함", Toast.LENGTH_LONG).show()
+            }
+            contentText.accessibilityDelegate = object : View.AccessibilityDelegate() {
+                override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
+                    super.onInitializeAccessibilityNodeInfo(host, info)
+                    info?.className = SeekBar::class.java.name
+                }
+
+                override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
+                    if (action == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
+                        itemMoveListener?.onItemMoveDown(adapterPosition)
+                    }
+                    else if (action == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
+                        itemMoveListener?.onItemMoveUp(adapterPosition)
+                    }
+                    return super.performAccessibilityAction(host, action, args)
+                }
             }
         }
     }
@@ -52,6 +72,8 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (holder is ViewHolder) {
             holder.contentText.text = items[position].toString()
+            holder.contentText.contentDescription = items[position].toString() + " " + (position + 1).toString() + "번째 아이템"
+            holder.deleteButton.contentDescription = holder.deleteButton.text.toString() + " " + (position + 1).toString() + "번째 아이템"
         }
     }
 
@@ -66,5 +88,6 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
             }
         }
         notifyItemMoved(fromPosition, toPosition)
+
     }
 }

@@ -1,10 +1,14 @@
 package com.nvisions.solutionsforaccessibility.DragAndDrop
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
+import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
@@ -35,15 +39,58 @@ class DragAndDropGoodActivity : AppCompatActivity() {
         rView.adapter = rViewAdapter
         rViewAdapter.itemDeleteListener = object : DragListAdapter.OnItemDeleteListener{
             override fun onItemDelete(holder: DragListAdapter.ViewHolder, position: Int) {
-                Log.d("mytag", position.toString())
                 itemArr.removeAt(position)
                 rViewAdapter.notifyItemRemoved(position)
                 rViewAdapter.notifyItemRangeChanged(position, itemArr.size)
-                addButton.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-                rView.getChildAt(position).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-                rView.getChildAt(position).requestFocus()
+                Handler().postDelayed({
+                    if(rViewAdapter.itemCount == 0){
+                        addButton.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+                        addButton.requestFocus()
+                    }
+                    else{
+                        if(position == rViewAdapter.itemCount){
+                            (rView.get(position - 1) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+                            (rView.get(position - 1) as ViewGroup).getChildAt(2).requestFocus()
+                        }
+                        else{
+                            (rView.get(position) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+                            (rView.get(position) as ViewGroup).getChildAt(2).requestFocus()
+                        }
+                    } }, 200)
             }
         }
+
+        rViewAdapter.itemMoveListener = object : DragListAdapter.OnItemMoveListener{
+            override fun onItemMoveUp(position: Int) {
+                if(position - 1 >= 0){
+                    rViewAdapter.moveItem(position, position - 1)
+                    Handler().postDelayed({
+                        (rView.get(position - 1) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+                        (rView.get(position - 1) as ViewGroup).getChildAt(2).requestFocus()
+                        (rView.get(position - 1) as ViewGroup).getChildAt(2).announceForAccessibility(((rView.get(position) as ViewGroup).getChildAt(2) as TextView).text.toString()+ "위로 이동됨")
+                    }, 200)
+                }
+                else{
+                    (rView.get(position) as ViewGroup).getChildAt(2).announceForAccessibility("위로 이동할 수 없음")
+                }
+            }
+
+            override fun onItemMoveDown(position: Int) {
+                    if(position + 1 < rViewAdapter.itemCount){
+                        rViewAdapter.moveItem(position, position + 1)
+                        Handler().postDelayed({
+                            (rView.get(position + 1) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+                            (rView.get(position + 1) as ViewGroup).getChildAt(2).requestFocus()
+                            (rView.get(position + 1) as ViewGroup).getChildAt(2).announceForAccessibility(((rView.get(position) as ViewGroup).getChildAt(2) as TextView).text.toString()+ "아래로 이동됨")
+                        }, 200)
+                    }
+                    else{
+                        (rView.get(position) as ViewGroup).getChildAt(2).announceForAccessibility("아래로 이동할 수 없음")
+                    }
+            }
+        }
+
+        titleButton.isEnabled = false
 
         addButton.setOnClickListener {
             var max = 0

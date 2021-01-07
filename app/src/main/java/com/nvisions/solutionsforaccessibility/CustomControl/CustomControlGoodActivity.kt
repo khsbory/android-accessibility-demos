@@ -73,13 +73,6 @@ class CustomControlGoodActivity : AppCompatActivity() {
     }
 
     private fun initAccessibility(){
-//        swipeButton.accessibilityDelegate = object : View.AccessibilityDelegate(){
-//            override fun addExtraDataToAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo, extraDataKey: String, arguments: Bundle?) {
-//                super.addExtraDataToAccessibilityNodeInfo(host, info, extraDataKey, arguments)
-//                info?.className = Button::class.java.name
-//            }
-//        }
-
         swipeButton.setOnClickListener {
                 Toast.makeText(applicationContext, "clicked", Toast.LENGTH_LONG).show()
                 completeOrder()
@@ -118,7 +111,7 @@ class CustomControlGoodActivity : AppCompatActivity() {
                 super.onInitializeAccessibilityNodeInfo(host, info)
                 info?.className = SeekBar::class.java.name
                 info?.tooltipText = getString(R.string.bannerRolling)
-                                            }
+            }
             override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
                 if (action == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
                     currentPage--
