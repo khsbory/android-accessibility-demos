@@ -22,6 +22,7 @@ class DragAndDropGoodActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drag_and_drop_good)
+        setTitle(getString(R.string.drag_good))
         init()
     }
 

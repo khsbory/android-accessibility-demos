@@ -9,7 +9,7 @@ import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.activity_drag_and_drop_bad.*
 
 class DragAndDropBadActivity : AppCompatActivity() {
-    lateinit var rViewAdapter: DragListAdapter
+    lateinit var rViewAdapter: DragListNotAccessibleAdapter
     lateinit var touchHelper: ItemTouchHelper
     var itemArr = arrayListOf<Int>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +25,8 @@ class DragAndDropBadActivity : AppCompatActivity() {
         rView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
                 this, RecyclerView.VERTICAL, false
         )
-        rViewAdapter = DragListAdapter(this, itemArr)
-        val callback = DragItemTouchHelperCallback(rViewAdapter)
+        rViewAdapter = DragListNotAccessibleAdapter(this, itemArr)
+        val callback = DragItemTouchHelperNotAccessibleCallback(rViewAdapter)
         touchHelper = ItemTouchHelper(callback)
         touchHelper.attachToRecyclerView(rView)
         rView.adapter = rViewAdapter

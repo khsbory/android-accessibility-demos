@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.drag_and_drop_item.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class DragListAdapter (val context: Context, val items: ArrayList<Int>) : RecyclerView.Adapter<DragListAdapter.ViewHolder>() {
+class DragListNotAccessibleAdapter (val context: Context, val items: ArrayList<Int>) : RecyclerView.Adapter<DragListNotAccessibleAdapter.ViewHolder>() {
     interface OnItemDeleteListener{
         fun onItemDelete(holder:ViewHolder, position: Int)
     }
@@ -40,36 +40,11 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
             deleteButton.setOnClickListener {
                 itemDeleteListener?.onItemDelete(this, adapterPosition)
             }
+
             contentText.setOnClickListener {
                 Toast.makeText(context, items[adapterPosition].toString() + " 클릭함", Toast.LENGTH_LONG).show()
             }
-            contentText.accessibilityDelegate = object : View.AccessibilityDelegate() {
-                override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
-                    super.onInitializeAccessibilityNodeInfo(host, info)
-                    info?.className = SeekBar::class.java.name
-                }
 
-                override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
-                    if (action == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
-                        itemMoveListener?.onItemMoveDown(adapterPosition)
-                    }
-                    else if (action == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
-                        itemMoveListener?.onItemMoveUp(adapterPosition)
-                    }
-                    return super.performAccessibilityAction(host, action, args)
-                }
-            }
-            contentText.setOnKeyListener { v, keyCode, event ->
-                if(keyCode == KeyEvent.KEYCODE_DPAD_DOWN && event.action == KeyEvent.ACTION_DOWN){
-                    itemMoveListener?.onItemMoveDown(adapterPosition)
-                    true
-                }
-                else if(keyCode == KeyEvent.KEYCODE_DPAD_UP && event.action == KeyEvent.ACTION_DOWN){
-                    itemMoveListener?.onItemMoveUp(adapterPosition)
-                    true
-                }
-                false
-            }
         }
     }
 
@@ -85,8 +60,7 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (holder is ViewHolder) {
             holder.contentText.text = items[position].toString()
-            holder.deleteButton.contentDescription = holder.deleteButton.text.toString() + " " + items[position].toString()
-        }
+                    }
     }
 
     fun moveItem(fromPosition:Int, toPosition:Int) {

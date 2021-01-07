@@ -18,18 +18,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/titleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/drag_title1"
+            android:id="@+id/titleButton"
             android:contentDescription="@string/drag_good"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="4dp" />
+            android:background="@drawable/drag_title2" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <ImageView
-        android:contentDescription="추가 버튼"
+        android:contentDescription="추가"
         android:id="@+id/addButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
