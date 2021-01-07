@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.nvisions.solutionsforaccessibility.CollapseExpand.CollapseExpandActivity;
+import com.nvisions.solutionsforaccessibility.ContentGrouping.ContentGroupingActivity;
 import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
 import com.nvisions.solutionsforaccessibility.LayerFocus.LayerFocusActivity;
 import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
@@ -16,7 +17,7 @@ import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
 import com.nvisions.solutionsforaccessibility.TabControl.TabControlActivity;
 import com.nvisions.solutionsforaccessibility.VoiceSearch.VoiceSearchActivity;
 import com.nvisions.solutionsforaccessibility.WebView.WebViewActivity;
-import com.nvisions.solutionsforaccessibility.carousel.CarouselActivity;
+
 import com.nvisions.solutionsforaccessibility.korailTalk.KorailTalkActivity;
 import com.nvisions.solutionsforaccessibility.labelFor.LabelForActivity;
 import com.nvisions.solutionsforaccessibility.music.MusicActivity;
@@ -49,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button carousel = (Button) findViewById(R.id.carousel);
-        carousel.setOnClickListener(new View.OnClickListener() {
+        Button contentGrouping = (Button) findViewById(R.id.contentGrouping);
+        contentGrouping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CarouselActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ContentGroupingActivity.class);
                 startActivity(intent);
             }
         });

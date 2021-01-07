@@ -23,11 +23,12 @@
         android:text="@string/label_for_title"/>
 
     <Button
-        android:id="@+id/carousel"
+        android:id="@+id/contentGrouping"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/carousel_title" />
+        android:text="@string/contentGrouping"/>
+
     <Button
         android:id="@+id/fix_focus"
         android:layout_width="match_parent"

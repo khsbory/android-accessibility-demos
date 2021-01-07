@@ -116,17 +116,15 @@
             android:label="@string/label_for_example2_title"
             android:parentActivityName=".labelFor.LabelForActivity" />
         <activity
-            android:name=".carousel.CarouselActivity"
-            android:label="@string/carousel_title"
+            android:name=".ContentGrouping.ContentGroupingActivity"
+            android:label="@string/contentGrouping"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".carousel.CarouselExample1Activity"
-            android:label="@string/carousel_bad_accessibility"
-            android:parentActivityName=".carousel.CarouselActivity" />
+            android:name=".ContentGrouping.ContentGroupingBadActivity"
+                        android:parentActivityName=".ContentGrouping.ContentGroupingActivity" />
         <activity
-            android:name=".carousel.CarouselExample2Activity"
-            android:label="@string/carousel_good_accessibility"
-            android:parentActivityName=".carousel.CarouselActivity" />
+            android:name=".ContentGrouping.ContentGroupingGoodActivity"
+                        android:parentActivityName=".ContentGrouping.ContentGroupingActivity" />
         <activity
             android:name=".recyclerview.RecyclerViewFocusActivity"
             android:label="@string/stay_focus_example"
