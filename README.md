@@ -59,7 +59,7 @@ baseRView.getChildAt(selectedPos).requestFocus()
 
 #### 데모 화면 구성
 + 툴바의 제목은 이미지뷰
-+ 아이템 추가 버튼과 리사이클러뷰로 구성
++ 아이템 추가 버튼과 리사이클러뷰로 구성    
 <img src="https://user-images.githubusercontent.com/48876807/103868360-252b8a80-510c-11eb-8bd4-ec2d1fde2da6.png" width="200px"></img>
   
   
