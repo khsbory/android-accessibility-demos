@@ -157,6 +157,22 @@ rViewAdapter.itemMoveListener = object : DragListAdapter.OnItemMoveListener{
     }
 }
 ```
++ 키보드 위, 아래 키로 아이템 이동 수행
+```
+//recyclerview adapter의 ViewHolder 내부
+
+contentText.setOnKeyListener { v, keyCode, event ->
+    if(keyCode == KeyEvent.KEYCODE_DPAD_DOWN && event.action == KeyEvent.ACTION_DOWN){
+        itemMoveListener?.onItemMoveDown(adapterPosition)
+        true
+    }
+    else if(keyCode == KeyEvent.KEYCODE_DPAD_UP && event.action == KeyEvent.ACTION_DOWN){
+        itemMoveListener?.onItemMoveUp(adapterPosition)
+        true
+    }
+    false
+}
+```
 
 + 툴바의 제목을 이미지뷰로 구성한 경우 contentDescription 속성으로 제목 설명, isEnabled 속성을 false로해서 비활성화됨 알려줌
 
