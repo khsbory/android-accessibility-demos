@@ -235,4 +235,8 @@
     <string name="label_song_cost">Cost</string>
     <string name="value_song_cost">$1.45</string>
 
+    <string name="dragAndDropName">드래그앤드롭</string>
+    <string name="drag_descript">특정 리스트의 순서를 드래그 앤 드롭 형식으로 이동시키는 경우 톡백 사용자도 해당 기능을 이용할 수 있도록 접근성 대응을 해 주어야 합니다.</string>
+    <string name="drag_good">드래그앤드롭, 접근성 적용한 경우</string>
+    <string name="drag_bad">드래그앤드롭, 접근성 적용하지 않은 경우</string>
 </resources>

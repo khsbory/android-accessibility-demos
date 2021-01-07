@@ -6,7 +6,7 @@
     android:layout_height="150dp">
 
     <TextView
-        android:id="@+id/contentText"
+        android:id="@+id/dragButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="TextView"

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.nvisions.solutionsforaccessibility.CollapseExpand.CollapseExpandActivity;
 import com.nvisions.solutionsforaccessibility.ContentGrouping.ContentGroupingActivity;
 import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
+import com.nvisions.solutionsforaccessibility.DragAndDrop.DragAndDropActivity;
 import com.nvisions.solutionsforaccessibility.LayerFocus.LayerFocusActivity;
 import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
 import com.nvisions.solutionsforaccessibility.NestedScroll.NestedScrollActivity;
@@ -185,12 +186,20 @@ startActivity(intent);
             }
         });
 
-
         Button newLayerButton = (Button)findViewById(R.id.newLayerButton);
         newLayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LayerFocusActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button dragAndDropButton = (Button)findViewById(R.id.dragAndDropButton);
+        dragAndDropButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DragAndDropActivity.class);
                 startActivity(intent);
             }
         });
