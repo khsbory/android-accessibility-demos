@@ -13,7 +13,7 @@ class LayerFocusHorizontalAdapter (val context: Context, val items: Array<String
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var contentText: TextView
         init {
-            contentText = itemView.findViewById(R.id.contentText)
+            contentText = itemView.findViewById(R.id.dragButton)
         }
     }
 

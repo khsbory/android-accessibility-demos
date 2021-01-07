@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Solutions_for_Accessibility.iml" filepath="$PROJECT_DIR$/.idea/modules/Solutions_for_Accessibility.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Solutions_for_Accessibility.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Solutions_for_Accessibility.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swipe-button/Solutions_for_Accessibility.swipe-button.iml" filepath="$PROJECT_DIR$/.idea/modules/swipe-button/Solutions_for_Accessibility.swipe-button.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Solutions for Accessibility.iml" filepath="$PROJECT_DIR$/.idea/modules/Solutions for Accessibility.iml" group="Solutions for Accessibility" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Solutions for Accessibility/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swipe-button/swipe-button.iml" filepath="$PROJECT_DIR$/.idea/modules/swipe-button/swipe-button.iml" group="Solutions for Accessibility/swipe-button" />
     </modules>
   </component>
 </project>

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
-import kotlinx.android.synthetic.main.activity_layer_focus_list_row.view.*
 
 class LayerFocusBaseAdapter (val context: Context, val items: Array<String>) : RecyclerView.Adapter<LayerFocusBaseAdapter.ViewHolder>() {
     interface OnItemClickListener{
@@ -18,7 +17,7 @@ class LayerFocusBaseAdapter (val context: Context, val items: Array<String>) : R
         var contentText: TextView
 
         init {
-            contentText = itemView.findViewById(R.id.contentText)
+            contentText = itemView.findViewById(R.id.dragButton)
             itemView.setOnClickListener {
                 itemClickListener?.OnItemClick(this, it, adapterPosition)
             }
