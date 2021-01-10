@@ -2,11 +2,20 @@ package com.nvisions.solutionsforaccessibility.DragAndDrop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.MenuItem
+import android.view.ViewGroup
+import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.TextView
+import androidx.core.view.get
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.activity_drag_and_drop_bad.*
+import kotlinx.android.synthetic.main.activity_drag_and_drop_bad.addButton
+import kotlinx.android.synthetic.main.activity_drag_and_drop_bad.rView
+import kotlinx.android.synthetic.main.activity_drag_and_drop_bad.toolbar
+import kotlinx.android.synthetic.main.activity_drag_and_drop_good.*
 
 class DragAndDropBadActivity : AppCompatActivity() {
     lateinit var rViewAdapter: DragListNotAccessibleAdapter
@@ -30,6 +39,34 @@ class DragAndDropBadActivity : AppCompatActivity() {
         touchHelper = ItemTouchHelper(callback)
         touchHelper.attachToRecyclerView(rView)
         rView.adapter = rViewAdapter
+
+        rViewAdapter.itemDeleteListener = object : DragListNotAccessibleAdapter.OnItemDeleteListener{
+            override fun onItemDelete(holder: DragListNotAccessibleAdapter.ViewHolder, position: Int) {
+                itemArr.removeAt(position)
+                rViewAdapter.notifyItemRemoved(position)
+                rViewAdapter.notifyItemRangeChanged(position, itemArr.size)
+            }
+        }
+
+        rViewAdapter.itemMoveListener = object : DragListNotAccessibleAdapter.OnItemMoveListener{
+            override fun onItemMoveUp(position: Int) {
+                if(position - 1 >= 0){
+                    rViewAdapter.moveItem(position, position - 1)
+                                    }
+                else{
+                    (rView.get(position) as ViewGroup).getChildAt(2).announceForAccessibility("위로 이동할 수 없음")
+                }
+            }
+
+            override fun onItemMoveDown(position: Int) {
+                if(position + 1 < rViewAdapter.itemCount){
+                    rViewAdapter.moveItem(position, position + 1)
+                }
+                else{
+                    (rView.get(position) as ViewGroup).getChildAt(2).announceForAccessibility("아래로 이동할 수 없음")
+                }
+            }
+        }
 
         addButton.setOnClickListener {
             var max = 0

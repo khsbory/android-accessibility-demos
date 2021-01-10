@@ -31,7 +31,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:accessibilityHeading="true"
         android:text="@string/song_details"
         android:textColor="@color/dark_grey"
         android:textSize="@dimen/heading" />
@@ -39,9 +38,6 @@
     <RelativeLayout
         android:id="@+id/song_data_container"
         android:layout_width="match_parent"
-        android:importantForAccessibility="yes"
-        android:screenReaderFocusable="true"
-        android:focusableInTouchMode="false"
         android:layout_height="wrap_content">
 
         <TextView

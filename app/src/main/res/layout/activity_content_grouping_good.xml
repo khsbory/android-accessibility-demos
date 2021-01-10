@@ -38,6 +38,8 @@
 
     <RelativeLayout
         android:id="@+id/song_data_container"
+        android:importantForAccessibility="yes"
+        android:screenReaderFocusable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

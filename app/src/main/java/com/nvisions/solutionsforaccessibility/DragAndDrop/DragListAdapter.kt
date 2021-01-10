@@ -47,6 +47,7 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
                 override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
                     super.onInitializeAccessibilityNodeInfo(host, info)
                     info?.className = SeekBar::class.java.name
+                    info?.tooltipText = "볼륨키로 순서 이동"
                 }
 
                 override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
