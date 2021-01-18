@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/prettyLayout">
 
         <Button
             android:id="@+id/buttonDown"
@@ -29,7 +30,9 @@
             android:ems="10"
             android:focusable="false"
             android:inputType="textPersonName"
-            android:text="1" />
+            android:text="1"
+            android:layout_weight="1"
+            />
         <Button
             android:id="@+id/buttonUp"
             android:layout_width="wrap_content"
@@ -41,7 +44,7 @@
     <com.nvisions.solutionsforaccessibility.CustomControl.CustomRadioButton
         android:id="@+id/radioButton"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toTopOf="@+id/swipeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +65,8 @@
         app:inner_text_top_padding="5dp"
         app:layout_constraintTop_toBottomOf="@id/radioButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
 
     <androidx.viewpager.widget.ViewPager
@@ -87,6 +91,8 @@
         android:text="@string/closeBanner"
         android:gravity="center"
         android:id="@+id/closeBanner"
-        app:layout_constraintTop_toBottomOf="@+id/bannerButton"/>
+        app:layout_constraintTop_toBottomOf="@+id/bannerButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
-

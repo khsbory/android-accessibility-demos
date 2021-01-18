@@ -16,10 +16,11 @@
 -->
 
 <resources>
-    <color name="white">#FFF</color>
-    <color name="colorPrimaryLight">#7986CB</color>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="listEmphasis">#2277ccff</color>
+    <color name="globalBackground">#ffffff</color>
+    <color name="colorPrimary">#cc102F9F</color>
     <color name="colorPrimaryDark">#303F9F</color>
+    <color name="textColorPrimary">#0e0e0e</color>
     <color name="colorAccent">#F50057</color>
     <color name="red">#D50000</color>
     <color name="green">#1B5E20</color>
@@ -28,4 +29,9 @@
     <color name="medium_grey">#757575</color>
     <color name="dark_grey">#424242</color>
     <color name="very_dark_grey">#212121</color>
+    <color name="bg_PlayerColor">#ecc8ef</color>
+    <color name="bg_dialogAndLayer">#dfdfdf</color>
+    <color name="GlobalButtonColor">#104ecf</color>
+    <color name="GlobalButtonFontColor">#ffffff</color>
+    <color name="selected_element">#007eaf</color>
 </resources>

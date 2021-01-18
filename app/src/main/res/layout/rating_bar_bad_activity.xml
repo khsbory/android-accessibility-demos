@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nvisions.solutionsforaccessibility.RatingBar.RatingBarBadActivity">
+    tools:context="com.nvisions.solutionsforaccessibility.RatingBar.RatingBarBadActivity"
+    android:theme="@style/prettyLayout">
 
     <TextView
         android:id="@+id/textView"

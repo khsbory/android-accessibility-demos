@@ -5,5 +5,8 @@
     <size android:width="30dp"
         android:height="30dp" />
     <corners android:radius="10dp"/>
-    <solid android:color="@android:color/white"/>
+    <gradient
+        android:startColor="@color/colorPrimary"
+        android:endColor="@color/bg_dialogAndLayer"
+        />
 </shape>

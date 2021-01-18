@@ -8,11 +8,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:theme="@style/prettyLayout">
     <Button
         android:id="@+id/live_region"
         android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/liveregion_title" />
     <Button

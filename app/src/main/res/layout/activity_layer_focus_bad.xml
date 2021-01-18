@@ -21,15 +21,15 @@
         android:id="@+id/newLayout"
         android:focusable="true"
         android:clickable="true"
-        android:background="#22333333"
         android:visibility="invisible">
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/bg_dialogAndLayer"
+            android:paddingVertical="4dp">
 
             <Button
                 android:id="@+id/button"
@@ -58,9 +58,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layerTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/layerTitle"
+                android:background="@color/bg_dialogAndLayer" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

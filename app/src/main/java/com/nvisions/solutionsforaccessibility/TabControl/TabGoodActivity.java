@@ -15,6 +15,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.nvisions.solutionsforaccessibility.R;
 
+import static java.security.AccessController.getContext;
+
 public class TabGoodActivity extends AppCompatActivity {
 
     private Context mContext;
@@ -32,20 +34,14 @@ public class TabGoodActivity extends AppCompatActivity {
         mTabLayout = (TabLayout) findViewById(R.id.layout_tab);
         TabLayout.Tab homeTab = mTabLayout.newTab().setCustomView(createTabView(getString(R.string.homeTab)));
         TabLayout.Tab gameTab = mTabLayout.newTab().setCustomView(createTabView(getString(R.string.gameTab)));
-        TabLayout.Tab movieTab = mTabLayout.newTab().setCustomView(createTabView(getString(R.string.movieTab)));
+        final TabLayout.Tab movieTab = mTabLayout.newTab().setCustomView(createTabView(getString(R.string.movieTab)));
         TabLayout.Tab bookTab = mTabLayout.newTab().setCustomView(createTabView(getString(R.string.bookTab)));
         TabLayout.Tab newsTab = mTabLayout.newTab().setCustomView(createTabView(getString(R.string.newsTab)));
         mTabLayout.addTab(homeTab);
-
-
         mTabLayout.addTab(gameTab);
-
         mTabLayout.addTab(movieTab);
-
         mTabLayout.addTab(bookTab);
-
         mTabLayout.addTab(newsTab);
-
 
         mViewPager = (ViewPager) findViewById(R.id.pager_content);
         mContentsPagerAdapter = new ContentsPagerAdapter(getSupportFragmentManager(), mTabLayout.getTabCount());
@@ -65,28 +61,24 @@ public class TabGoodActivity extends AppCompatActivity {
 
             public void onTabUnselected(TabLayout.Tab tab) {
 
-
-
             }
 
 
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
-
-
             }
 
         });
     }
 
     private View createTabView(String tabName) {
+        mContext.getTheme().applyStyle(R.style.bg_transparent,true);
         View tabView = LayoutInflater.from(mContext).inflate(R.layout.custom_tab, null);
 
         TextView txt_name = (TextView) tabView.findViewById(R.id.txt_name);
-
         txt_name.setText(tabName);
+
         ViewCompat.setAccessibilityDelegate(txt_name, new AccessibilityDelegateCompat() {
             @Override
             public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {

@@ -9,14 +9,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight"
+        android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:theme="@style/NoActionBarTheme"
-            android:name=".DragAndDrop.DragAndDropBadActivity"></activity>
+            android:name=".DragAndDrop.DragAndDropBadActivity"
+            android:theme="@style/globalTheme.NoActionBarTheme"/>
         <activity
-            android:theme="@style/NoActionBarTheme"
-            android:name=".DragAndDrop.DragAndDropGoodActivity" />
+            android:name=".DragAndDrop.DragAndDropGoodActivity"
+            android:theme="@style/globalTheme.NoActionBarTheme"/>
+
         <activity android:name=".DragAndDrop.DragAndDropActivity" />
         <activity android:name=".LayerFocus.LayerFocusBadActivity" />
         <activity android:name=".LayerFocus.LayerFocusGoodActivity" />
@@ -177,7 +178,6 @@
         <activity android:name=".CustomControl.CustomControlActivity" />
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
