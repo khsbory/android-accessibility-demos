@@ -5,33 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.nvisions.solutionsforaccessibility.WebView.WebViewActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/webViewExplain"
-        android:id="@+id/webViewExplain"
-        android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/webViewWithoutAccessibility"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/webViewWithoutAccessibility"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:onClick="launchWebViewWithoutAccessibilityActivity"
-        android:text="@string/webview_without_accessibility"
-        app:layout_constraintBottom_toTopOf="@id/webViewWithAccessibility"
-        app:layout_constraintTop_toTopOf="@id/webViewExplain" />
-
-    <Button
-        android:id="@+id/webViewWithAccessibility"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:onClick="launchWebViewWithAccessibilityActivity"
-        android:text="@string/webview_with_accessibility"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/webViewWithoutAccessibility" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:theme="@style/prettyLayout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/webViewExplain"
+            android:id="@+id/webViewExplain" />
+        <Button
+            android:id="@+id/webViewWithoutAccessibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="launchWebViewWithoutAccessibilityActivity"
+            android:text="@string/webview_without_accessibility"/>
+
+        <Button
+            android:id="@+id/webViewWithAccessibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="launchWebViewWithAccessibilityActivity"
+            android:text="@string/webview_with_accessibility" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

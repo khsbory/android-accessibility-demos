@@ -47,6 +47,7 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
                 override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
                     super.onInitializeAccessibilityNodeInfo(host, info)
                     info?.className = SeekBar::class.java.name
+                    info?.tooltipText = "볼륨키로 순서 이동"
                 }
 
                 override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
@@ -85,8 +86,7 @@ class DragListAdapter (val context: Context, val items: ArrayList<Int>) : Recycl
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (holder is ViewHolder) {
             holder.contentText.text = items[position].toString()
-            holder.contentText.contentDescription = items[position].toString() + " " + (position + 1).toString() + "번째 아이템"
-            holder.deleteButton.contentDescription = holder.deleteButton.text.toString() + " " + (position + 1).toString() + "번째 아이템"
+            holder.deleteButton.contentDescription = holder.deleteButton.text.toString() + " " + items[position].toString()
         }
     }
 

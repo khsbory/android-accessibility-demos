@@ -85,7 +85,7 @@ public class NestedScrollExampleActivity extends AppCompatActivity {
         text2View.setAccessibilityDelegate(null);
 
         ImageView checkBox = findViewById(R.id.accessibilityCheckBox);
-        checkBox.setBackgroundResource(R.drawable.unchecked);
+        checkBox.setBackgroundResource(R.drawable.chkbox_unchecked);
 
     }
 
@@ -98,7 +98,7 @@ public class NestedScrollExampleActivity extends AppCompatActivity {
         text2View.setAccessibilityDelegate(accessibilityDelegate2);
 
         ImageView checkBox = findViewById(R.id.accessibilityCheckBox);
-        checkBox.setBackgroundResource(R.drawable.checked);
+        checkBox.setBackgroundResource(R.drawable.chkbox_checked);
     }
 
     //하단 board 확장

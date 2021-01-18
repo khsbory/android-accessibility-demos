@@ -10,12 +10,12 @@
         android:layout_height="0px"
         android:id="@+id/main_screen"
         android:accessibilityPaneTitle="@string/mainScreen"
-        android:background="#FFFFFF"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/bottom_tab_bar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/prettyLayout">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -30,7 +30,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/hamburger"
+                android:background="@drawable/btn_hamburger"
 
 
 android:contentDescription="@string/openMenu"
@@ -44,7 +44,7 @@ android:contentDescription="@string/openMenu"
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/search"
+                android:background="@drawable/btn_search"
                 android:onClick="showSearchScreen"
 android:contentDescription="@string/search"
                 android:layout_marginRight="12dp"
@@ -57,6 +57,7 @@ android:contentDescription="@string/search"
             android:layout_height="0px"
             app:layout_constraintTop_toBottomOf="@id/main_top_bar"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/listEmphasis"
             />
 
 
@@ -66,12 +67,12 @@ android:contentDescription="@string/search"
         android:layout_height="0px"
         android:id="@+id/search_screen"
         android:visibility="gone"
-        android:background="#FFFFFF"
         android:accessibilityPaneTitle="@string/search"
         app:layout_constraintBottom_toTopOf="@id/bottom_tab_bar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/globalBackground">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -88,7 +89,7 @@ android:contentDescription="@string/search"
                 android:layout_height="24dp"
                 android:src="@drawable/back"
                 android:onClick="goBackMain"
-android:contentDescription="@string/back"
+                android:contentDescription="@string/back"
                 android:layout_marginLeft="12dp"
                 />
             <EditText  android:layout_width="wrap_content"
@@ -109,7 +110,7 @@ android:contentDescription="@string/back"
             android:id="@+id/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-android:text="@string/recommendChannel"
+            android:text="@string/recommendChannel"
             android:accessibilityHeading="true"
             android:layout_marginLeft="20dp"
             android:textColor="#8f8f94"
@@ -127,6 +128,7 @@ android:text="@string/recommendChannel"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@id/label"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/listEmphasis"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -134,7 +136,6 @@ android:text="@string/recommendChannel"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/bottom_tab_bar"
-        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -166,7 +167,6 @@ android:text="@string/test1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 android:text="@string/test2"
-                android:textColor="#000000"
                 android:textSize="12dp"
                 />
 
@@ -182,7 +182,6 @@ android:text="@string/test2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 android:text="@string/test3"
-                android:textColor="#000000"
                 android:textSize="12dp"
                 />
 
@@ -198,7 +197,6 @@ android:text="@string/test3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/test4"
-                android:textColor="#000000"
                 android:textSize="12dp"
                 />
 
@@ -214,7 +212,6 @@ android:text="@string/test3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 android:text="@string/test5"
-                android:textColor="#000000"
                 android:textSize="12dp"
                 />
 

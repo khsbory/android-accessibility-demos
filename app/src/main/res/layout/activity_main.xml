@@ -8,7 +8,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:theme="@style/prettyLayout">
     <Button
         android:id="@+id/live_region"
         android:layout_width="match_parent"
@@ -23,11 +26,12 @@
         android:text="@string/label_for_title"/>
 
     <Button
-        android:id="@+id/carousel"
+        android:id="@+id/contentGrouping"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/carousel_title" />
+        android:text="@string/contentGrouping"/>
+
     <Button
         android:id="@+id/fix_focus"
         android:layout_width="match_parent"

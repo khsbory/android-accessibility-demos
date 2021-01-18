@@ -35,8 +35,7 @@ public class RefreshContentsWithoutAccessibilityActivity extends AppCompatActivi
             }
         });
         mListView = findViewById(android.R.id.list);
-        mListView.setEnabled(false);
-        final String[] countries = new String[]{"China", "France", "Germany", "India",
+                final String[] countries = new String[]{"China", "France", "Germany", "India",
                 "Russia", "United Kingdom", "United States"};
         mArrayList = new ArrayList<>(Arrays.asList(countries));
         ListAdapter countryAdapter = new ArrayAdapter<String>(this,

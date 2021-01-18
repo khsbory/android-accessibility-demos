@@ -24,7 +24,7 @@ public class TabBadActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_bad);
-setTitle(getString(R.string.badExample));
+        setTitle(getString(R.string.badExample));
         mContext = getApplicationContext();
         mTabLayout = (TabLayout) findViewById(R.id.layout_tab);
         TabLayout.Tab homeTab = mTabLayout.newTab().setCustomView(createTabView(getString(R.string.homeTab)));
@@ -33,13 +33,9 @@ setTitle(getString(R.string.badExample));
         TabLayout.Tab bookTab = mTabLayout.newTab().setCustomView(createTabView(getString(R.string.bookTab)));
         TabLayout.Tab newsTab = mTabLayout.newTab().setCustomView(createTabView(getString(R.string.newsTab)));
         mTabLayout.addTab(homeTab);
-
         mTabLayout.addTab(gameTab);
-
         mTabLayout.addTab(movieTab);
-
         mTabLayout.addTab(bookTab);
-
         mTabLayout.addTab(newsTab);
 
 
@@ -78,6 +74,7 @@ setTitle(getString(R.string.badExample));
     }
 
     private View createTabView(String tabName) {
+        mContext.getTheme().applyStyle(R.style.bg_transparent,true);
         View tabView = LayoutInflater.from(mContext).inflate(R.layout.custom_tab, null);
 
         TextView txt_name = (TextView) tabView.findViewById(R.id.txt_name);

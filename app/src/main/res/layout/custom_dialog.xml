@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:theme="@style/prettyLayout"
+    android:background="@drawable/global_dialog">
 
     <ImageView
         android:id="@+id/image"
@@ -13,7 +15,6 @@
         android:id="@+id/text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
         android:accessibilityLiveRegion="assertive"
         android:layout_toRightOf="@+id/image"/>/>
 

@@ -28,6 +28,7 @@ class LayerFocusBaseAdapter (val context: Context, val items: Array<String>) : R
         return items.size
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.activity_layer_focus_list_row, parent, false)
         return ViewHolder(v)

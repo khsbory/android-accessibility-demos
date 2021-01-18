@@ -225,11 +225,18 @@
     <string name="closeBanner">배너 닫기</string>
     <string name="layerFocusExplain"> 레이어를 표시할 때 기존 콘텐츠를 흐리게 표시하는 경우가 있습니다. 이때 접근성 구현을 하지 않으면 스크린 리더 사용자는 레이어와 뒷배경 콘텐츠를 구분할 수 없어 콘텐츠를 탐색하는데 많은 어려움이 있습니다.</string>
     <string name="bannerRolling">볼륨키로 배너 넘기기</string>
+<string name="contentGrouping">포커스 합치기</string>
+<string name="contentGroupingDetail">이름 홍길동, 나이 25세 와 같은 화면에서 각각의 제목과 텍스트의 접근성 초점이 분리되어 있다면 하나의 초점으로 합치는 것이 스크린 리더 사용자의 탐색의 효율성을 높일 수 있습니다.</string>
+    <string name="song_details">Song Details</string>
+    <string name="label_song_name">Name</string>
+    <string name="value_song_name">Hey Jude</string>
+    <string name="label_song_artists">Artists</string>
+    <string name="value_song_artists">The Beatles</string>
+    <string name="label_song_cost">Cost</string>
+    <string name="value_song_cost">$1.45</string>
 
     <string name="dragAndDropName">드래그앤드롭</string>
     <string name="drag_descript">특정 리스트의 순서를 드래그 앤 드롭 형식으로 이동시키는 경우 톡백 사용자도 해당 기능을 이용할 수 있도록 접근성 대응을 해 주어야 합니다.</string>
     <string name="drag_good">드래그앤드롭, 접근성 적용한 경우</string>
     <string name="drag_bad">드래그앤드롭, 접근성 적용하지 않은 경우</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
