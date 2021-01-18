@@ -21,7 +21,7 @@ class KeyBoardGoodAndBadActivity : AppCompatActivity() {
         setTitle(getString(R.string.newLayer_bad))
 
         buttonBad.setOnClickListener { viewPager.currentItem = 0 }
-        buttonBad.setOnClickListener { viewPager.currentItem = 1 }
+        buttonGood.setOnClickListener { viewPager.currentItem = 1 }
         viewPager.adapter = PagerAdapter(this)
 
     }
