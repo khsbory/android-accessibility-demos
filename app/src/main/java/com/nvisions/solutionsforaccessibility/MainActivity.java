@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.nvisions.solutionsforaccessibility.CollapseExpand.CollapseExpandActivity;
 import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
 import com.nvisions.solutionsforaccessibility.DragAndDrop.DragAndDropActivity;
+import com.nvisions.solutionsforaccessibility.KeyBoard.KeyBoardActivity;
 import com.nvisions.solutionsforaccessibility.LayerFocus.LayerFocusActivity;
 import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
 import com.nvisions.solutionsforaccessibility.NestedScroll.NestedScrollActivity;
@@ -199,6 +200,15 @@ startActivity(intent);
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DragAndDropActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button keyBoardButton = (Button)findViewById(R.id.keyBoardButton);
+        keyBoardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), KeyBoardActivity.class);
                 startActivity(intent);
             }
         });

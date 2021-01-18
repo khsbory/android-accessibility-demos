@@ -11,12 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight"
         android:usesCleartextTraffic="true">
+        <activity android:name=".KeyBoard.KeyBoardGoodAndBadActivity"></activity>
+        <activity android:name=".KeyBoard.KeyBoardActivity" />
         <activity
-            android:theme="@style/NoActionBarTheme"
-            android:name=".DragAndDrop.DragAndDropBadActivity"></activity>
+            android:name=".DragAndDrop.DragAndDropBadActivity"
+            android:theme="@style/NoActionBarTheme" />
         <activity
-            android:theme="@style/NoActionBarTheme"
-            android:name=".DragAndDrop.DragAndDropGoodActivity" />
+            android:name=".DragAndDrop.DragAndDropGoodActivity"
+            android:theme="@style/NoActionBarTheme" />
         <activity android:name=".DragAndDrop.DragAndDropActivity" />
         <activity android:name=".LayerFocus.LayerFocusBadActivity" />
         <activity android:name=".LayerFocus.LayerFocusGoodActivity" />
