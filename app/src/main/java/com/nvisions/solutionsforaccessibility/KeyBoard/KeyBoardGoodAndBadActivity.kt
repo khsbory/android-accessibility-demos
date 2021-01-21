@@ -18,7 +18,7 @@ class KeyBoardGoodAndBadActivity : AppCompatActivity() {
 
     private fun init(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        setTitle(getString(R.string.newLayer_bad))
+        setTitle("키보드 접근성")
         buttonBad.setOnClickListener {
             buttonBad.isSelected = true
             buttonGood.isSelected = false
