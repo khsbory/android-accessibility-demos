@@ -19,11 +19,17 @@ class KeyBoardGoodAndBadActivity : AppCompatActivity() {
     private fun init(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle(getString(R.string.newLayer_bad))
-
-        buttonBad.setOnClickListener { viewPager.currentItem = 0 }
-        buttonGood.setOnClickListener { viewPager.currentItem = 1 }
+        buttonBad.setOnClickListener {
+            buttonBad.isSelected = true
+            buttonGood.isSelected = false
+            viewPager.currentItem = 0
+        }
+        buttonGood.setOnClickListener {
+            buttonGood.isSelected = true
+            buttonBad.isSelected = false
+            viewPager.currentItem = 1
+        }
         viewPager.adapter = PagerAdapter(this)
-
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == android.R.id.home){

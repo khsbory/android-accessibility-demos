@@ -31,25 +31,8 @@ class KeyBoardGoodFragment : Fragment() {
         keyBoardView.layoutManager = GridLayoutManager(requireContext(), 3)
         keyAdapter = KeyBoardGoodAdapter()
         keyBoardView.adapter = keyAdapter
-//        keyAdapter.itemTouchListener = object : KeyBoardGoodAdapter.OnItemTouchListener{
-//            override fun OnItemTouchUp(input: String, position: Int) {
-//                if(input != "" && input != null){
-//                    Log.d("mytag", "input : " + input)
-//                    var num = editText.text.toString() + input
-//                    editText.setText(num)
-//                }
-//                else{
-//                    if(position == 11){
-//                        val editLength = editText.text.toString().length
-//                        if (editLength >= 1){
-//                            var num = editText.text.toString().substring(0, editLength - 1)
-//                            editText.setText(num)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        keyAdapter.itemClickListener = object :KeyBoardGoodAdapter.OnItemClickListener {
+
+        keyAdapter.itemClickListener = object: KeyBoardGoodAdapter.OnItemClickListener {
             override fun OnItemClick(input: String, position: Int) {
                 if(input != "" && input != null){
                     //0-9 숫자 버튼
@@ -64,6 +47,7 @@ class KeyBoardGoodFragment : Fragment() {
                         if (editLength >= 1){
                             var num = editText.text.toString().substring(0, editLength - 1)
                             editText.setText(num)
+                            editText.announceForAccessibility(editText.text.toString())
                         }
                     }
                 }
@@ -104,12 +88,8 @@ class KeyBoardGoodAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
                     super.onInitializeAccessibilityNodeInfo(host, info)
                     info?.isTextEntryKey = true
-//                    info?.isImportantForAccessibility = true
                 }
             }
-//            keyButton.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
-
-
         }
     }
 
@@ -125,7 +105,6 @@ class KeyBoardGoodAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             deleteKey.setOnLongClickListener {
                 Log.d("mytag", "longclick")
                 itemClickListener?.OnItemClick("", adapterPosition)
-
                 false
             }
         }
@@ -162,12 +141,10 @@ class KeyBoardGoodAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             else if (position == 10) {
                 holder.keyButton.text = "0"
             }
+            else if (position == 9){
+                holder.keyButton.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+            }
         }
-        else if(holder is KeyBoardGoodAdapter.DeleteViewHolder){
-//            holder.deleteKey.setOnLongClickListener {
-//                Log.d("mytag", "longclick")
-//                false
-//            }
-        }
+
     }
 }
