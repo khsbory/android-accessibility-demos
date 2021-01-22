@@ -1,3 +1,2 @@
-include ':swipe-button'
 include ':app'
 rootProject.name='Solutions for Accessibility'
