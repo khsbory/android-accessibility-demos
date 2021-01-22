@@ -188,6 +188,7 @@ contentText.setOnKeyListener { v, keyCode, event ->
 
 #### 데모 화면 구성
 <img src="https://user-images.githubusercontent.com/48876807/105454908-07daec80-5cc6-11eb-8d72-37398d0cd87b.png" width="200px">     
+
   + recyclerview gridlayout으로 키보드 구성
   + 상단 탭 : Button 두개
   + 하단의 viewpager 내부에 fragment 두개 구성
