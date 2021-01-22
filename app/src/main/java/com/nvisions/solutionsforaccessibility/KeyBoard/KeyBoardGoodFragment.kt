@@ -34,7 +34,7 @@ class KeyBoardGoodFragment : Fragment() {
         keyBoardView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
 
         keyAdapter.itemClickListener = object: KeyBoardGoodAdapter.OnItemClickListener {
-            override fun OnItemClick(input: String, position: Int) {
+            override fun OnItemClick(view: View, input: String, position: Int) {
                 if(input != "" && input != null){
                     //0-9 숫자 버튼
                     var num = editText.text.toString() + input
@@ -48,10 +48,12 @@ class KeyBoardGoodFragment : Fragment() {
                         if (editLength >= 1){
                             var num = editText.text.toString().substring(0, editLength - 1)
                             editText.setText(num)
-                            editText.announceForAccessibility(editText.text.toString())
-                        }
-                        else{
-                            editText.announceForAccessibility("숫자 없음")
+                            if(num.isEmpty()){
+                                editText.announceForAccessibility("숫자 없음")
+                            }
+                            else{
+                                editText.announceForAccessibility(editText.text.toString())
+                            }
                         }
                     }
                 }
@@ -73,7 +75,7 @@ class KeyBoardGoodAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val VIEW_TYPE_DELETE = 1
 
     interface OnItemClickListener{
-        fun OnItemClick(input: String, position: Int)
+        fun OnItemClick(view: View, input: String, position: Int)
     }
 
     var itemClickListener :OnItemClickListener? = null
@@ -84,7 +86,7 @@ class KeyBoardGoodAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             keyButton = itemView.findViewById(R.id.content)
             keyButton.setOnClickListener {
                 val input = keyButton.text.toString()
-                itemClickListener?.OnItemClick(input, adapterPosition)
+                itemClickListener?.OnItemClick(it, input, adapterPosition)
             }
 
             @RequiresApi(api = Build.VERSION_CODES.Q)
@@ -103,12 +105,12 @@ class KeyBoardGoodAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             deleteKey = itemView.findViewById(R.id.deleteKey)
             deleteKey.setOnClickListener {
                 Log.d("mytag", "click")
-                itemClickListener?.OnItemClick("", adapterPosition)
+                itemClickListener?.OnItemClick(it, "", adapterPosition)
 
             }
             deleteKey.setOnLongClickListener {
                 Log.d("mytag", "longclick")
-                itemClickListener?.OnItemClick("", adapterPosition)
+                itemClickListener?.OnItemClick(it, "", adapterPosition)
                 false
             }
         }
