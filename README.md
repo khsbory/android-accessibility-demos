@@ -177,3 +177,39 @@ contentText.setOnKeyListener { v, keyCode, event ->
 + 툴바의 제목을 이미지뷰로 구성한 경우 contentDescription 속성으로 제목 설명, isEnabled 속성을 false로해서 비활성화됨 알려줌
 
 
+
+
+### 커스텀 키보드 사용할 경우
+
+#### 문제점
++ 톡백을 켰을때 기본 안드로이드 키보드에서 한번 클릭으로 키 선택 
++ 커스텀 키보드 사용할 경우 키보드가 버튼으로 구성되어 있으므로 더블 클릭하여 키를 선택해야 함
+
+
+## 데모 화면 구성
+<img src="https://user-images.githubusercontent.com/48876807/103868360-252b8a80-510c-11eb-8bd4-ec2d1fde2da6.png" width="200px"></img>
+" width="200px"></img>    
+ + recyclerview gridlayout으로 키보드 구성
+ + 상단 탭 : Button 두개
+ + 하단의 viewpager 내부에 fragment 두개 구성
+ 
+ 
+## 해결
++ 각 key button에 isTextEntryKey 속성 적용
+: 해당 노드를 키보드 키로 변경
+```
+@RequiresApi(api = Build.VERSION_CODES.Q)
+keyButton.accessibilityDelegate = object : View.AccessibilityDelegate() {
+    override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
+        super.onInitializeAccessibilityNodeInfo(host, info)
+        info?.isTextEntryKey = true
+    }
+}
+```
+
++ 키로 포커스 이동할때마다 리사이클러뷰의 몇행 몇열인지 읽어주는 음성 제거 위해 
+```
+keyBoardView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+```
+            
+
