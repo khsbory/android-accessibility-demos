@@ -16,7 +16,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
-import kotlinx.android.synthetic.main.fragment_key_board_bad.*
+import kotlinx.android.synthetic.main.fragment_key_board_good.*
 
 class KeyBoardGoodFragment : Fragment() {
     lateinit var keyAdapter: KeyBoardGoodAdapter
@@ -31,6 +31,7 @@ class KeyBoardGoodFragment : Fragment() {
         keyBoardView.layoutManager = GridLayoutManager(requireContext(), 3)
         keyAdapter = KeyBoardGoodAdapter()
         keyBoardView.adapter = keyAdapter
+        keyBoardView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
 
         keyAdapter.itemClickListener = object: KeyBoardGoodAdapter.OnItemClickListener {
             override fun OnItemClick(input: String, position: Int) {

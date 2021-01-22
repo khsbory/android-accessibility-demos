@@ -17,6 +17,7 @@
         app:layout_constraintTop_toBottomOf="@+id/keyBoardView" />
 
     <EditText
+        android:enabled="false"
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
