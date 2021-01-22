@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:textSize="20dp"
         android:layout_height="wrap_content"
-        android:text="설명..."
+        android:text="커스텀 키패드를 배치하는 경우에는 키보드에서 손가락을 떼면 바로 입력되도록 구현하면 접근성이 훨씬 더 향상됩니다."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

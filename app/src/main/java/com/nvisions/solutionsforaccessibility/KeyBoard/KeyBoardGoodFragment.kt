@@ -49,6 +49,9 @@ class KeyBoardGoodFragment : Fragment() {
                             editText.setText(num)
                             editText.announceForAccessibility(editText.text.toString())
                         }
+                        else{
+                            editText.announceForAccessibility("숫자 없음")
+                        }
                     }
                 }
 
