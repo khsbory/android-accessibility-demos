@@ -186,14 +186,14 @@ contentText.setOnKeyListener { v, keyCode, event ->
 + 커스텀 키보드 사용할 경우 키보드가 버튼으로 구성되어 있으므로 더블 클릭하여 키를 선택해야 함
 
 
-### 데모 화면 구성
-<img src="https://user-images.githubusercontent.com/48876807/105454908-07daec80-5cc6-11eb-8d72-37398d0cd87b.png" width="200px">
+#### 데모 화면 구성
+<img src="https://user-images.githubusercontent.com/48876807/105454908-07daec80-5cc6-11eb-8d72-37398d0cd87b.png" width="200px">     
  + recyclerview gridlayout으로 키보드 구성
  + 상단 탭 : Button 두개
  + 하단의 viewpager 내부에 fragment 두개 구성
  
  
-### 해결
+#### 해결
 + 각 key button에 isTextEntryKey 속성 적용
 : 해당 노드를 키보드 키로 변경
 ```
