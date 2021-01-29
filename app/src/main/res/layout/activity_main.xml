@@ -136,5 +136,12 @@
         android:id="@+id/dragAndDropButton"
         android:layout_gravity="center"
         android:text="@string/dragAndDropName"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/keyBoardButton"
+        android:layout_gravity="center"
+        android:text="키보드"/>
 </LinearLayout>
 </ScrollView>

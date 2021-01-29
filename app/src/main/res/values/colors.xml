@@ -34,4 +34,6 @@
     <color name="GlobalButtonColor">#104ecf</color>
     <color name="GlobalButtonFontColor">#ffffff</color>
     <color name="selected_element">#007eaf</color>
+    <color name="container_bad_example">#ff9a9f</color>
+    <color name="container_good_example">#afff6f</color>
 </resources>

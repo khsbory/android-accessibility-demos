@@ -49,8 +49,8 @@
 
     <CheckBox
         android:id="@+id/startStation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="17dp"
+        android:layout_height="3dp"
         android:layout_marginTop="30dp"
         android:button="@null"
         android:onClick="setStartStation"

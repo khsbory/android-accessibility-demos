@@ -10,4 +10,6 @@
     <color name="GlobalButtonColor">#1f3a5e</color>
     <color name="selected_element">#00afcf</color>
     <color name="colorAccent">#758fcf</color>
+    <color name="container_bad_example">#af3f34</color>
+    <color name="container_good_example">#2f9f2f</color>
 </resources>

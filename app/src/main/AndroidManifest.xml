@@ -11,13 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".KeyBoard.KeyBoardGoodAndBadActivity"></activity>
+        <activity android:name=".KeyBoard.KeyBoardActivity" />
         <activity
             android:name=".DragAndDrop.DragAndDropBadActivity"
-            android:theme="@style/globalTheme.NoActionBarTheme"/>
+            android:theme="@style/globalTheme.NoActionBarTheme" />
         <activity
             android:name=".DragAndDrop.DragAndDropGoodActivity"
-            android:theme="@style/globalTheme.NoActionBarTheme"/>
-
+            android:theme="@style/globalTheme.NoActionBarTheme" />
         <activity android:name=".DragAndDrop.DragAndDropActivity" />
         <activity android:name=".LayerFocus.LayerFocusBadActivity" />
         <activity android:name=".LayerFocus.LayerFocusGoodActivity" />
@@ -120,15 +121,17 @@
             android:label="@string/label_for_example2_title"
             android:parentActivityName=".labelFor.LabelForActivity" />
         <activity
-            android:name=".ContentGrouping.ContentGroupingActivity"
-            android:label="@string/contentGrouping"
+            android:name=".carousel.CarouselActivity"
+            android:label="@string/carousel_title"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".ContentGrouping.ContentGroupingBadActivity"
-                        android:parentActivityName=".ContentGrouping.ContentGroupingActivity" />
+            android:name=".carousel.CarouselExample1Activity"
+            android:label="@string/carousel_bad_accessibility"
+            android:parentActivityName=".carousel.CarouselActivity" />
         <activity
-            android:name=".ContentGrouping.ContentGroupingGoodActivity"
-                        android:parentActivityName=".ContentGrouping.ContentGroupingActivity" />
+            android:name=".carousel.CarouselExample2Activity"
+            android:label="@string/carousel_good_accessibility"
+            android:parentActivityName=".carousel.CarouselActivity" />
         <activity
             android:name=".recyclerview.RecyclerViewFocusActivity"
             android:label="@string/stay_focus_example"
@@ -178,6 +181,7 @@
         <activity android:name=".CustomControl.CustomControlActivity" />
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
