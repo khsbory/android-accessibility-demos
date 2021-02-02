@@ -57,7 +57,20 @@ class KeyBoardGoodFragment : Fragment() {
                         }
                     }
                 }
+            }
 
+            override fun OnItemLongClick(view: View, input: String, position: Int) {
+                val editLength = editText.text.toString().length
+                if (editLength >= 1){
+                    var num = ""
+                    editText.setText(num)
+                    if(num.isEmpty()){
+                        editText.announceForAccessibility("숫자 없음")
+                    }
+                    else{
+                        editText.announceForAccessibility(editText.text.toString())
+                    }
+                }
             }
         }
 
@@ -76,6 +89,7 @@ class KeyBoardGoodAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     interface OnItemClickListener{
         fun OnItemClick(view: View, input: String, position: Int)
+        fun OnItemLongClick(view: View, input: String, position: Int)
     }
 
     var itemClickListener :OnItemClickListener? = null
@@ -106,11 +120,10 @@ class KeyBoardGoodAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             deleteKey.setOnClickListener {
                 Log.d("mytag", "click")
                 itemClickListener?.OnItemClick(it, "", adapterPosition)
-
             }
             deleteKey.setOnLongClickListener {
                 Log.d("mytag", "longclick")
-                itemClickListener?.OnItemClick(it, "", adapterPosition)
+                itemClickListener?.OnItemLongClick(it, "", adapterPosition)
                 false
             }
         }
