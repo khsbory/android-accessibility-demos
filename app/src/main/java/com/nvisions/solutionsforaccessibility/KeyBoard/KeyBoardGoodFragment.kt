@@ -162,6 +162,7 @@ class KeyBoardGoodAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             else if (position == 9){
                 holder.keyButton.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+                holder.keyButton.background = null
             }
         }
 

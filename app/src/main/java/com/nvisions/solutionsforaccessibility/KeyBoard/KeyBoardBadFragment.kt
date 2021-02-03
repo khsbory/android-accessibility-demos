@@ -49,23 +49,7 @@ class KeyBoardBadFragment : Fragment() {
 
             }
         }
-//        keyAdapter.itemTouchListener = object :KeyBoardBadAdapter.OnItemTouchListener{
-//            override fun OnItemTouch(input: String, position: Int) {
-//                if(input != "" && input != null){
-//                    var num = editText.text.toString() + input
-//                    editText.setText(num)
-//                }
-//                else{
-//                    if(position == 11){
-//                        val editLength = editText.text.toString().length
-//                        if (editLength >= 1){
-//                            var num = editText.text.toString().substring(0, editLength - 1)
-//                            editText.setText(num)
-//                        }
-//                    }
-//                }
-//            }
-//        }
+
         keyAdapter.itemClickListener = object :KeyBoardBadAdapter.OnItemClickListener {
             override fun OnItemClick(input: String, position: Int) {
                 if(input != "" && input != null){
@@ -148,10 +132,6 @@ class KeyBoardBadAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 false
             }
 
-//            deleteKey.setOnClickListener {
-//                Log.d("mytag", "click")
-//                itemClickListener?.OnItemClick(it, "", adapterPosition)
-//            }
             deleteKey.setOnLongClickListener {
                 itemClickListener?.OnItemLongClick(it, "", adapterPosition)
                 false
@@ -159,21 +139,7 @@ class KeyBoardBadAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-//    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        var keyButton: Button
-//        init {
-//            keyButton = itemView.findViewById(R.id.content)
-//            keyButton.setOnClickListener {
-//                val input = keyButton.text.toString()
-//                itemClickListener?.OnItemClick(input, adapterPosition)
-//            }
-////            keyButton.setOnTouchListener { v, event ->
-////                val input = keyButton.text.toString()
-////                itemTouchListener?.OnItemTouch(input, adapterPosition)
-////                true
-////            }
-//        }
-//    }
+
 
     override fun getItemCount(): Int {
         return 12
@@ -201,6 +167,9 @@ class KeyBoardBadAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         if (holder is KeyBoardBadAdapter.NumViewHolder) {
             if(position < 9){
                 holder.keyButton.text = (position + 1).toString()
+            }
+            else if (position == 9) {
+                holder.keyButton.background = null
             }
             else if (position == 10) {
                 holder.keyButton.text = "0"

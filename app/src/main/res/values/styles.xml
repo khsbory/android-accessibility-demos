@@ -1,6 +1,8 @@
 <resources>
 
     <!-- Base application theme. -->
+    Theme.AppCompat.Light.NoActionBar
+<!--    Theme.AppCompat.DayNight.DarkActionBar-->
     <style name="globalTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="android:windowBackground">@color/globalBackground</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
@@ -27,6 +29,9 @@
         <item name="android:background">@drawable/button_border</item>
         <item name="android:backgroundTint">@null</item>
         <item name="android:textColor">@color/GlobalButtonFontColor</item>
+    </style>
+
+    <style name="defaultButton" parent="Widget.AppCompat.Button">
     </style>
 
     <style name="globalTheme.NoActionBarTheme" parent="globalTheme">
