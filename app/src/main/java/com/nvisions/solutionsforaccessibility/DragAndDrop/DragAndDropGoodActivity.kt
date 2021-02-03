@@ -9,15 +9,17 @@ import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.activity_drag_and_drop_good.*
 
 class DragAndDropGoodActivity : AppCompatActivity() {
-    lateinit var rViewAdapter: DragListAdapter
-    lateinit var touchHelper: ItemTouchHelper
-    var itemArr = arrayListOf<Int>()
+    val tabLayoutTextArray = arrayOf("예시 1", "예시 2")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,86 +31,12 @@ class DragAndDropGoodActivity : AppCompatActivity() {
     fun init(){
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        rView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
-                this, RecyclerView.VERTICAL, false
-        )
-        rViewAdapter = DragListAdapter(this, itemArr)
-        val callback = DragItemTouchHelperCallback(rViewAdapter)
-        touchHelper = ItemTouchHelper(callback)
-        touchHelper.attachToRecyclerView(rView)
-        rView.adapter = rViewAdapter
-        rViewAdapter.itemDeleteListener = object : DragListAdapter.OnItemDeleteListener{
-            override fun onItemDelete(holder: DragListAdapter.ViewHolder, position: Int) {
-                itemArr.removeAt(position)
-                rViewAdapter.notifyItemRemoved(position)
-                rViewAdapter.notifyItemRangeChanged(position, itemArr.size)
-
-                //접근성 개선 코드
-               Handler().postDelayed({
-                   //아이템이 모두 삭제되면 추가 버튼으로 포커스 이동
-                    if(rViewAdapter.itemCount == 0){
-                        addButton.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-                        addButton.requestFocus()
-                    }
-                    else{
-                        //제일 마지막 아이템을 삭제한 경우 남아있는 가장 마지막 아이템의 content로 포커스 이동
-                        if(position == rViewAdapter.itemCount){
-                            (rView.get(position - 1) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-                            (rView.get(position - 1) as ViewGroup).getChildAt(2).requestFocus()
-                        }
-                        //삭제된 위치의 새 아이템의 content로 포커스 이동
-                        else{
-                            (rView.get(position) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-                            (rView.get(position) as ViewGroup).getChildAt(2).requestFocus()
-                        }
-                    } }, 200)
-            }
-        }
-
-        rViewAdapter.itemMoveListener = object : DragListAdapter.OnItemMoveListener{
-            override fun onItemMoveUp(position: Int) {
-                if(position - 1 >= 0){
-                    rViewAdapter.moveItem(position, position - 1)
-                    Handler().postDelayed({
-                        (rView.get(position - 1) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-                        (rView.get(position - 1) as ViewGroup).getChildAt(2).requestFocus()
-                        (rView.get(position - 1) as ViewGroup).getChildAt(2).announceForAccessibility(((rView.get(position) as ViewGroup).getChildAt(2) as TextView).text.toString()+ "위로 이동됨")
-                    }, 200)
-                }
-                else{
-                    (rView.get(position) as ViewGroup).getChildAt(2).announceForAccessibility("위로 이동할 수 없음")
-                }
-            }
-
-            override fun onItemMoveDown(position: Int) {
-                    if(position + 1 < rViewAdapter.itemCount){
-                        rViewAdapter.moveItem(position, position + 1)
-                        Handler().postDelayed({
-                            (rView.get(position + 1) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-                            (rView.get(position + 1) as ViewGroup).getChildAt(2).requestFocus()
-                            (rView.get(position + 1) as ViewGroup).getChildAt(2).announceForAccessibility(((rView.get(position) as ViewGroup).getChildAt(2) as TextView).text.toString()+ "아래로 이동됨")
-                        }, 200)
-                    }
-                    else{
-                        (rView.get(position) as ViewGroup).getChildAt(2).announceForAccessibility("아래로 이동할 수 없음")
-                    }
-            }
-        }
-
         titleButton.isEnabled = false
+        viewPager.adapter = ViewPagerAdapter(this)
+        TabLayoutMediator(tabLayout, viewPager){ tab,position->
+            tab.text = tabLayoutTextArray[position]
+        }.attach()
 
-        addButton.setOnClickListener {
-            var max = 0
-            for(i in itemArr){
-                if(i > max){
-                    max = i
-                }
-            }
-            itemArr.add(max + 1)
-            rViewAdapter.notifyItemInserted(itemArr.size - 1)
-            it.announceForAccessibility((max + 1).toString() + " 추가됨")
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -117,5 +45,16 @@ class DragAndDropGoodActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+}
+
+class ViewPagerAdapter(fa: FragmentActivity): FragmentStateAdapter(fa){
+    override fun createFragment(position: Int): Fragment {
+        return when(position){
+            0 -> DragAndDropFragment1()
+            1 -> DragAndDropFragment2()
+            else -> DragAndDropFragment1()
+        }
+    }
+    override fun getItemCount():Int = 2
 }
 
