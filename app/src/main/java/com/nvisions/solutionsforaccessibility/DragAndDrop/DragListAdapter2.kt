@@ -25,6 +25,7 @@ class DragListAdapter2 (val context: Context, val items: ArrayList<Int>) : Recyc
     interface OnItemMoveListener {
         fun onItemMoveUp(position:Int)
         fun onItemMoveDown(position:Int)
+        fun onItemMoveTo(fromPosition: Int, toPosition:Int)
     }
 
     var itemDeleteListener :OnItemDeleteListener? = null
@@ -64,6 +65,7 @@ class DragListAdapter2 (val context: Context, val items: ArrayList<Int>) : Recyc
                     info?.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat(R.id.action_delete, "삭제"))
                     info?.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat(R.id.action_move_up, "위로 이동"))
                     info?.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat(R.id.action_move_down, "아래로 이동"))
+                    info?.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat(R.id.action_move, "번호로 이동"))
                 }
 
                 override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
@@ -79,6 +81,20 @@ class DragListAdapter2 (val context: Context, val items: ArrayList<Int>) : Recyc
                         R.id.action_move_down -> {
                             Log.d("mytag", "down")
                             itemMoveListener?.onItemMoveDown(adapterPosition)
+                        }
+                        R.id.action_move -> {
+                            var list = ArrayList<Int>()
+                            for (i in 1..itemCount){
+                                list.add(i)
+                            }
+                            var dialog = ListDialog.Builder(context, list).create()
+                            dialog.itemClickListener = object : ListDialog.OnItemClickListener{
+                                override fun onItemClick(position: Int) {
+                                    itemMoveListener?.onItemMoveTo(adapterPosition, position)
+                                    dialog.dismissDialog()
+                                }
+                            }
+                            dialog.show()
                         }
                         else -> {
                             return super.performAccessibilityAction(host, action, args)

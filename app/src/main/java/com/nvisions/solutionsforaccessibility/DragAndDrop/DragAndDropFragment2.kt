@@ -92,6 +92,15 @@ class DragAndDropFragment2 : Fragment() {
                     (rView.get(position) as ViewGroup).getChildAt(2).announceForAccessibility("아래로 이동할 수 없음")
                 }
             }
+
+            override fun onItemMoveTo(fromPosition: Int, toPosition: Int) {
+                rViewAdapter.moveItem(fromPosition, toPosition)
+                Handler().postDelayed({
+                    (rView.get(toPosition) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+                    (rView.get(toPosition) as ViewGroup).getChildAt(2).requestFocus()
+                    (rView.get(toPosition) as ViewGroup).getChildAt(2).announceForAccessibility(((rView.get(toPosition) as ViewGroup).getChildAt(2) as TextView).text.toString()+ "로 이동됨")
+                }, 200)
+            }
         }
 
 
