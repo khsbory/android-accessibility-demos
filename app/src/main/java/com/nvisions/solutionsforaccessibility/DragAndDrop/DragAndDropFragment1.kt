@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_drag_and_drop1.*
 
 class DragAndDropFragment1 : Fragment() {
 
-    lateinit var rViewAdapter: DragListAdapter
+    lateinit var rViewAdapter: DragListAdapter1
     lateinit var touchHelper: ItemTouchHelper
     var itemArr = arrayListOf<Int>()
 
@@ -31,13 +31,13 @@ class DragAndDropFragment1 : Fragment() {
         rView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
                 requireContext(), RecyclerView.VERTICAL, false
         )
-        rViewAdapter = DragListAdapter(requireContext(), itemArr)
+        rViewAdapter = DragListAdapter1(requireContext(), itemArr)
         val callback = DragItemTouchHelperCallback(rViewAdapter)
         touchHelper = ItemTouchHelper(callback)
         touchHelper.attachToRecyclerView(rView)
         rView.adapter = rViewAdapter
-        rViewAdapter.itemDeleteListener = object : DragListAdapter.OnItemDeleteListener{
-            override fun onItemDelete(holder: DragListAdapter.ViewHolder, position: Int) {
+        rViewAdapter.itemDeleteListener = object : DragListAdapter1.OnItemDeleteListener{
+            override fun onItemDelete(holder: DragListAdapter1.ViewHolder, position: Int) {
                 itemArr.removeAt(position)
                 rViewAdapter.notifyItemRemoved(position)
                 rViewAdapter.notifyItemRangeChanged(position, itemArr.size)
@@ -64,7 +64,7 @@ class DragAndDropFragment1 : Fragment() {
             }
         }
 
-        rViewAdapter.itemMoveListener = object : DragListAdapter.OnItemMoveListener{
+        rViewAdapter.itemMoveListener = object : DragListAdapter1.OnItemMoveListener{
             override fun onItemMoveUp(position: Int) {
                 if(position - 1 >= 0){
                     rViewAdapter.moveItem(position, position - 1)
@@ -110,3 +110,5 @@ class DragAndDropFragment1 : Fragment() {
 
 
 }
+
+

@@ -2,7 +2,6 @@ package com.nvisions.solutionsforaccessibility.DragAndDrop
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -11,12 +10,10 @@ import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
-import kotlinx.android.synthetic.main.custom_control_good_activity.*
-import kotlinx.android.synthetic.main.drag_and_drop_item.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class DragListAdapter (val context: Context, val items: ArrayList<Int>) : RecyclerView.Adapter<DragListAdapter.ViewHolder>() {
+class DragListAdapter1 (val context: Context, val items: ArrayList<Int>) : RecyclerView.Adapter<DragListAdapter1.ViewHolder>() {
     interface OnItemDeleteListener{
         fun onItemDelete(holder:ViewHolder, position: Int)
     }
