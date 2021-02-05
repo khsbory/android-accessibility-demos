@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.nvisions.solutionsforaccessibility.CustomDialog
 import kotlinx.android.synthetic.main.list_dialog_layout.*
 
 open class ListDialog(context: Context) : Dialog(context) {
@@ -16,7 +15,7 @@ open class ListDialog(context: Context) : Dialog(context) {
     }
 
     open class Builder(val mContext: Context, val list: ArrayList<String>) {
-        open val dialog = CustomDialog(mContext)
+        open val dialog = ListDialog(mContext)
 
         var itemClickListener :OnItemClickListener? = null
         open fun create(): Builder {
@@ -37,6 +36,7 @@ open class ListDialog(context: Context) : Dialog(context) {
                     itemClickListener?.onItemClick(position)
                 }
             }
+            dialog.cancelButton.setOnClickListener { dialog.dismiss() }
             return this
         }
 
@@ -44,7 +44,8 @@ open class ListDialog(context: Context) : Dialog(context) {
             dialog.dismiss()
         }
 
-        open fun show(): CustomDialog {
+
+        open fun show(): ListDialog{
             dialog.show()
             return dialog
         }
