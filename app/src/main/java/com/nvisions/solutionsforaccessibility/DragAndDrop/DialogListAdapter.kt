@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
 
-class DialogListAdapter(val data: ArrayList<Int>, val context: Context) : RecyclerView.Adapter<DialogListAdapter.ViewHolder>() {
+class DialogListAdapter(val data: ArrayList<String>, val context: Context) : RecyclerView.Adapter<DialogListAdapter.ViewHolder>() {
     interface OnItemClickListener{
         fun onItemClick(holder: DialogListAdapter.ViewHolder, view:View, position: Int)
     }
@@ -40,7 +40,7 @@ class DialogListAdapter(val data: ArrayList<Int>, val context: Context) : Recycl
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (holder is ViewHolder) {
             val item = data[position]!!
-            holder.textView.text = item.toString()
+            holder.textView.text = item
         }
     }
 }

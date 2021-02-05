@@ -83,14 +83,24 @@ class DragListAdapter2 (val context: Context, val items: ArrayList<Int>) : Recyc
                             itemMoveListener?.onItemMoveDown(adapterPosition)
                         }
                         R.id.action_move -> {
-                            var list = ArrayList<Int>()
-                            for (i in 1..itemCount){
-                                list.add(i)
+                            var list = ArrayList<String>()
+                            for (i in 0 until itemCount){
+                                if (i < adapterPosition){
+                                    list.add(items[i].toString() + " 위로 이동")
+                                }
+                                else if (i > adapterPosition){
+                                    list.add(items[i].toString() + " 아래로 이동")
+                                }
                             }
                             var dialog = ListDialog.Builder(context, list).create()
                             dialog.itemClickListener = object : ListDialog.OnItemClickListener{
                                 override fun onItemClick(position: Int) {
-                                    itemMoveListener?.onItemMoveTo(adapterPosition, position)
+                                    if (position >= adapterPosition){
+                                        itemMoveListener?.onItemMoveTo(adapterPosition, position + 1)
+                                    }
+                                    else{
+                                        itemMoveListener?.onItemMoveTo(adapterPosition, position)
+                                    }
                                     dialog.dismissDialog()
                                 }
                             }

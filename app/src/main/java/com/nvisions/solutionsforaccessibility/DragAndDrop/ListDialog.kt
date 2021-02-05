@@ -15,7 +15,7 @@ open class ListDialog(context: Context) : Dialog(context) {
         fun onItemClick(position: Int)
     }
 
-    open class Builder(val mContext: Context, val list: ArrayList<Int>) {
+    open class Builder(val mContext: Context, val list: ArrayList<String>) {
         open val dialog = CustomDialog(mContext)
 
         var itemClickListener :OnItemClickListener? = null
