@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.list_dialog_layout.*
 
 open class ListDialog(context: Context) : Dialog(context) {
+
     interface OnItemClickListener{
         fun onItemClick(position: Int)
     }
@@ -20,6 +21,7 @@ open class ListDialog(context: Context) : Dialog(context) {
         var itemClickListener :OnItemClickListener? = null
         open fun create(): Builder {
             dialog.create()
+            dialog.setTitle("항목 이동")
             dialog.setContentView(R.layout.list_dialog_layout)
             dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialog.listView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(

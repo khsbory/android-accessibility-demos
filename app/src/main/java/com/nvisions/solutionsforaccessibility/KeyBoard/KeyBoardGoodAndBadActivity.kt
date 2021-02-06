@@ -3,6 +3,10 @@ package com.nvisions.solutionsforaccessibility.KeyBoard
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import androidx.core.view.AccessibilityDelegateCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -20,11 +24,23 @@ class KeyBoardGoodAndBadActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle("키보드 접근성")
         buttonBad.isSelected = true
+        ViewCompat.setAccessibilityDelegate(buttonBad, object :AccessibilityDelegateCompat() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfoCompat?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.roleDescription = "tab"
+            }
+        })
         buttonBad.setOnClickListener {
             buttonBad.isSelected = true
             buttonGood.isSelected = false
             viewPager.currentItem = 0
         }
+        ViewCompat.setAccessibilityDelegate(buttonGood, object :AccessibilityDelegateCompat() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfoCompat?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.roleDescription = "tab"
+            }
+        })
         buttonGood.setOnClickListener {
             buttonGood.isSelected = true
             buttonBad.isSelected = false

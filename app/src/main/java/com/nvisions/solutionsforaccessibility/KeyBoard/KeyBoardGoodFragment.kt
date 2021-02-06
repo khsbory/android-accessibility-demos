@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.fragment_key_board_good.*
+import kotlinx.android.synthetic.main.keyboard_delete_item.*
 
 class KeyBoardGoodFragment : Fragment() {
     lateinit var keyAdapter: KeyBoardGoodAdapter
@@ -38,6 +40,7 @@ class KeyBoardGoodFragment : Fragment() {
                 if(input != "" && input != null){
                     //0-9 숫자 버튼
                     var num = editText.text.toString() + input
+                    deleteKey.isEnabled = true
                     editText.setText(num)
                     editText.announceForAccessibility(editText.text.toString())
                 }
@@ -49,6 +52,7 @@ class KeyBoardGoodFragment : Fragment() {
                             var num = editText.text.toString().substring(0, editLength - 1)
                             editText.setText(num)
                             if(num.isEmpty()){
+                                deleteKey.isEnabled = false
                                 editText.announceForAccessibility("숫자 없음")
                             }
                             else{
@@ -114,9 +118,11 @@ class KeyBoardGoodAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     inner class DeleteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var deleteKey: ImageView
+        var deleteKey: ImageButton
         init {
             deleteKey = itemView.findViewById(R.id.deleteKey)
+            deleteKey.isEnabled = false
+            deleteKey.contentDescription = "삭제"
             deleteKey.setOnClickListener {
                 Log.d("mytag", "click")
                 itemClickListener?.OnItemClick(it, "", adapterPosition)

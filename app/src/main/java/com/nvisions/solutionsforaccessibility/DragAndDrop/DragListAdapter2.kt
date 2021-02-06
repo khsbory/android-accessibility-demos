@@ -65,7 +65,7 @@ class DragListAdapter2 (val context: Context, val items: ArrayList<Int>) : Recyc
                     info?.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat(R.id.action_delete, "삭제"))
                     info?.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat(R.id.action_move_up, "위로 이동"))
                     info?.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat(R.id.action_move_down, "아래로 이동"))
-                    info?.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat(R.id.action_move, "번호로 이동"))
+                    info?.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat(R.id.action_move, "이동"))
                 }
 
                 override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {
@@ -93,6 +93,7 @@ class DragListAdapter2 (val context: Context, val items: ArrayList<Int>) : Recyc
                                 }
                             }
                             var dialog = ListDialog.Builder(context, list).create()
+
                             dialog.itemClickListener = object : ListDialog.OnItemClickListener{
                                 override fun onItemClick(position: Int) {
                                     if (position >= adapterPosition){

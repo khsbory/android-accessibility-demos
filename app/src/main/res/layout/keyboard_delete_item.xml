@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/deleteKey"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:src="@drawable/back"
-        android:contentDescription="삭제"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

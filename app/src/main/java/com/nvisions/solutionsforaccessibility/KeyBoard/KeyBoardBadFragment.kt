@@ -10,10 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
@@ -36,6 +33,7 @@ class KeyBoardBadFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        editText.isEnabled = false
         keyBoardView.layoutManager = GridLayoutManager(requireContext(), 3)
         keyAdapter = KeyBoardBadAdapter()
         keyBoardView.adapter = keyAdapter
@@ -121,7 +119,7 @@ class KeyBoardBadAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     inner class DeleteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var deleteKey: ImageView
+        var deleteKey: ImageButton
         init {
             deleteKey = itemView.findViewById(R.id.deleteKey)
             deleteKey.setOnTouchListener { v, event ->

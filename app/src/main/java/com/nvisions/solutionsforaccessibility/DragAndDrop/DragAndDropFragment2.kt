@@ -98,7 +98,7 @@ class DragAndDropFragment2 : Fragment() {
                 Handler().postDelayed({
                     (rView.get(toPosition) as ViewGroup).getChildAt(2).performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
                     (rView.get(toPosition) as ViewGroup).getChildAt(2).requestFocus()
-                    (rView.get(toPosition) as ViewGroup).getChildAt(2).announceForAccessibility(((rView.get(toPosition) as ViewGroup).getChildAt(2) as TextView).text.toString()+ "로 이동됨")
+                    (rView.get(toPosition) as ViewGroup).getChildAt(2).announceForAccessibility(((rView.get(toPosition) as ViewGroup).getChildAt(2) as TextView).text.toString()+ "이동완료")
                 }, 200)
             }
         }
