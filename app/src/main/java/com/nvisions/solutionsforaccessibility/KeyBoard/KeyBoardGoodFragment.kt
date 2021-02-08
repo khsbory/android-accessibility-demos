@@ -14,9 +14,13 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.AccessibilityDelegateCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
+import kotlinx.android.synthetic.main.activity_key_board_good_and_bad.*
 import kotlinx.android.synthetic.main.fragment_key_board_good.*
 import kotlinx.android.synthetic.main.keyboard_delete_item.*
 
@@ -30,7 +34,13 @@ class KeyBoardGoodFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        keyBoardView.layoutManager = GridLayoutManager(requireContext(), 3)
+        ViewCompat.setAccessibilityDelegate(editText, object : AccessibilityDelegateCompat() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfoCompat?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.hintText = "금액"
+            }
+        })
+                keyBoardView.layoutManager = GridLayoutManager(requireContext(), 3)
         keyAdapter = KeyBoardGoodAdapter()
         keyBoardView.adapter = keyAdapter
         keyBoardView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
@@ -41,6 +51,7 @@ class KeyBoardGoodFragment : Fragment() {
                     //0-9 숫자 버튼
                     var num = editText.text.toString() + input
                     deleteKey.isEnabled = true
+                    confrimButton.isEnabled = true
                     editText.setText(num)
                     editText.announceForAccessibility(editText.text.toString())
                 }
@@ -53,6 +64,7 @@ class KeyBoardGoodFragment : Fragment() {
                             editText.setText(num)
                             if(num.isEmpty()){
                                 deleteKey.isEnabled = false
+                                confrimButton.isEnabled = false
                                 editText.announceForAccessibility("숫자 없음")
                             }
                             else{
@@ -67,6 +79,8 @@ class KeyBoardGoodFragment : Fragment() {
                 val editLength = editText.text.toString().length
                 if (editLength >= 1){
                     var num = ""
+                    deleteKey.isEnabled = false
+                    confrimButton.isEnabled = false
                     editText.setText(num)
                     if(num.isEmpty()){
                         editText.announceForAccessibility("숫자 없음")
@@ -83,6 +97,8 @@ class KeyBoardGoodFragment : Fragment() {
             builder.setMessage("잔액이 부족합니다")
             builder.setPositiveButton(R.string.confirm ) {_, _-> editText.text.clear() }
             builder.create().show()
+            confrimButton.isEnabled = false
+            deleteKey.isEnabled = false
         }
     }
 }

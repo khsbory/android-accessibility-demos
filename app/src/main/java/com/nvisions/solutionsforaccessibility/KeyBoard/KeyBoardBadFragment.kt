@@ -34,6 +34,7 @@ class KeyBoardBadFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         editText.isEnabled = false
+        confrimButton.isEnabled = false
         keyBoardView.layoutManager = GridLayoutManager(requireContext(), 3)
         keyAdapter = KeyBoardBadAdapter()
         keyBoardView.adapter = keyAdapter
@@ -42,6 +43,7 @@ class KeyBoardBadFragment : Fragment() {
                 val editLength = editText.text.toString().length
                 if (editLength >= 1){
                     var num = editText.text.toString().substring(0, editLength - 1)
+                    confrimButton.isEnabled = false
                     editText.setText(num)
                 }
 
@@ -52,6 +54,7 @@ class KeyBoardBadFragment : Fragment() {
             override fun OnItemClick(input: String, position: Int) {
                 if(input != "" && input != null){
                     var num = editText.text.toString() + input
+                    confrimButton.isEnabled = true
                     editText.setText(num)
                 }
                 else{
@@ -70,13 +73,9 @@ class KeyBoardBadFragment : Fragment() {
                 val editLength = editText.text.toString().length
                 if (editLength >= 1){
                     var num = ""
+                    confrimButton.isEnabled = false
                     editText.setText(num)
-                    if(num.isEmpty()){
-                        editText.announceForAccessibility("숫자 없음")
-                    }
-                    else{
-                        editText.announceForAccessibility(editText.text.toString())
-                    }
+
                 }
             }
         }
@@ -85,6 +84,7 @@ class KeyBoardBadFragment : Fragment() {
             builder.setMessage("잔액이 부족합니다")
             builder.setPositiveButton(R.string.confirm ) {_, _-> editText.text.clear() }
             builder.create().show()
+            confrimButton.isEnabled = false
         }
 
     }
