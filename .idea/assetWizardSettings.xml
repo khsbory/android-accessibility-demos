@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../Android/Sdk/icons/material/materialicons/radio_button_unchecked/baseline_radio_button_unchecked_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../../Android/Sdk/icons/material/materialicons/arrow_back/baseline_arrow_back_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -33,7 +33,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_radio_unselected" />
+                            <entry key="outputName" value="ic_btn_backspace" />
                             <entry key="sourceFile" value="C:\project\android-accessibility-demos" />
                           </map>
                         </option>

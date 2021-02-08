@@ -7,6 +7,7 @@
         <item name="android:windowBackground">@color/globalBackground</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:buttonStyle">@style/globalTheme.CommonStyleButton</item>
+        <item name="android:imageButtonStyle">@style/globalTheme.CommonStyleButton</item>
         <item name="android:color">@color/textColorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -32,6 +33,10 @@
     </style>
 
     <style name="defaultButton" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/GlobalButtonFontColor</item>
+        <item name="android:background">@drawable/button_border_not_radius</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textSize">30dp</item>
     </style>
 
     <style name="globalTheme.NoActionBarTheme" parent="globalTheme">

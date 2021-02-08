@@ -19,6 +19,7 @@
     <color name="listEmphasis">#2277ccff</color>
     <color name="globalBackground">#ffffff</color>
     <color name="colorPrimary">#cc102F9F</color>
+    <color name="textColor">#1f1f1f</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="textColorPrimary">#0e0e0e</color>
     <color name="colorAccent">#F50057</color>

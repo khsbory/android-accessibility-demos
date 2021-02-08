@@ -6,10 +6,12 @@
     android:layout_height="wrap_content">
 
     <ImageButton
+        style="@style/defaultButton"
         android:id="@+id/deleteKey"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:src="@drawable/back"
+        android:src="@drawable/ic_btn_backspace"
+        android:tint="@color/GlobalButtonFontColor"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
