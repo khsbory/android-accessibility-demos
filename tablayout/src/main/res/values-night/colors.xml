@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textColor">#fafafa</color>
+    <color name="listEmphasis">#44262f7f</color>
+    <color name="colorPrimary">#ff02246f</color>
+    <color name="colorPrimaryDark">#5502246f</color>
+    <color name="textColorPrimary">#dfdfdf</color>
+    <color name="globalBackground">#07122b</color>
+    <color name="bg_PlayerColor">#192638</color>
+    <color name="bg_dialogAndLayer">#12123f</color>
+    <color name="GlobalButtonColor">#1f3a5e</color>
+    <color name="selected_element">#00afcf</color>
+    <color name="colorAccent">#758fcf</color>
+    <color name="container_bad_example">#af3f34</color>
+    <color name="container_good_example">#2f9f2f</color>
+</resources>

@@ -1,0 +1,83 @@
+<resources>
+
+    <!-- Base application theme. -->
+    Theme.AppCompat.Light.NoActionBar
+    <!--    Theme.AppCompat.DayNight.DarkActionBar-->
+    <style name="globalTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="android:windowBackground">@color/globalBackground</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:buttonStyle">@style/globalTheme.CommonStyleButton</item>
+        <item name="android:imageButtonStyle">@style/globalTheme.CommonStyleButton</item>
+        <item name="android:color">@color/textColorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:alertDialogTheme">@style/globalTheme.AlertDialog</item>
+    </style>
+
+    <style name="prettyLayout">
+        <item name="android:layout_marginVertical">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingHorizontal">@dimen/activity_padding</item>
+    </style>
+
+    <style name="bg_transparent" parent="globalTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@null</item>
+        <item name="android:backgroundTint">@null</item>
+    </style>
+
+    <style name="globalTheme.CommonStyleButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_border</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/GlobalButtonFontColor</item>
+    </style>
+
+    <style name="defaultButton" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/GlobalButtonFontColor</item>
+        <item name="android:background">@drawable/button_border_not_radius</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textSize">30dp</item>
+    </style>
+
+    <style name="globalTheme.NoActionBarTheme" parent="globalTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="titleTextColor">@color/textColorPrimary</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:color">@color/textColorPrimary</item>
+        <item name="toolbarNavigationButtonStyle">@style/globalTheme.NoActionBarTheme.NavigationButtonStyle</item>
+    </style>
+
+    <style name="globalTheme.NoActionBarTheme.NavigationButtonStyle" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="globalTheme.AlertDialog" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:windowBackground">@drawable/global_dialog</item>
+    </style>
+
+    <style name="PlayerColorTheme" parent="Theme.AppCompat.DayNight">
+        <item name="android:textColorPrimary">#000000</item>
+        <item name="android:background">@color/bg_PlayerColor</item>
+        <item name="android:windowBackground">@color/bg_PlayerColor</item>
+        <item name="buttonStyle">@style/globalTheme.CommonStyleButton</item>
+    </style>
+
+    <style name="textOptions" parent="textOptions.constraintCenter">
+        <item name="android:textSize">15dp</item>
+        <item name="android:background">@null</item>
+    </style>
+    <style name="textOptions.constraintCenter" parent="textOptions">
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+    </style>
+
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+</resources>

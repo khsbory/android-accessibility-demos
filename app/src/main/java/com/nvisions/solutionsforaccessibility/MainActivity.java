@@ -124,16 +124,7 @@ startActivity(intent);
             }
         });
 
-        Button tabControl = (Button)findViewById(R.id.tabControl);
-        tabControl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TabControlActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button collapseExpand = (Button)findViewById(R.id.collapseExpand);
+                Button collapseExpand = (Button)findViewById(R.id.collapseExpand);
         collapseExpand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

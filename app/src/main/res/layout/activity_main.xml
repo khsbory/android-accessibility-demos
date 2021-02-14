@@ -80,13 +80,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tabControl"
-        android:layout_gravity="center"
-        android:text="@string/tabControl"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/collapseExpand"
         android:layout_gravity="center"
         android:text="@string/collapseExpand"/>
