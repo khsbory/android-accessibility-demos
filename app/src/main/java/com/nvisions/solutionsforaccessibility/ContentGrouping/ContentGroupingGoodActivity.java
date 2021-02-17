@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -24,9 +25,10 @@ public class ContentGroupingGoodActivity extends AppCompatActivity {
             getActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        TextView songName = (TextView) findViewById(R.id.value_song_name);
-        TextView songLabel = (TextView) findViewById(R.id.label_song_name);
-        songName.setContentDescription(songLabel.getText() + ": " + songName.getText());
+
+        RelativeLayout song_data_container = (RelativeLayout)findViewById(R.id.song_data_container);
+        song_data_container.setContentDescription(getString(R.string.label_song_name) + ": " + getString(R.string.value_song_name) + ", " + getString(R.string.label_song_artists) + ": " + getString(R.string.value_song_artists) + ", " + getString(R.string.label_song_cost) + ": " + getString(R.string.value_song_cost));
+
     }
 }
 

@@ -1,5 +1,6 @@
 package com.nvisions.solutionsforaccessibility.progress;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -26,6 +27,9 @@ public class ProgressBarAccessibleExampleActivity extends AppCompatActivity {
         pgsBar = (ProgressBar) findViewById(R.id.pBar);
         final Button btn = (Button)findViewById(R.id.btnShow);
         final Button btn2 = (Button)findViewById(R.id.btnReset);
+        if (Build.VERSION.SDK_INT < 30) {
+            pgsBar.setContentDescription("0%");
+        }
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,8 +45,10 @@ public class ProgressBarAccessibleExampleActivity extends AppCompatActivity {
                             hdlr.post(new Runnable() {
                                 public void run() {
                                     pgsBar.setProgress(i);
-                                    pgsBar.setContentDescription(i+"%");
-                                }
+                                    if (Build.VERSION.SDK_INT < 30) {
+                                        pgsBar.setContentDescription(i+"%");
+                                    }
+                                                                    }
                             });
                             try {
                                 // Sleep for 100 milliseconds to show the progress slowly.
@@ -59,7 +65,9 @@ public class ProgressBarAccessibleExampleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pgsBar.setProgress(0);
-                pgsBar.setContentDescription("0%");
+                if (Build.VERSION.SDK_INT < 30) {
+                    pgsBar.setContentDescription("0%");
+                }
                 btn.setEnabled(true);
                 btn2.setEnabled(false);
                 String string = getString(R.string.progressResetComplete);

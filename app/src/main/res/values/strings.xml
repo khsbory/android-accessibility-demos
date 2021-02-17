@@ -1,3 +1,4 @@
+
 <resources>
     <string name="app_name">오류 유형별 접근성 해결방안</string>
 
@@ -79,7 +80,7 @@
     <string name="stay_focus_good">접근성이 적용된 경우</string>
     <string name="stay_focus_bad">접근성이 적용되지 않은 경우</string>
     <string name="progressBar">막대 그래프로만 진행률을 표시하는 경우</string>
-    <string name="progressBarText">ProgressBar 클래스를 사용하여 진행률 상태를 그래프로 표시하는 경우에는 스크린 리더 사용자를 위해 대체 텍스트를 삽입하여 진행률 바에 접근할 수 있도록 해 주어야 합니다.</string>
+    <string name="progressBarText">ProgressBar 클래스를 사용하여 진행률 상태를 그래프로 표시하는 경우에는 스크린 리더 사용자를 위해 대체 텍스트를 삽입하여 진행률 바에 접근할 수 있도록 해 주어야 합니다. (안드로이드 11 이상에서는 해당 작업 필요 없음).</string>
     <string name="progressBarAccessibleExample">진행률막대, 접근성이 적용된 예시</string>
     <string name="progressBarNoneAccessibleExample">진행률 막대, 접근성이 적용되지 않은 예시</string>
     <string name="startProgress">진행률 표시줄 테스트 시작하기</string>
@@ -227,13 +228,13 @@
     <string name="bannerRolling">볼륨키로 배너 넘기기</string>
     <string name="contentGrouping">포커스 합치기</string>
     <string name="contentGroupingDetail">이름 홍길동, 나이 25세 와 같은 화면에서 각각의 제목과 텍스트의 접근성 초점이 분리되어 있다면 하나의 초점으로 합치는 것이 스크린 리더 사용자의 탐색의 효율성을 높일 수 있습니다.</string>
-    <string name="song_details">Song Details</string>
-    <string name="label_song_name">Name</string>
-    <string name="value_song_name">Hey Jude</string>
-    <string name="label_song_artists">Artists</string>
-    <string name="value_song_artists">The Beatles</string>
-    <string name="label_song_cost">Cost</string>
-    <string name="value_song_cost">$1.45</string>
+    <string name="song_details">곡 정보</string>
+    <string name="label_song_name">곡명</string>
+    <string name="value_song_name">학교종이땡땡땡</string>
+    <string name="label_song_artists">아티스트</string>
+    <string name="value_song_artists">동요클럽</string>
+    <string name="label_song_cost">정가</string>
+    <string name="value_song_cost">700원</string>
 
     <string name="dragAndDropName">드래그앤드롭</string>
     <string name="drag_descript">특정 리스트의 순서를 드래그 앤 드롭 형식으로 이동시키는 경우 톡백 사용자도 해당 기능을 이용할 수 있도록 접근성 대응을 해 주어야 합니다.</string>

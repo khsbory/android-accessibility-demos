@@ -23,8 +23,7 @@
             android:minWidth="200dp"
             android:max="100"
             android:indeterminate="false"
-            android:contentDescription="0%"
-            android:progress="0" />
+                        android:progress="0" />
         <Button
             android:id="@+id/btnShow"
             android:layout_width="match_parent"
