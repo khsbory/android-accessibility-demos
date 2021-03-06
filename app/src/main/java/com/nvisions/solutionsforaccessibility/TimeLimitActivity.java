@@ -115,7 +115,6 @@ public class TimeLimitActivity extends AppCompatActivity {
         String dialog_content = getResources().getString(R.string.dialog_text);
         text.setText(dialog_content);
 
-
         ImageView image = dialog.findViewById(R.id.image);
         image.setImageResource(R.drawable.ic_launcher_foreground);
 
@@ -143,7 +142,10 @@ public class TimeLimitActivity extends AppCompatActivity {
 
 String seconds = getResources().getString(R.string.seconds);
                         text.setText(timeoutSec[0] + seconds);
-
+                        text.setContentDescription("남은시간" + text.getText());
+                        if (text.isAccessibilityFocused()) {
+                            text.announceForAccessibility(text.getText());
+                                                    }
                     }
                 }, 1000, 1000);
             }

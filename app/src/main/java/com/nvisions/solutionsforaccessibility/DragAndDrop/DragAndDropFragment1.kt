@@ -29,8 +29,7 @@ class DragAndDropFragment1 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         rView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
-                requireContext(), RecyclerView.VERTICAL, false
-        )
+                requireContext(), RecyclerView.VERTICAL, false)
         rViewAdapter = DragListAdapter1(requireContext(), itemArr)
         val callback = DragItemTouchHelperCallback(rViewAdapter)
         touchHelper = ItemTouchHelper(callback)
