@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nvisions.solutionsforaccessibility">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:background="?android:attr/colorBackground"
@@ -11,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".KeyBoard.KeyBoardGoodAndBadActivity"></activity>
+        <activity android:name=".gmarketSample.GmarketSampleActivity"></activity>
+        <activity android:name=".gmarketSample.WithoutAccessibilityActivity" />
+        <activity android:name=".KeyBoard.KeyBoardGoodAndBadActivity" />
         <activity android:name=".KeyBoard.KeyBoardActivity" />
         <activity
             android:name=".DragAndDrop.DragAndDropBadActivity"
@@ -26,15 +31,16 @@
         <activity
             android:name=".refreshContents.RefreshContentsWithoutAccessibilityActivity"
             android:parentActivityName=".refreshContents.RefreshContentsActivity" />
-        <activity android:name=".ContentGrouping.ContentGroupingActivity"
+        <activity
+            android:name=".ContentGrouping.ContentGroupingActivity"
             android:label="@string/contentGrouping"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".ContentGrouping.ContentGroupingBadActivity"
-            android:parentActivityName=".ContentGrouping.ContentGroupingActivity"
-            />
-        <activity android:name=".ContentGrouping.ContentGroupingGoodActivity"
-            android:parentActivityName=".ContentGrouping.ContentGroupingActivity"
-            />
+        <activity
+            android:name=".ContentGrouping.ContentGroupingBadActivity"
+            android:parentActivityName=".ContentGrouping.ContentGroupingActivity" />
+        <activity
+            android:name=".ContentGrouping.ContentGroupingGoodActivity"
+            android:parentActivityName=".ContentGrouping.ContentGroupingActivity" />
         <activity
             android:name=".refreshContents.RefreshContentsWithAccessibilityActivity"
             android:parentActivityName=".refreshContents.RefreshContentsActivity" />
@@ -101,6 +107,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -176,8 +183,5 @@
         <activity android:name=".CustomControl.CustomControlGoodActivity" />
         <activity android:name=".CustomControl.CustomControlActivity" />
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

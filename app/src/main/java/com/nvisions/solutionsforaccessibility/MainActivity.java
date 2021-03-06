@@ -20,6 +20,7 @@ import com.nvisions.solutionsforaccessibility.TabControl.TabControlActivity;
 import com.nvisions.solutionsforaccessibility.VoiceSearch.VoiceSearchActivity;
 import com.nvisions.solutionsforaccessibility.WebView.WebViewActivity;
 
+import com.nvisions.solutionsforaccessibility.gmarketSample.GmarketSampleActivity;
 import com.nvisions.solutionsforaccessibility.korailTalk.KorailTalkActivity;
 import com.nvisions.solutionsforaccessibility.labelFor.LabelForActivity;
 import com.nvisions.solutionsforaccessibility.music.MusicActivity;
@@ -201,6 +202,15 @@ startActivity(intent);
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), KeyBoardActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button gmarketButton = findViewById(R.id.gmarketButton);
+        gmarketButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), GmarketSampleActivity.class);
                 startActivity(intent);
             }
         });

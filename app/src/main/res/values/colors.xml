@@ -37,4 +37,5 @@
     <color name="selected_element">#007eaf</color>
     <color name="container_bad_example">#ff9a9f</color>
     <color name="container_good_example">#afff6f</color>
+    <color name="black">#FF000000</color>
 </resources>
