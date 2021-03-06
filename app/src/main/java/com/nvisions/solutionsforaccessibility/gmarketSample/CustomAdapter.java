@@ -41,7 +41,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Item item = itemList.get(position);
-        Log.d("dkchoi",item.getImage());
         Glide.with(context)
                 .load(item.getImage())
                 .into(holder.imageView);
