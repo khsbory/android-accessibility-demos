@@ -14,8 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".gmarketSample.GmarketSampleActivity"></activity>
-        <activity android:name=".gmarketSample.WithoutAccessibilityActivity" />
+        <activity android:name=".gmarketSample.GmarketSampleActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".gmarketSample.WithoutAccessibilityActivity"
+            android:parentActivityName=".gmarketSample.GmarketSampleActivity"/>
+        <activity android:name=".gmarketSample.WithAccessibilityActivity"
+            android:parentActivityName=".gmarketSample.GmarketSampleActivity"/>
         <activity android:name=".KeyBoard.KeyBoardGoodAndBadActivity" />
         <activity android:name=".KeyBoard.KeyBoardActivity" />
         <activity

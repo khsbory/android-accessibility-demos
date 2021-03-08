@@ -22,6 +22,8 @@ public class WithoutAccessibilityActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notaccessibility);
+        setTitle("접근성 미적용");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         final TextView meat = findViewById(R.id.meat_txt);
         final TextView vegetable = findViewById(R.id.vegetable_txt);
         meat.setTextColor(Color.GREEN);
