@@ -22,6 +22,7 @@ public class VegetableFragment extends Fragment {
     private RecyclerView vegetableRecyclerView;
     private ArrayList<Item> itemList;
     private Context context;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,13 +40,13 @@ public class VegetableFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_vegetable, container, false);
         itemList = new ArrayList<>();
         itemList.add(new Item("https://gdimg.gmarket.co.kr/1751664898/still/280?ver=1614768771",
-                "콩나물", "35,000원", "40,000원", "4.3","13"));
+                "콩나물", "35,000원", "40,000원", "4.3", "13", "20% 쿠폰", "카드 20%"));
 
         itemList.add(new Item("https://gdimg.gmarket.co.kr/2039317794/still/280?ver=1613715348",
-                "시금치", "35,000원", "40,000원", "4.3","13"));
+                "시금치", "35,000원", "40,000원", "4.3", "13", "20% 쿠폰", "카드 20%"));
 
         itemList.add(new Item("https://gdimg.gmarket.co.kr/1998372892/still/280?ver=1609740374",
-                "김치", "35,000원", "40,000원", "4.3","13"));
+                "김치", "35,000원", "40,000원", "4.3", "13", "20% 쿠폰", "카드 20%"));
 
         vegetableRecyclerView = view.findViewById(R.id.vegetable_list_view);
         CustomAdapter customAdapter = new CustomAdapter(itemList, context);

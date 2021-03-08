@@ -46,14 +46,22 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.ViewHold
                 .into(holder.imageView);
 
         holder.title.setText(item.getTitle());
-                holder.price.setText(item.getPrice());
-                holder.price.setContentDescription("정가: " + item.getPrice());
-                holder.salePrice.setContentDescription("할인가: " + item.getSalePrice());
+        holder.price.setText(item.getPrice());
+        holder.price.setContentDescription("정가: " + item.getPrice());
+        holder.salePrice.setContentDescription("할인가: " + item.getSalePrice());
         holder.price.setPaintFlags(holder.price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         holder.salePrice.setText(item.getSalePrice());
         holder.gradeAndReview.setText(item.getGrade() + " (" + item.getReview() + ")");
         holder.gradeAndReview.setContentDescription("평점: " + item.getGrade() + " (후기 개수: " + item.getReview() + ")");
         holder.itemView.setContentDescription(holder.title.getText() + ", " + holder.price.getContentDescription() + ", " + holder.salePrice.getContentDescription() + ", " + holder.gradeAndReview.getContentDescription());
+
+        holder.couponSale.setText(item.getCouponSale());
+        holder.couponSale.setContentDescription("쿠폰 할인율: " + item.getCouponSale());
+        holder.cardSale.setText(item.getCardSale());
+        holder.cardSale.setContentDescription("카드 할인율" + item.getCardSale());
+
+        holder.seeReview.setText("상품평 보기:" + item.getTitle());
+
     }
 
     @Override
@@ -68,6 +76,8 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.ViewHold
         private TextView price;
         private TextView gradeAndReview;
         private TextView seeReview;
+        private TextView couponSale;
+        private TextView cardSale;
 
         public ViewHolder(View v) {
             super(v);
@@ -77,8 +87,9 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.ViewHold
             price = v.findViewById(R.id.price_txt);
             gradeAndReview = v.findViewById(R.id.grade_txt);
             seeReview = v.findViewById(R.id.see_review_txt);
-
-                        seeReview.setOnClickListener(new View.OnClickListener() {
+            couponSale = v.findViewById(R.id.coupon_sale);
+            cardSale = v.findViewById(R.id.card_sale);
+            seeReview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     showAlertDialog();

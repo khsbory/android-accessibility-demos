@@ -7,14 +7,34 @@ public class Item {
     private String price;
     private String grade;
     private String review;
+    private String couponSale;
+    private String cardSale;
 
-    public Item(String image, String title, String salePrice, String price, String grade, String review) {
+    public Item(String image, String title, String salePrice, String price, String grade, String review, String couponSale, String cardSale) {
         this.image = image;
         this.title = title;
         this.salePrice = salePrice;
         this.price = price;
         this.grade = grade;
         this.review = review;
+        this.couponSale = couponSale;
+        this.cardSale = cardSale;
+    }
+
+    public String getCouponSale() {
+        return couponSale;
+    }
+
+    public void setCouponSale(String couponSale) {
+        this.couponSale = couponSale;
+    }
+
+    public String getCardSale() {
+        return cardSale;
+    }
+
+    public void setCardSale(String cardSale) {
+        this.cardSale = cardSale;
     }
 
     public String getImage() {
