@@ -62,23 +62,19 @@ public class LiveRegionExample2Activity extends AppCompatActivity implements 	Vi
             case R.id.btnAdd:
                 value ++;
                 txtValue.setText(""+ value);
-                txtValue.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_ASSERTIVE);
                 break;
             case R.id.btnTake:
                 value--;
                 txtValue.setText(""+ value);
-                txtValue.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_ASSERTIVE);
                 break;
             case R.id.btnReset:
                 value = 0;
                 txtValue.setText(""+ value);
-                txtValue.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_ASSERTIVE);
                 break;
             case R.id.btnGrow:
                 size = txtValue.getTextScaleX();
                 txtValue.setTextScaleX(size + 1);
                 value2++;
-                txtValue.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_NONE);
                 txtValue.announceForAccessibility(value + ", 텍스트 크기:" + value2);
 
                 break;
@@ -87,7 +83,6 @@ public class LiveRegionExample2Activity extends AppCompatActivity implements 	Vi
                 size = txtValue.getTextScaleX();
                 txtValue.setTextScaleX(size - 1);
                 value2--;
-                txtValue.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_NONE);
                 txtValue.announceForAccessibility(value + ", 텍스트 크기:" + value2);
                 break;
 

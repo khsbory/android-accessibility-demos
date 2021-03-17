@@ -143,5 +143,13 @@
         android:id="@+id/gmarketButton"
         android:layout_gravity="center"
         android:text="복잡한 레이아웃의 대체 텍스트"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/noScrollingRollingBanner"
+        android:layout_gravity="center"
+        android:text="@string/noScrollingRollingBannerCover"/>
+
 </LinearLayout>
 </ScrollView>
