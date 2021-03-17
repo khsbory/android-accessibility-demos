@@ -2,13 +2,9 @@ package com.nvisions.solutionsforaccessibility.LayerFocus
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.view.accessibility.AccessibilityEvent
-import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
@@ -46,8 +42,8 @@ class LayerFocusGoodActivity : AppCompatActivity() {
                 // 블루투스 키보드 초점 설정
                 baseRView.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
 
-                button.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
-                button.requestFocus()
+                buttonGood.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+                buttonGood.requestFocus()
                 rView.isFocusable = false
             }
         }
@@ -56,7 +52,7 @@ class LayerFocusGoodActivity : AppCompatActivity() {
                 this, RecyclerView.HORIZONTAL, false
         )
 
-        button.setOnClickListener {
+        buttonGood.setOnClickListener {
             newLayout.visibility = View.INVISIBLE
 
             baseRView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES

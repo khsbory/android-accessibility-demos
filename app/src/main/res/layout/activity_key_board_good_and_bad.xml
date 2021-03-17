@@ -9,23 +9,23 @@
 
 
     <Button
-        android:id="@+id/buttonBad"
+        android:id="@+id/buttonGood"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="접근성 적용되지 않은 예시"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGood"
+        app:layout_constraintEnd_toStartOf="@+id/buttonBad"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonGood"
+        android:id="@+id/buttonBad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="접근성 적용된 예시"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonBad"
+        app:layout_constraintStart_toEndOf="@+id/buttonGood"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -35,5 +35,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBad" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonGood" />
 </androidx.constraintlayout.widget.ConstraintLayout>

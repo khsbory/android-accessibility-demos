@@ -23,18 +23,7 @@ class KeyBoardGoodAndBadActivity : AppCompatActivity() {
     private fun init(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setTitle("키보드 접근성")
-        buttonBad.isSelected = true
-        ViewCompat.setAccessibilityDelegate(buttonBad, object :AccessibilityDelegateCompat() {
-            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfoCompat?) {
-                super.onInitializeAccessibilityNodeInfo(host, info)
-                info?.roleDescription = "tab"
-            }
-        })
-        buttonBad.setOnClickListener {
-            buttonBad.isSelected = true
-            buttonGood.isSelected = false
-            viewPager.currentItem = 0
-        }
+        buttonGood.isSelected = true
         ViewCompat.setAccessibilityDelegate(buttonGood, object :AccessibilityDelegateCompat() {
             override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfoCompat?) {
                 super.onInitializeAccessibilityNodeInfo(host, info)
@@ -44,6 +33,17 @@ class KeyBoardGoodAndBadActivity : AppCompatActivity() {
         buttonGood.setOnClickListener {
             buttonGood.isSelected = true
             buttonBad.isSelected = false
+            viewPager.currentItem = 0
+        }
+        ViewCompat.setAccessibilityDelegate(buttonBad, object :AccessibilityDelegateCompat() {
+            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfoCompat?) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.roleDescription = "tab"
+            }
+        })
+        buttonBad.setOnClickListener {
+            buttonBad.isSelected = true
+            buttonGood.isSelected = false
             viewPager.currentItem = 1
         }
         viewPager.adapter = PagerAdapter(this)
