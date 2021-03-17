@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".NoScrollingRollingBanner.WithAccessibilityActivity" android:parentActivityName=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity"/>
+        <activity android:name=".NoScrollingRollingBanner.WithoutAccessibilityActivity" android:parentActivityName=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity"/>
         <activity android:name=".ScrollFocus.ScrollFocusBadActivity"></activity>
         <activity android:name=".ScrollFocus.ScrollFocusGoodActivity" />
         <activity android:name=".ScrollFocus.ScrollFocusActivity" />

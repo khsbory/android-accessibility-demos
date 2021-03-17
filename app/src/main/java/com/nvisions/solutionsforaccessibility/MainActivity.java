@@ -15,6 +15,7 @@ import com.nvisions.solutionsforaccessibility.KeyBoard.KeyBoardActivity;
 import com.nvisions.solutionsforaccessibility.LayerFocus.LayerFocusActivity;
 import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
 import com.nvisions.solutionsforaccessibility.NestedScroll.NestedScrollActivity;
+import com.nvisions.solutionsforaccessibility.NoScrollingRollingBanner.NoScrollingRollingBannerActivity;
 import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
 import com.nvisions.solutionsforaccessibility.ScrollFocus.ScrollFocusActivity;
 import com.nvisions.solutionsforaccessibility.TabControl.TabControlActivity;
@@ -225,6 +226,14 @@ startActivity(intent);
             }
         });
 
+        Button noScrollingRollingBanner = findViewById(R.id.noScrollingRollingBanner);
+        noScrollingRollingBanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), NoScrollingRollingBannerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 
