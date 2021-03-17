@@ -150,6 +150,7 @@
         android:id="@+id/scrollButton"
         android:layout_gravity="center"
         android:text="스크롤 포커스"/>
+<<<<<<< HEAD
 
     <Button
         android:layout_width="match_parent"
@@ -158,5 +159,7 @@
         android:layout_gravity="center"
         android:text="@string/noScrollingRollingBannerCover"/>
 
+=======
+>>>>>>> 34035b923db9b74fd2eabb3a046e666947e2c5b3
 </LinearLayout>
 </ScrollView>

@@ -226,6 +226,7 @@ startActivity(intent);
             }
         });
 
+<<<<<<< HEAD
         Button noScrollingRollingBanner = findViewById(R.id.noScrollingRollingBanner);
         noScrollingRollingBanner.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -234,6 +235,8 @@ startActivity(intent);
                 startActivity(intent);
             }
         });
+=======
+>>>>>>> 34035b923db9b74fd2eabb3a046e666947e2c5b3
     }
 }
 
