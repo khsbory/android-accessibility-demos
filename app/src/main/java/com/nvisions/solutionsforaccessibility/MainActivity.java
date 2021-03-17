@@ -17,6 +17,7 @@ import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
 import com.nvisions.solutionsforaccessibility.NestedScroll.NestedScrollActivity;
 import com.nvisions.solutionsforaccessibility.NoScrollingRollingBanner.NoScrollingRollingBannerActivity;
 import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
+import com.nvisions.solutionsforaccessibility.ScrollFocus.ScrollFocusActivity;
 import com.nvisions.solutionsforaccessibility.TabControl.TabControlActivity;
 import com.nvisions.solutionsforaccessibility.VoiceSearch.VoiceSearchActivity;
 import com.nvisions.solutionsforaccessibility.WebView.WebViewActivity;
@@ -216,6 +217,15 @@ startActivity(intent);
             }
         });
 
+        Button scrollButton = findViewById(R.id.scrollButton);
+        scrollButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ScrollFocusActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Button noScrollingRollingBanner = findViewById(R.id.noScrollingRollingBanner);
         noScrollingRollingBanner.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,7 +234,6 @@ startActivity(intent);
                 startActivity(intent);
             }
         });
-
     }
 }
 

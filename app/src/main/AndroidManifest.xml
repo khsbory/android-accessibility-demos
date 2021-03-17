@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nvisions.solutionsforaccessibility">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:background="?android:attr/colorBackground"
@@ -14,16 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NoScrollingRollingBanner.WithoutAccessibilityActivity" android:parentActivityName=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity"/>
+        <activity android:name=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity" android:parentActivityName=".MainActivity"/>
         <activity android:name=".NoScrollingRollingBanner.WithAccessibilityActivity" android:parentActivityName=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity"/>
-        <activity android:name=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".gmarketSample.GmarketSampleActivity"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".gmarketSample.WithoutAccessibilityActivity"
-            android:parentActivityName=".gmarketSample.GmarketSampleActivity"/>
-        <activity android:name=".gmarketSample.WithAccessibilityActivity"
-            android:parentActivityName=".gmarketSample.GmarketSampleActivity"/>
+        <activity android:name=".NoScrollingRollingBanner.WithoutAccessibilityActivity" android:parentActivityName=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity"/>
+        <activity android:name=".ScrollFocus.ScrollFocusBadActivity"></activity>
+        <activity android:name=".ScrollFocus.ScrollFocusGoodActivity" />
+        <activity android:name=".ScrollFocus.ScrollFocusActivity" />
+        <activity
+            android:name=".gmarketSample.GmarketSampleActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".gmarketSample.WithoutAccessibilityActivity"
+            android:parentActivityName=".gmarketSample.GmarketSampleActivity" />
+        <activity
+            android:name=".gmarketSample.WithAccessibilityActivity"
+            android:parentActivityName=".gmarketSample.GmarketSampleActivity" />
         <activity android:name=".KeyBoard.KeyBoardGoodAndBadActivity" />
         <activity android:name=".KeyBoard.KeyBoardActivity" />
         <activity
@@ -191,5 +193,8 @@
         <activity android:name=".CustomControl.CustomControlGoodActivity" />
         <activity android:name=".CustomControl.CustomControlActivity" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

@@ -30,7 +30,7 @@
             android:paddingVertical="4dp">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonGood"
                 android:layout_width="50dp"
                 android:layout_height="0dp"
                 android:text="닫기"

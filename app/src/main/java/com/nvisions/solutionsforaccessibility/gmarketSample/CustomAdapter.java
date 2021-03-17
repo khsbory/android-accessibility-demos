@@ -51,7 +51,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         holder.salePrice.setText(item.getSalePrice());
         holder.gradeAndReview.setText(item.getGrade() + " (" + item.getReview() + ")");
 
-        holder.seeReview.setText("상품평 보기");
+        holder.seeReview.setText("상품평 보기:" + item.getTitle());
     }
 
     @Override

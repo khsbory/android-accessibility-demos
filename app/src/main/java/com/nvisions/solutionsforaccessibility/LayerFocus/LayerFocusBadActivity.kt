@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.nvisions.solutionsforaccessibility.DragAndDrop.DragItemTouchHelperCallback
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.activity_layer_focus_bad.*
 
@@ -41,7 +40,7 @@ class LayerFocusBadActivity : AppCompatActivity() {
         )
 
 
-        button.setOnClickListener {
+        buttonGood.setOnClickListener {
             newLayout.visibility = View.INVISIBLE
         }
     }
