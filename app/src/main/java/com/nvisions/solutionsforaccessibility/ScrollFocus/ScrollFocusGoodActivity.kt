@@ -11,6 +11,8 @@ import android.view.accessibility.AccessibilityEvent
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
@@ -108,6 +110,7 @@ private class FrontScrollGoodListAdapter(val data: ArrayList<Int>) : RecyclerVie
             textView.setOnClickListener {
                 itemClickListener?.onItemClick(this, it, data[adapterPosition])
             }
+            ViewCompat.replaceAccessibilityAction(textView, ACTION_CLICK, "스크롤", null)
         }
     }
 
@@ -154,9 +157,6 @@ private class BackScrollGoodListAdapter(val data: ArrayList<Int>) : RecyclerView
         }
     }
 
-    fun sendFocus(position: Int){
-
-    }
 }
 
 

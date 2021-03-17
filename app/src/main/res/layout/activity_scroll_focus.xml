@@ -36,7 +36,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="설명...."
+        android:text="화면이 스크롤되는 이벤트를 구현하는 경우에는 접근성 초점도 스크롤되는 영역으로 이동시켜 주어야 합니다."
         app:layout_constraintBottom_toTopOf="@+id/buttonBad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
