@@ -113,20 +113,11 @@ private class FrontScrollListAdapter(val data: ArrayList<Int>) : RecyclerView.Ad
 
 
 private class BackScrollListAdapter(val data: ArrayList<Int>) : RecyclerView.Adapter<BackScrollListAdapter.ViewHolder>() {
-//    interface OnItemClickListener{
-//        fun onItemClick(holder: DialogListAdapter.ViewHolder, view: View, position: Int)
-//    }
-//
-//    var itemClickListener :OnItemClickListener? = null
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var textView: TextView
 
         init {
             textView = itemView.findViewById(R.id.textView)
-//            itemView.setOnClickListener {
-//                itemClickListener?.onItemClick(this, it, adapterPosition)
-//            }
         }
     }
 
