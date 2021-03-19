@@ -214,7 +214,10 @@ keyBoardView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
             
             
             
+            
+            
 ### smooothScrollToPosition 함수 사용시 접근성 포커스 이동
+
 
 #### 문제점
 <img src="https://user-images.githubusercontent.com/48876807/111726416-46e38380-88ac-11eb-9d10-3f84387f3b65.png" width="200px">
@@ -228,6 +231,7 @@ keyBoardView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
 
   + 두개 리사이클러뷰 중첩 (front : 가로 리사이클러뷰, back : 세로 리사이클러뷰)
   + front 리사이클러뷰 아이템 선택시 해당 포지션으로 세로 리사이클러뷰 스크롤 이동
+
 
 #### 해결
 + LinearLayoutManager의 smoothScrollToPosition, onScrollStateChanged 함수 오버라이드
@@ -261,7 +265,7 @@ keyBoardView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
   ```
   
-  + 톡백 읽기 변경 (@@@작업을 하려면 두번 탭하세요)
++ 톡백 읽기 변경 (@@@작업을 하려면 두번 탭하세요)
   ```
   ViewCompat.replaceAccessibilityAction(textView, ACTION_CLICK, "@@@", null)
   ```
