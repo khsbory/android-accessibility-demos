@@ -210,13 +210,9 @@ keyButton.accessibilityDelegate = object : View.AccessibilityDelegate() {
 + 키로 포커스 이동할때마다 리사이클러뷰의 몇행 몇열인지 읽어주는 음성 제거 위해 
 ```
 keyBoardView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
-```
+```    
             
-            
-            
-            
-            
-### smooothScrollToPosition 함수 사용시 접근성 포커스 이동
+### 리사이클러뷰에서 스크롤 할 때 접근성 포커스 이동
 
 
 #### 문제점
