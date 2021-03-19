@@ -221,9 +221,10 @@ keyBoardView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
 
 #### 문제점
 <img src="https://user-images.githubusercontent.com/48876807/111726416-46e38380-88ac-11eb-9d10-3f84387f3b65.png" width="200px">
-+ 상단 리사이클러뷰를 클릭해 smoothScrollToPostion으로 스크롤 할 시 접근성 포커스가 해당 포지션으로 이동하지 않음
-+ smoothScrollToPositon으로 스크롤 할 시 해당 포지션이 가장 하단으로 가게 스크롤 됨
-+ 접근성 포커스의 순서가 화면에 보이는 순서(상단 리사이클러뷰 -> 하단 리사이클러뷰)가 아닌 상단 리사이클러뷰가 가장 마지막 순서
+
+  + 상단 리사이클러뷰를 클릭해 smoothScrollToPostion으로 스크롤 할 시 접근성 포커스가 해당 포지션으로 이동하지 않음
+  + smoothScrollToPositon으로 스크롤 할 시 해당 포지션이 가장 하단으로 가게 스크롤 됨
+  + 접근성 포커스의 순서가 화면에 보이는 순서(상단 리사이클러뷰 -> 하단 리사이클러뷰)가 아닌 상단 리사이클러뷰가 가장 마지막 순서
 
 
 #### 데모 화면 구성
