@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.activity_scroll_focus_good.*
-import kotlinx.android.synthetic.main.custom_control_good_activity.*
 
 class ScrollFocusGoodActivity : AppCompatActivity() {
     val frontList = arrayListOf(30, 60, 90)
@@ -55,11 +54,14 @@ class ScrollFocusGoodActivity : AppCompatActivity() {
 
         val manager: LinearLayoutManager = object : LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
             private var flg = false
+            private var targetPosition = 0
+
 
             override fun smoothScrollToPosition(view: RecyclerView, state: RecyclerView.State, position: Int) {
                 flg = true
                 val scroller = TopLinearSmoothScroller()
                 scroller.targetPosition = position
+                targetPosition = position
                 startSmoothScroll(scroller)
             }
 
@@ -67,10 +69,10 @@ class ScrollFocusGoodActivity : AppCompatActivity() {
                 super.onScrollStateChanged(state)
                 if (state == SCROLL_STATE_IDLE && flg){
                     flg = false
-                    val firstView = findViewByPosition(findFirstCompletelyVisibleItemPosition() + 1)
-                    Log.d("mytag", firstView.toString())
-                    firstView?.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
-                    firstView?.requestFocus()
+                    val targetView = findViewByPosition(targetPosition + 1)
+                    targetView?.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+                    targetView?.requestFocus()
+                    targetView?.isSelected = true
                 }
             }
         }
@@ -80,7 +82,7 @@ class ScrollFocusGoodActivity : AppCompatActivity() {
         }
         frontAdapter = FrontScrollGoodListAdapter(frontList)
         backAdapter = BackScrollGoodListAdapter(backList)
-        frontRView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
+        frontRView.layoutManager = LinearLayoutManager(
                 applicationContext, RecyclerView.HORIZONTAL, false
         )
         backRView.layoutManager = manager
