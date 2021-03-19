@@ -158,5 +158,12 @@
         android:layout_gravity="center"
         android:text="@string/noScrollingRollingBannerCover"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/expandableListActivity_bt"
+        android:layout_gravity="center"
+        android:text="이중 리스트뷰 대체 텍스트"/>
+
 </LinearLayout>
 </ScrollView>

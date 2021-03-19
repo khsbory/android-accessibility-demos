@@ -22,6 +22,7 @@ import com.nvisions.solutionsforaccessibility.TabControl.TabControlActivity;
 import com.nvisions.solutionsforaccessibility.VoiceSearch.VoiceSearchActivity;
 import com.nvisions.solutionsforaccessibility.WebView.WebViewActivity;
 
+import com.nvisions.solutionsforaccessibility.expandableList.ExpandableListSampleActivity;
 import com.nvisions.solutionsforaccessibility.gmarketSample.GmarketSampleActivity;
 import com.nvisions.solutionsforaccessibility.korailTalk.KorailTalkActivity;
 import com.nvisions.solutionsforaccessibility.labelFor.LabelForActivity;
@@ -231,6 +232,15 @@ startActivity(intent);
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), NoScrollingRollingBannerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button expandableListActivity = findViewById(R.id.expandableListActivity_bt);
+        expandableListActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ExpandableListSampleActivity.class);
                 startActivity(intent);
             }
         });

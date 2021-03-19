@@ -18,6 +18,13 @@
         <activity android:name=".ScrollFocus.ScrollFocusGoodActivity" />
         <activity android:name=".ScrollFocus.ScrollFocusActivity" />
         <activity
+            android:name=".expandableList.ExpandableListSampleActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".expandableList.WithAccessibilityActivity"
+            android:parentActivityName=".expandableList.ExpandableListSampleActivity"/>
+        <activity android:name=".expandableList.WithoutAccessibilityActivity"
+            android:parentActivityName=".expandableList.ExpandableListSampleActivity"/>
+        <activity
             android:name=".gmarketSample.GmarketSampleActivity"
             android:parentActivityName=".MainActivity" />
         <activity
