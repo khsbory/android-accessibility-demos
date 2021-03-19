@@ -12,7 +12,7 @@ class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun setItem(item: Item, deleteMode: Boolean, itemDeleted: (Item) -> Unit) {
         itemView.item_name.text = item.name
-
+itemView.item_delete_button.contentDescription = itemView.context.getString(R.string.content_description_delete_item) + ", " + item.name
         itemView.item_delete_button.visibility = if (deleteMode) View.VISIBLE else View.GONE
         itemView.item_delete_button.setOnClickListener {
             setDeletedState(item)
