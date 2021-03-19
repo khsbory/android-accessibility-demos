@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
@@ -72,7 +73,6 @@ class ScrollFocusGoodActivity : AppCompatActivity() {
                     val targetView = findViewByPosition(targetPosition + 1)
                     targetView?.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
                     targetView?.requestFocus()
-                    targetView?.isSelected = true
                 }
             }
         }
@@ -92,6 +92,10 @@ class ScrollFocusGoodActivity : AppCompatActivity() {
         frontAdapter.itemClickListener = object : FrontScrollGoodListAdapter.OnItemClickListener{
             override fun onItemClick(holder: FrontScrollGoodListAdapter.ViewHolder, view: View, data: Int) {
                 backRView.smoothScrollToPosition(data - 2)
+                for(i in 0 until frontAdapter.itemCount){
+                    frontRView.get(i).findViewById<Button>(R.id.textView).isSelected = false
+                }
+                view.isSelected = true
             }
         }
     }
