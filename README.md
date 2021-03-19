@@ -212,4 +212,56 @@ keyButton.accessibilityDelegate = object : View.AccessibilityDelegate() {
 keyBoardView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
 ```
             
+            
+            
+### smooothScrollToPosition 함수 사용시 접근성 포커스 이동
 
+#### 문제점
+<img src="https://user-images.githubusercontent.com/48876807/111726416-46e38380-88ac-11eb-9d10-3f84387f3b65.png" width="200px">
++ 상단 리사이클러뷰를 클릭해 smoothScrollToPostion으로 스크롤 할 시 접근성 포커스가 해당 포지션으로 이동하지 않음
++ smoothScrollToPositon으로 스크롤 할 시 해당 포지션이 가장 하단으로 가게 스크롤 됨
++ 접근성 포커스의 순서가 화면에 보이는 순서(상단 리사이클러뷰 -> 하단 리사이클러뷰)가 아닌 상단 리사이클러뷰가 가장 마지막 순서
+
+
+#### 데모 화면 구성
+<img src="https://user-images.githubusercontent.com/48876807/111726737-d5580500-88ac-11eb-93cf-10038ff0c0f4.png" width="200px">   
+
+  + 두개 리사이클러뷰 중첩 (front : 가로 리사이클러뷰, back : 세로 리사이클러뷰)
+  + front 리사이클러뷰 아이템 선택시 해당 포지션으로 세로 리사이클러뷰 스크롤 이동
+
+#### 해결
++ LinearLayoutManager의 smoothScrollToPosition, onScrollStateChanged 함수 오버라이드
+  ```
+  val manager: LinearLayoutManager = object : LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
+
+            // smoothScrollToPosition 함수를 호출했을때만 접근성 초점 이동하기 위해 flg 변수 설정
+            private var flg = false
+            private var targetPosition = 0
+
+            // position의 아이템이 최상단으로 가도록 scroll
+            override fun smoothScrollToPosition(view: RecyclerView, state: RecyclerView.State, position: Int) {
+                flg = true
+                val scroller = TopLinearSmoothScroller()
+                scroller.targetPosition = position
+                targetPosition = position
+                startSmoothScroll(scroller)
+            }
+
+            override fun onScrollStateChanged(state: Int) {
+                super.onScrollStateChanged(state)
+
+                // smoothScrollToPosition 호출되고, 스크롤이 멈췄을때 접근성 포커스 targetPosition으로 이동
+                if (state == SCROLL_STATE_IDLE && flg){
+                    flg = false
+                    val targetView = findViewByPosition(targetPosition + 1)
+                    targetView?.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+                    targetView?.requestFocus()
+                }
+            }
+        }
+  ```
+  
+  + 톡백 읽기 변경 (@@@작업을 하려면 두번 탭하세요)
+  ```
+  ViewCompat.replaceAccessibilityAction(textView, ACTION_CLICK, "@@@", null)
+  ```
