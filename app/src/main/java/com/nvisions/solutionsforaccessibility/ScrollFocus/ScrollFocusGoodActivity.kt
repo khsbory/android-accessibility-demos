@@ -69,7 +69,7 @@ class ScrollFocusGoodActivity : AppCompatActivity() {
                     flg = false
                     val firstView = findViewByPosition(findFirstCompletelyVisibleItemPosition() + 1)
                     Log.d("mytag", firstView.toString())
-                    firstView?.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+                     firstView?.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
                     firstView?.requestFocus()
                 }
             }

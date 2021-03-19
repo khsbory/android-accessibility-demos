@@ -3,6 +3,7 @@ package com.nvisions.solutionsforaccessibility.recyclerview
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.accessibility.AccessibilityEvent
 import androidx.recyclerview.widget.RecyclerView
 import com.nvisions.solutionsforaccessibility.R
 
@@ -46,10 +47,7 @@ class ItemsAdapter(
                 val viewHolder = findViewHolderAtPosition(position)
                 viewHolder?.let {
                     with(it.itemView) {
-                        isFocusableInTouchMode = true
-                        clearFocus()
-                        requestFocus()
-                        isFocusableInTouchMode = false
+sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
                     }
                 }
             }, 50)
