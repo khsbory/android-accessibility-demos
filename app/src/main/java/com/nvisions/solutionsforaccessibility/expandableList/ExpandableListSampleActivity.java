@@ -15,6 +15,7 @@ public class ExpandableListSampleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expandable_sample);
+        setTitle("이중 리스트에서의 대체 텍스트");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Button accessibilityButton = findViewById(R.id.withAccessibility);
         Button withoutAccessibilityButton = findViewById(R.id.withoutAccessibility);

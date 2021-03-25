@@ -155,7 +155,7 @@ public class CustomExpandableListViewAdapter2 extends BaseExpandableListAdapter 
                 if (groupPosition == 1 && childPosition == 0) {//일반 의류 선택시
                     mainList.add("바지");
                 } else if (groupPosition == 1 && childPosition == 1) { //신발 선택시
-                    mainList.add("신발");
+                    mainList.add("구두");
                 } else if (groupPosition == 2 && childPosition == 0) { // 여름과일 선택시
                     mainList.add("수박");
                 } else if (groupPosition == 2 && childPosition == 1) { // 겨울과일 선택시

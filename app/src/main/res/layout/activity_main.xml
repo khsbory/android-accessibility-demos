@@ -107,7 +107,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/voiceSearch"
         android:layout_gravity="center"
+
         android:text="@string/voiceSearch"/>
+
 
     <Button
         android:layout_width="match_parent"

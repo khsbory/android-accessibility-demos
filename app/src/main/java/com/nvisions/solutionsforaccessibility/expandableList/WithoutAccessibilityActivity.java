@@ -27,6 +27,7 @@ public class WithoutAccessibilityActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.expandable_activity_main);
+        setTitle("접근성 미적용");
         final DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         expandableListView = findViewById(R.id.list_slidermenu);
         ListView mainListView = findViewById(R.id.list_view);

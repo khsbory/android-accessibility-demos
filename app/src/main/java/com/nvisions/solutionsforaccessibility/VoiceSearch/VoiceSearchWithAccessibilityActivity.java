@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
 import com.nvisions.solutionsforaccessibility.R;
 
@@ -21,7 +24,7 @@ public class VoiceSearchWithAccessibilityActivity extends AppCompatActivity impl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_search_with_accessibility);
-        setTitle("");
+        setTitle(" ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.voiceSearch));
         final Button example1 = (Button)findViewById(R.id.button1);
@@ -71,8 +74,11 @@ public class VoiceSearchWithAccessibilityActivity extends AppCompatActivity impl
                 } else {
                     example1.setText(R.string.voiceCancel);
                     example1.setEnabled(false);
+                    example1.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
                     mediaPlayer.start();
                     textView.setText(R.string.voiceListening);
+                    example1.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
+
                 }
                 break;
         }
@@ -82,10 +88,12 @@ public class VoiceSearchWithAccessibilityActivity extends AppCompatActivity impl
             public void run() {
                 mPlayer.start();
                 textView.setText(R.string.voiceNotUnderstand);
-                view.announceForAccessibility(getString(R.string.voiceNotUnderstand));
+
                 Button example1 = (Button)findViewById(R.id.button1);
                 example1.setText(R.string.voiceListen);
                 example1.setEnabled(true);
+                example1.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null);
+                view.announceForAccessibility(getString(R.string.voiceNotUnderstand));
             }
         }, 5000);
     }

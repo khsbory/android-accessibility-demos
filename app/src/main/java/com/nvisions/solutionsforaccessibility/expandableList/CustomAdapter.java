@@ -41,6 +41,7 @@ public class CustomAdapter extends BaseAdapter {
         View view = layoutInflater.inflate(R.layout.expandable_main_item, null);
         TextView textView = view.findViewById(R.id.main_item);
         textView.setText(arrayList.get(position));
+        view.setEnabled(false);
         return view;
     }
 }
