@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -39,6 +40,28 @@ public class WithoutAccessibilityActivity extends AppCompatActivity {
         ImageView image1 = (ImageView)findViewById(R.id.image1);
         ImageView image2 = (ImageView)findViewById(R.id.image2);
         ImageView image3 = (ImageView)findViewById(R.id.image3);
+
+        Button btnNextCarousel = (Button) findViewById(R.id.carousel_next);
+        Button btnPrevCarousel = (Button) findViewById(R.id.carousel_prev);
+
+        Button.OnClickListener CarouselRemoteButtonClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int viewId = v.getId();
+                switch (viewId) {
+                    case R.id.carousel_next:
+                        flipper.showNext();
+                        break;
+                    case R.id.carousel_prev:
+                        flipper.showPrevious();
+                        break;
+                }
+            }
+        } ;
+
+        btnNextCarousel.setOnClickListener(CarouselRemoteButtonClickListener);
+        btnPrevCarousel.setOnClickListener(CarouselRemoteButtonClickListener);
+
         final TextView text1 = (TextView) findViewById(R.id.text1);
 }
 }

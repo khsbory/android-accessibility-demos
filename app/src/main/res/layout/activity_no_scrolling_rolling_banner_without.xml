@@ -10,6 +10,28 @@
     android:paddingTop="16dp"
     tools:context=".NoScrollingRollingBanner.WithoutAccessibilityActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/carousel_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이전 배너"
+            android:layout_gravity="start|bottom">
+
+        </Button>
+        <Button
+            android:id="@+id/carousel_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="다음 배너"
+            android:layout_gravity="end|bottom">
+
+        </Button>
+    </FrameLayout>
+
     <ViewFlipper
         android:id="@+id/flipper"
         android:layout_width="match_parent"
