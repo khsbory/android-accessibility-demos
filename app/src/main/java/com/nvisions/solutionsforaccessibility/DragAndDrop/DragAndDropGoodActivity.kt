@@ -5,6 +5,7 @@ import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
 import android.view.ViewGroup
+import android.view.Window
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,7 @@ class DragAndDropGoodActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drag_and_drop_good)
+
         setTitle(getString(R.string.drag_good))
         init()
     }
@@ -31,6 +33,7 @@ class DragAndDropGoodActivity : AppCompatActivity() {
     fun init(){
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         titleButton.isEnabled = false
         viewPager.adapter = ViewPagerAdapter(this)
         TabLayoutMediator(tabLayout, viewPager){ tab,position->

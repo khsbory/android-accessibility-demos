@@ -9,12 +9,15 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.nvisions.solutionsforaccessibility.R;
 
@@ -42,7 +45,7 @@ public class WithAccessibilityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_no_scrolling_rolling_banner_accessibility);
         setTitle(getString(R.string.goodExample));
         final ViewFlipper flipper = (ViewFlipper) findViewById(R.id.flipper);
-        flipper.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+                flipper.setAccessibilityDelegate(new View.AccessibilityDelegate() {
 
             @Override
             //사용저 접근성이 변할때마 불리는 함수 입니다.
