@@ -8,8 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.nvisions.solutionsforaccessibility.R;
-
 import java.util.ArrayList;
+
 
 public class CustomAdapter extends BaseAdapter {
     private Context context;

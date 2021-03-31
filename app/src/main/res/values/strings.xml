@@ -243,4 +243,18 @@
     <string name="noScrollingRollingBanner">스크롤이 없는 롤링배너를 구현하는 경우는 접근성 초점이 해당 배너에 머무르는 동안 배너가 롤링되지 않도록 하는 것도 하나의 해결 방법이 될 수 있습니다.</string>
     <string name="noScrollingRollingBannerCover">스크롤 기능이 없는 롤링 배너</string>
 
+    <string name="activity_fullscreen_fragment_layer_title">Fragment 전체 화면 레이어</string>
+    <string name="fullscreen_fragment_layer_description">앱에서 Activity를 사용하지 않고, Fragment로 전체 화면을 만들고, 원래 Activity를 덮을 때도 있습니다. 그럴 때는 사용자가 뒤로가기 제스처나 내비게이션 버튼을 눌렀을 때, 레이어를 열기 전 상태로 돌아 갈 수 있고, 화면 밖으로 초점이 나가지 않도록 해 주어야 합니다.</string>
+    <string name="fullscreen_fragment_layer_exampleActivityDescription1">아래 버튼을 눌러 프래그먼트 레이어를 표시해보세요. 하드웨어 키보드의 Tab키, Alt + 화살표 키, 순차 탐색으로 화면을 탐색해 보세요, Talkback의 뒤로가기 제스처(아래쪽 왼쪽 순으로 쓸기)로 레이어를 닫아보세요.</string>
+    <string name="fullscreen_fragment_layer_exampleActivityDescription2">
+        아래는 매우 질이 나쁜 친구입니다. 화면의 변화를 전혀 알 수 없고, 밖으로 탐색도 가능한 문제가 있습니다. 밖에 있는 버튼에 초점이 가기 때문에 이미 열린 레이어 버튼을 또 누를 수 있고, 앱이 꺼지는 불상사를 경험하실 수 있습니다.
+    </string>
+    <string name="fullscreen_fragment_layer_goodFragmentString">이 프래그먼트는 뒤로 내비게이션 버튼으로 빠저나갈 수 있으며, 바깥으로 초점이 나가지 않아요! :)</string>
+    <string name="fullscreen_fragment_layer_closeLayer">이 레이어 닫기</string>
+    <string name="fullscreen_fragment_layer_openGoodFragment">아주 착한 레이어 열기</string>
+    <string name="fullscreen_fragment_layer_openBadFragment">질 나쁜 레이어 열기</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
 </resources>

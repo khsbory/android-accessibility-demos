@@ -11,6 +11,7 @@ import com.nvisions.solutionsforaccessibility.CollapseExpand.CollapseExpandActiv
 import com.nvisions.solutionsforaccessibility.ContentGrouping.ContentGroupingActivity;
 import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
 import com.nvisions.solutionsforaccessibility.DragAndDrop.DragAndDropActivity;
+import com.nvisions.solutionsforaccessibility.FullscreenFragmentLayer.FullscreenFragmentLayerActivity;
 import com.nvisions.solutionsforaccessibility.KeyBoard.KeyBoardActivity;
 import com.nvisions.solutionsforaccessibility.LayerFocus.LayerFocusActivity;
 import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ProgressBarActivity.class);
-startActivity(intent);
+                startActivity(intent);
             }
         });
 
@@ -241,6 +242,15 @@ startActivity(intent);
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ExpandableListSampleActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btnFullscreenFragment = findViewById(R.id.GoExample_fullscreen_fragment_layer);
+        btnFullscreenFragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FullscreenFragmentLayerActivity.class);
                 startActivity(intent);
             }
         });

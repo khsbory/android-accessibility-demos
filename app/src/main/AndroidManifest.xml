@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nvisions.solutionsforaccessibility">
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,19 +15,34 @@
         android:supportsRtl="true"
         android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".NoScrollingRollingBanner.WithAccessibilityActivity" android:parentActivityName=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity"/>
-        <activity android:name=".NoScrollingRollingBanner.WithoutAccessibilityActivity" android:parentActivityName=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity"/>
-        <activity android:name=".ScrollFocus.ScrollFocusBadActivity"></activity>
+        <activity android:name=".FullscreenFragmentLayer.FullscreenFragmentLayerExampleActivity" />
+        <activity android:name=".FullscreenFragmentLayer.FullscreenFragmentLayerActivity" />
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <activity
+            android:name=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NoScrollingRollingBanner.WithAccessibilityActivity"
+            android:parentActivityName=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity" />
+        <activity
+            android:name=".NoScrollingRollingBanner.WithoutAccessibilityActivity"
+            android:parentActivityName=".NoScrollingRollingBanner.NoScrollingRollingBannerActivity" />
+        <activity android:name=".ScrollFocus.ScrollFocusBadActivity" />
         <activity android:name=".ScrollFocus.ScrollFocusGoodActivity" />
         <activity android:name=".ScrollFocus.ScrollFocusActivity" />
         <activity
             android:name=".expandableList.ExpandableListSampleActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".expandableList.WithAccessibilityActivity"
-            android:parentActivityName=".expandableList.ExpandableListSampleActivity"/>
-        <activity android:name=".expandableList.WithoutAccessibilityActivity"
-            android:parentActivityName=".expandableList.ExpandableListSampleActivity"/>
+        <activity
+            android:name=".expandableList.WithAccessibilityActivity"
+            android:parentActivityName=".expandableList.ExpandableListSampleActivity" />
+        <activity
+            android:name=".expandableList.WithoutAccessibilityActivity"
+            android:parentActivityName=".expandableList.ExpandableListSampleActivity" />
         <activity
             android:name=".gmarketSample.GmarketSampleActivity"
             android:parentActivityName=".MainActivity" />
@@ -200,8 +219,5 @@
         <activity android:name=".CustomControl.CustomControlGoodActivity" />
         <activity android:name=".CustomControl.CustomControlActivity" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

@@ -165,7 +165,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/expandableListActivity_bt"
         android:layout_gravity="center"
-        android:text="이중 리스트뷰 대체 텍스트"/>
+        android:text="이중 리스트뷰 대체 텍스트" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/GoExample_fullscreen_fragment_layer"
+        android:layout_gravity="center"
+        android:text="전체 화면 프래그먼트 접근성" />
 </LinearLayout>
 </ScrollView>
