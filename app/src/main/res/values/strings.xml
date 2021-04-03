@@ -253,6 +253,8 @@
     <string name="fullscreen_fragment_layer_closeLayer">이 레이어 닫기</string>
     <string name="fullscreen_fragment_layer_openGoodFragment">아주 착한 레이어 열기</string>
     <string name="fullscreen_fragment_layer_openBadFragment">질 나쁜 레이어 열기</string>
+    <string name="accessibilityExample">접근성 예제</string>
+
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.

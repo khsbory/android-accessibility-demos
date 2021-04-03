@@ -15,8 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FullscreenFragmentLayer.FullscreenFragmentLayerExampleActivity" />
-        <activity android:name=".FullscreenFragmentLayer.FullscreenFragmentLayerActivity" />
+        <activity android:name=".FullscreenFragmentLayer.FullscreenFragmentLayerExampleActivity"
+            android:parentActivityName=".FullscreenFragmentLayer.FullscreenFragmentLayerActivity"/>
+        <activity android:name=".FullscreenFragmentLayer.FullscreenFragmentLayerActivity"
+            android:parentActivityName=".MainActivity"/>
 
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld

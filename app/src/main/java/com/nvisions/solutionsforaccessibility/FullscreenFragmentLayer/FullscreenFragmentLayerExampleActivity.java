@@ -27,7 +27,8 @@ public class FullscreenFragmentLayerExampleActivity extends AppCompatActivity im
         fragGood = new FullscreenLayerGoodFragment();
         fragBad = new FullscreenLayerBadFragment();
         setContentView(R.layout.activity_fullscreen_fragment_layer_example);
-        btnOpenGoodFragment = (Button) findViewById(R.id.btn_OpenFullscreenLayerFragmentGood);
+        setTitle(getString(R.string.accessibilityExample));
+                btnOpenGoodFragment = (Button) findViewById(R.id.btn_OpenFullscreenLayerFragmentGood);
         btnOpenBadFragment = (Button) findViewById(R.id.btn_OpenFullscreenLayerFragmentBad);
         btnOpenGoodFragment.setOnClickListener(this);
         btnOpenBadFragment.setOnClickListener(this);

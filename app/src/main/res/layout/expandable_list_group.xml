@@ -25,6 +25,7 @@
             android:layout_centerVertical="true"
             android:focusable="false"
             android:importantForAccessibility="no"
+            android:enabled="false"
             android:onClick="onParentButtonClicked"
             android:paddingRight="5dp" />
 

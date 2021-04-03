@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,14 +55,14 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.ViewHold
         holder.gradeAndReview.setText(item.getGrade() + " (" + item.getReview() + ")");
         holder.gradeAndReview.setContentDescription("평점: " + item.getGrade() + " (후기 개수: " + item.getReview() + ")");
         holder.itemView.setContentDescription(holder.title.getText() + ", " + holder.price.getContentDescription() + ", " + holder.salePrice.getContentDescription() + ", " +
-                holder.gradeAndReview.getContentDescription() + ", 쿠폰 할인율:" +item.getCouponSale() + ", 카드 할인율:"+item.getCardSale());
+                holder.gradeAndReview.getContentDescription() + "," +item.getCouponSale() + ", " + item.getCardSale());
 
         holder.couponSale.setText(item.getCouponSale());
         //holder.couponSale.setContentDescription("쿠폰 할인율: " + item.getCouponSale());
         holder.cardSale.setText(item.getCardSale());
         //holder.cardSale.setContentDescription("카드 할인율" + item.getCardSale());
 
-        holder.seeReview.setText("상품평 보기:" + item.getTitle());
+        holder.seeReview.setText("초점 보내기:" + item.getTitle());
 
     }
 
@@ -93,7 +94,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.ViewHold
             seeReview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showAlertDialog();
+                    itemView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
                 }
             });
         }

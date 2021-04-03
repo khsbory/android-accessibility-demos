@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -42,6 +43,7 @@ public class FullscreenLayerGoodFragment extends Fragment {
     private TextView ExitPoint;
     private TextView EntryPoint;
     private Button btnCloseLayer;
+    private Button btnOpenLayer;
 
 
     public FullscreenLayerGoodFragment() {
@@ -69,6 +71,7 @@ public class FullscreenLayerGoodFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -80,16 +83,28 @@ public class FullscreenLayerGoodFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_fullscreen_layer_good,container,false);
-        
+
         ExitPoint = rootActivity.findViewById(R.id.fullscreen_fragment_layer_mainEntry);
         ExampleMain.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
         ExampleMain.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
         btnCloseLayer = v.findViewById(R.id.btn_CloseFragmentLayer);
-        btnCloseLayer.setOnClickListener(this::goToBack);
+                btnCloseLayer.setOnClickListener(this::goToBack);
 
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
@@ -104,13 +119,14 @@ public class FullscreenLayerGoodFragment extends Fragment {
     public void goToBack(View v){
         ExampleMain.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
         ExampleMain.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
-        ExitPoint.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
         fm.popBackStack();
+
     }
+
     public void goToBack(){
         ExampleMain.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
         ExampleMain.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
-        ExitPoint.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
         fm.popBackStack();
+
     }
 }
