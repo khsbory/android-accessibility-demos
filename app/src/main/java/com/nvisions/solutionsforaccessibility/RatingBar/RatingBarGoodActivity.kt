@@ -3,6 +3,7 @@ package com.nvisions.solutionsforaccessibility.RatingBar
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.SeekBar
@@ -27,7 +28,8 @@ class RatingBarGoodActivity : AppCompatActivity() {
                 super.onInitializeAccessibilityNodeInfo(host, info)
                 info?.className = SeekBar::class.java.name
             }
-        })
+
+       })
 
         ratingBar2.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
             if (accessibilityManager.isEnabled) { //접근성이 활성화 되어 있는 경우
@@ -43,6 +45,8 @@ class RatingBarGoodActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 }
 
 

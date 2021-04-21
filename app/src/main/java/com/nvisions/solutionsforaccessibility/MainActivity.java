@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +21,7 @@ import com.nvisions.solutionsforaccessibility.NoScrollingRollingBanner.NoScrolli
 import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
 import com.nvisions.solutionsforaccessibility.ScrollFocus.ScrollFocusActivity;
 import com.nvisions.solutionsforaccessibility.TabControl.TabControlActivity;
+import com.nvisions.solutionsforaccessibility.Test.TestActivity;
 import com.nvisions.solutionsforaccessibility.VoiceSearch.VoiceSearchActivity;
 import com.nvisions.solutionsforaccessibility.WebView.WebViewActivity;
 
@@ -254,6 +256,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button testButton = findViewById(R.id.testButton);
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
 

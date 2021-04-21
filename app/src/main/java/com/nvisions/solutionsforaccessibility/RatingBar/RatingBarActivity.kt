@@ -3,7 +3,12 @@ package com.nvisions.solutionsforaccessibility.RatingBar
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.view.accessibility.AccessibilityEvent
+import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.Toast
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.rating_bar_activity.*
 
@@ -29,6 +34,7 @@ class RatingBarActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, RatingBarGoodActivity::class.java)
             startActivity(intent)
         }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
