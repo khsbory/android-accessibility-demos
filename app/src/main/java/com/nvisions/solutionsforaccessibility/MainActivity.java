@@ -13,6 +13,7 @@ import com.nvisions.solutionsforaccessibility.ContentGrouping.ContentGroupingAct
 import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
 import com.nvisions.solutionsforaccessibility.DragAndDrop.DragAndDropActivity;
 import com.nvisions.solutionsforaccessibility.FullscreenFragmentLayer.FullscreenFragmentLayerActivity;
+import com.nvisions.solutionsforaccessibility.HorizontalScroll.HorizontalScrollActivity;
 import com.nvisions.solutionsforaccessibility.KeyBoard.KeyBoardActivity;
 import com.nvisions.solutionsforaccessibility.LayerFocus.LayerFocusActivity;
 import com.nvisions.solutionsforaccessibility.LiveRegion.LiveRegionActivity;
@@ -262,6 +263,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button horizontalScrollButton = findViewById(R.id.horizontalScrollButton);
+        horizontalScrollButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HorizontalScrollActivity.class);
                 startActivity(intent);
             }
         });

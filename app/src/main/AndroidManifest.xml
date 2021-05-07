@@ -222,6 +222,9 @@
         <activity android:name=".CustomControl.CustomControlBadActivity" />
         <activity android:name=".CustomControl.CustomControlGoodActivity" />
         <activity android:name=".CustomControl.CustomControlActivity" />
+        <activity
+            android:name=".HorizontalScroll.HorizontalScrollActivity"
+            android:label="@string/horizontal_scroll_demo" />
     </application>
 
 </manifest>
