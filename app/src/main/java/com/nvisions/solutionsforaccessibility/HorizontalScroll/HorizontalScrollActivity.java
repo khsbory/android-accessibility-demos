@@ -1,9 +1,12 @@
 package com.nvisions.solutionsforaccessibility.HorizontalScroll;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.nvisions.solutionsforaccessibility.MainActivity;
@@ -19,6 +22,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class HorizontalScrollActivity extends AppCompatActivity{
 
+    private LinearLayout viewMain, viewgroup1, viewgroup2, viewgroup3;
+
     private RecyclerView listview, listview2, listview3;
     private HorizontalAdapt adapter, adapter2;
     private VerticalAdapt adapter3;
@@ -30,6 +35,17 @@ public class HorizontalScrollActivity extends AppCompatActivity{
         setTitle(getString(R.string.horizontal_scroll_demo));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // 동적 page 추가. (viewgroup 생성)
+        viewMain = findViewById(R.id.view_main);
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater.inflate(R.layout.linearlayout_viewgroup_1, viewMain, true);
+
+        LayoutInflater inflater2 = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater2.inflate(R.layout.linearlayout_viewgroup_2, viewMain, true);
+
+        LayoutInflater inflater3 = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater3.inflate(R.layout.linearlayout_viewgroup_3, viewMain, true);
+
         initHorizontalScroll_1();
         initHorizontalScroll_2();
         initVerticalScroll();
@@ -38,7 +54,7 @@ public class HorizontalScrollActivity extends AppCompatActivity{
 
     private void initHorizontalScroll_1() {
 
-        listview = findViewById(R.id.first_recycleview);
+        listview = viewMain.findViewById(R.id.first_recycleview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         listview.setLayoutManager(layoutManager);
 
@@ -66,7 +82,7 @@ public class HorizontalScrollActivity extends AppCompatActivity{
 
     private void initHorizontalScroll_2() {
 
-        listview2 = findViewById(R.id.first_recycleview2);
+        listview2 = viewMain.findViewById(R.id.first_recycleview2);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         listview2.setLayoutManager(layoutManager);
 
@@ -94,7 +110,7 @@ public class HorizontalScrollActivity extends AppCompatActivity{
 
     private void initVerticalScroll() {
 
-        listview3 = findViewById(R.id.first_recycleview3);
+        listview3 = viewMain.findViewById(R.id.first_recycleview3);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         listview3.setLayoutManager(layoutManager);
 
