@@ -160,6 +160,10 @@ public class VideoGoodActivity extends AppCompatActivity {
 
                     fullscreen = true;
 
+                    //꺼짐 감지되더라도 contol 항상 띄우기.
+                    playerView.setControllerShowTimeoutMs(0);
+                    playerView.setControllerHideOnTouch(false);
+
                 }
             }
         });
