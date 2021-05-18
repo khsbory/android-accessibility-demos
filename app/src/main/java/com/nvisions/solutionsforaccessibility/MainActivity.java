@@ -23,6 +23,7 @@ import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
 import com.nvisions.solutionsforaccessibility.ScrollFocus.ScrollFocusActivity;
 import com.nvisions.solutionsforaccessibility.TabControl.TabControlActivity;
 import com.nvisions.solutionsforaccessibility.Test.TestActivity;
+import com.nvisions.solutionsforaccessibility.Video.VideoActivity;
 import com.nvisions.solutionsforaccessibility.VoiceSearch.VoiceSearchActivity;
 import com.nvisions.solutionsforaccessibility.WebView.WebViewActivity;
 
@@ -272,6 +273,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), HorizontalScrollActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button videoPlayer = findViewById(R.id.videoPlayer);
+        videoPlayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
                 startActivity(intent);
             }
         });

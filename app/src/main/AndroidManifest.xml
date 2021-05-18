@@ -224,7 +224,20 @@
         <activity android:name=".CustomControl.CustomControlActivity" />
         <activity
             android:name=".HorizontalScroll.HorizontalScrollActivity"
-            android:label="@string/horizontal_scroll_demo" />
+            android:label="@string/horizontal_scroll_demo"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".Video.VideoActivity"
+            android:label="@string/video_player"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".Video.VideoGoodActivity"
+            android:theme="@style/globalTheme.NoActionBarTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity
+            android:name=".Video.VideoBadActivity"
+            android:theme="@style/globalTheme.NoActionBarTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
     </application>
 
 </manifest>

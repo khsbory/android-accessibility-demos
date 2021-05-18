@@ -185,5 +185,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="가로 스크롤 데모" />
+
+    <Button
+        android:id="@+id/videoPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="비디오 플레이어" />
 </LinearLayout>
 </ScrollView>
