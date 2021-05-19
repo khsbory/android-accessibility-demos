@@ -55,17 +55,15 @@ public class VideoBadActivity extends AppCompatActivity {
         playerView.setControllerVisibilityListener(new PlaybackControlView.VisibilityListener() {
             @Override
             public void onVisibilityChange(int i) {
-                if(i == 0) {
-                    Log.d("test","controller 올라옴");
+                if (i == 0) {
+                    Log.d("test", "controller 올라옴");
                     //playerView.hideController();
-                }else {
-                    Log.d("test","controller 내려감");
+                } else {
+                    Log.d("test", "controller 내려감");
 
                 }
             }
         });
-
-
 
 
         fullscreenButton = playerView.findViewById(R.id.exo_fullscreen_icon);
@@ -73,12 +71,12 @@ public class VideoBadActivity extends AppCompatActivity {
         fullscreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(fullscreen) {
+                if (fullscreen) {
                     fullscreenButton.setImageDrawable(ContextCompat.getDrawable(VideoBadActivity.this, R.drawable.ic_fullscreen_open));
 
                     getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
 
-                    if(getSupportActionBar() != null){
+                    if (getSupportActionBar() != null) {
                         getSupportActionBar().show();
                     }
 
@@ -86,18 +84,18 @@ public class VideoBadActivity extends AppCompatActivity {
 
                     RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) playerView.getLayoutParams();
                     params.width = params.MATCH_PARENT;
-                    params.height = (int) ( 200 * getApplicationContext().getResources().getDisplayMetrics().density);
+                    params.height = (int) (200 * getApplicationContext().getResources().getDisplayMetrics().density);
                     playerView.setLayoutParams(params);
 
                     fullscreen = false;
-                }else{
+                } else {
                     fullscreenButton.setImageDrawable(ContextCompat.getDrawable(VideoBadActivity.this, R.drawable.ic_fullscreen_close));
 
                     getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
-                            |View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                            |View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
-                    if(getSupportActionBar() != null){
+                    if (getSupportActionBar() != null) {
                         getSupportActionBar().hide();
                     }
 
@@ -116,58 +114,14 @@ public class VideoBadActivity extends AppCompatActivity {
         playerView.setPlayer(player);
         playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIXED_HEIGHT);
 
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(getApplicationContext(), Util.getUserAgent(getApplicationContext(),getApplicationContext().getString(R.string.app_name)));
+        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(getApplicationContext(), Util.getUserAgent(getApplicationContext(), getApplicationContext().getString(R.string.app_name)));
 
 //        MediaSource videoSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
 //                .createMediaSource(Uri.parse("http://html5videoformatconverter.com/data/images/happyfit2.mp4"));
-        MediaSource videoSource  = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(RawResourceDataSource.buildRawResourceUri(R.raw.samplevideo));
+        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(RawResourceDataSource.buildRawResourceUri(R.raw.samplevideo));
 
         player.prepare(videoSource);
 //        player.setPlayWhenReady(true);
-
-
-        // 접근성 검사하여 켜져있을경우 전체화면
-        A11yManager = (AccessibilityManager) this.getSystemService(ACCESSIBILITY_SERVICE);//접근성 서비스를 가져옵니다.
-        //접근성 기능이 실시간으로 꺼지고 켜짐을 감지하기 위해 리스너를 등록합니다.
-        A11yManager.addTouchExplorationStateChangeListener(new AccessibilityManager.TouchExplorationStateChangeListener(){
-
-            @Override
-            public void onTouchExplorationStateChanged(boolean enabled){
-                //리스너 콜백입니다. 콜백의 파라미터로 불 변수를 받고, 원하는 함수로 전달하여 기능을 구현하세요.
-                if(enabled){
-                    //Talkback이 켜져있으면 실행될 무언가를 작성합니다.
-
-
-                } else {
-                    //꺼짐 감지
-
-                    fullscreenButton.setImageDrawable(ContextCompat.getDrawable(VideoBadActivity.this, R.drawable.ic_fullscreen_close));
-
-                    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
-                            |View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                            |View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-
-                    if(getSupportActionBar() != null){
-                        getSupportActionBar().hide();
-                    }
-
-                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
-                    RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) playerView.getLayoutParams();
-                    params.width = params.MATCH_PARENT;
-                    params.height = params.MATCH_PARENT;
-                    playerView.setLayoutParams(params);
-
-                    fullscreen = true;
-
-                    //꺼짐 감지되더라도 contol 항상 띄우기.
-                    playerView.setControllerShowTimeoutMs(0);
-                    playerView.setControllerHideOnTouch(false);
-
-                }
-            }
-        });
-
     }
 
 
@@ -176,17 +130,10 @@ public class VideoBadActivity extends AppCompatActivity {
         super.onResume();
 
 
-        if(A11yManager.isTouchExplorationEnabled()){
-            //Talkback이 켜져있으면 실행될 무언가를 작성합니다.
-            playerView.setControllerShowTimeoutMs(0);
-            playerView.setControllerHideOnTouch(false);
-
-        } else {
             playerView.setControllerShowTimeoutMs(1000*3);
             playerView.setControllerHideOnTouch(true);
         }
 
-    }
 
     @Override
     public void onPause() {

@@ -137,7 +137,8 @@ public class VideoGoodActivity extends AppCompatActivity {
                 if(enabled){
                     //Talkback이 켜져있으면 실행될 무언가를 작성합니다.
 
-
+                    playerView.setControllerShowTimeoutMs(0);
+                    playerView.setControllerHideOnTouch(false);
                 } else {
                     //꺼짐 감지
 
