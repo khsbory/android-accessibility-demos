@@ -2,8 +2,11 @@ package com.nvisions.solutionsforaccessibility.Video;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
+import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -29,7 +32,7 @@ public class VideoGoodActivity extends AppCompatActivity {
 
     SimpleExoPlayer player;
     PlayerView playerView;
-    ImageView fullscreenButton;
+    ImageView fullscreenButton, playButton, stopButton;
     Button closeBtn;
     boolean fullscreen = false;
 
@@ -110,6 +113,44 @@ public class VideoGoodActivity extends AppCompatActivity {
 
                     fullscreen = true;
                 }
+            }
+        });
+
+        playButton = playerView.findViewById(R.id.exo_play);
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                player.setPlayWhenReady(true);
+
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        stopButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
+                        Log.d("test", "play focus");
+                    }
+                },1000);
+
+            }
+        });
+
+        stopButton = playerView.findViewById(R.id.exo_pause);
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                player.setPlayWhenReady(false);
+
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        playButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
+                        Log.d("test", "stop focus");
+                    }
+                },1000);
+
             }
         });
 
