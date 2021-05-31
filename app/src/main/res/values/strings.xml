@@ -260,6 +260,12 @@
     <string name="video_player">비디오 플레이어</string>
     <string name="videoExplain">비디오 플레이어를 구현하는 경우에는 스크린 리더 사용 시, 전체화면 구현으로 인한 접근성 대응을 해 주어야 합니다.</string>
 
+<string name="startFullScreen">전체화면전환</string>
+    <string name="endFullScreen">전체화면 종료</string>
+    <string name="hideControlButton">플레이어 컨트롤 숨기기</string>
+    <string name="previousTrack">이전 트랙</string>
+    <string name="nextTrack">다음 트랙</string>
+
 
     <!--
     This string is used for square devices and overridden by hello_world in

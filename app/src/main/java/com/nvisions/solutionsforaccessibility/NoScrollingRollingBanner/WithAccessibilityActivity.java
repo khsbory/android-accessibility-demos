@@ -50,7 +50,7 @@ public class WithAccessibilityActivity extends AppCompatActivity {
             @Override
             //사용저 접근성이 변할때마 불리는 함수 입니다.
             public boolean onRequestSendAccessibilityEvent(ViewGroup host, View child, AccessibilityEvent event) {
-                if (event.getEventType() == TYPE_VIEW_ACCESSIBILITY_FOCUSED) { //포커스가 접근할때 불리는 이벤트입니다.
+                if (event.getEventType() == TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
                     flag = false;
                 } else if (event.getEventType() == TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) {
                     flag = true;

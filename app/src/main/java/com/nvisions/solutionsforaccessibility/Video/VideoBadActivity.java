@@ -6,15 +6,16 @@ import android.util.Log;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
-import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
@@ -43,7 +44,7 @@ public class VideoBadActivity extends AppCompatActivity {
         player = ExoPlayerFactory.newSimpleInstance(getApplicationContext());
 
         playerView = findViewById(R.id.player);
-
+        playerView.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
         closeBtn = playerView.findViewById(R.id.btn_close);
         closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,18 +53,6 @@ public class VideoBadActivity extends AppCompatActivity {
             }
         });
 
-        playerView.setControllerVisibilityListener(new PlaybackControlView.VisibilityListener() {
-            @Override
-            public void onVisibilityChange(int i) {
-                if (i == 0) {
-                    Log.d("test", "controller 올라옴");
-                    //playerView.hideController();
-                } else {
-                    Log.d("test", "controller 내려감");
-
-                }
-            }
-        });
 
 
         fullscreenButton = playerView.findViewById(R.id.exo_fullscreen_icon);
