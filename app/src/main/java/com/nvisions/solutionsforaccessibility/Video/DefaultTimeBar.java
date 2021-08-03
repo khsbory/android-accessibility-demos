@@ -695,8 +695,22 @@ public class DefaultTimeBar extends View implements TimeBar {
     }
 
     @Override
-    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+    public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
+        super.onInitializeAccessibilityEvent(event);
+        if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_SELECTED) {
+            event.getText().add(getProgressText());
+        }
+        event.setClassName(ACCESSIBILITY_CLASS_NAME);
+    }
 
+    @Override
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+        super.onInitializeAccessibilityNodeInfo(info);
+        info.setClassName(ACCESSIBILITY_CLASS_NAME);
+        info.setContentDescription(getProgressText());
+        if (duration <= 0) {
+            return;
+        }
         if (Util.SDK_INT >= 21) {
             info.addAction(AccessibilityAction.ACTION_SCROLL_FORWARD);
             info.addAction(AccessibilityAction.ACTION_SCROLL_BACKWARD);
@@ -725,6 +739,7 @@ public class DefaultTimeBar extends View implements TimeBar {
         } else {
             return false;
         }
+        sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_SELECTED);
         return true;
     }
 

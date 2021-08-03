@@ -191,5 +191,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="비디오 플레이어" />
+
+    <Button
+        android:id="@+id/customViewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/custom_viewgroup_title" />
 </LinearLayout>
 </ScrollView>

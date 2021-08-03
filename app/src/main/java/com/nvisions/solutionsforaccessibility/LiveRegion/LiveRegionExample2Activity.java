@@ -105,14 +105,15 @@ public class LiveRegionExample2Activity extends AppCompatActivity implements 	Vi
                     btnReset.setEnabled(false);
                     btnShrink.setEnabled(false);
                     btnTake.setEnabled(false);
-                    } else {
+                    txtValue.announceForAccessibility("텍스트  " + value + ": 숨겨짐");
+                }else{
                     // Currently hidden so show it
                     txtValue.setVisibility(View.VISIBLE);
 
                     // Change text on the button
                     btnHide.setText("텍스트 숨기기");
                     btnHide.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_SELECTED);
-
+                    txtValue.announceForAccessibility("텍스트  " + value + ": 표시됨");
                     btnAdd.setEnabled(true);
                     btnGrow.setEnabled(true);
                     btnReset.setEnabled(true);

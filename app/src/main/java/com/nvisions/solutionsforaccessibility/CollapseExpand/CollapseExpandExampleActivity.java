@@ -42,16 +42,13 @@ public class CollapseExpandExampleActivity extends AppCompatActivity {
             }
         });
 
-        // 접근성 정보 수정
         fruitButton.setAccessibilityDelegate(new View.AccessibilityDelegate() {
-            // 톡백에서 작업 메뉴를 열어 확장 축소 적용 가능하도록 구현
             @Override
             public boolean performAccessibilityAction(View host, int action, Bundle args) {
                 if (super.performAccessibilityAction(host, action, args)) {
                     return true;
                 }
                 if (action == AccessibilityNodeInfo.ACTION_COLLAPSE) {
-                    // 톡백에서 축소하는 액션을 작업 메뉴에서 실행 시
                     Log.e(TAG, "performAccessibilityAction: collapse");
                     isFruitContainerExpanded = false;
                     collapseFruitContainer();
@@ -65,8 +62,8 @@ public class CollapseExpandExampleActivity extends AppCompatActivity {
             }
 
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            // 확장/축소 정보 삽입
-            @Override public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
                 super.onInitializeAccessibilityNodeInfo(host, info);
                 info.setClassName(Button.class.getName());
                 

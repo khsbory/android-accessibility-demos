@@ -27,6 +27,7 @@ import com.nvisions.solutionsforaccessibility.Video.VideoActivity;
 import com.nvisions.solutionsforaccessibility.VoiceSearch.VoiceSearchActivity;
 import com.nvisions.solutionsforaccessibility.WebView.WebViewActivity;
 
+import com.nvisions.solutionsforaccessibility.customviewgroup.CustomViewGroupActivity;
 import com.nvisions.solutionsforaccessibility.expandableList.ExpandableListSampleActivity;
 import com.nvisions.solutionsforaccessibility.gmarketSample.GmarketSampleActivity;
 import com.nvisions.solutionsforaccessibility.korailTalk.KorailTalkActivity;
@@ -282,6 +283,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button customViewGroup = findViewById(R.id.customViewGroup);
+        customViewGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CustomViewGroupActivity.class);
                 startActivity(intent);
             }
         });

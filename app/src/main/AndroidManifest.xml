@@ -15,7 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Test.TestActivity"></activity>
+        <activity android:name=".customviewgroup.CustomViewGroupBadActivity"></activity>
+        <activity android:name=".customviewgroup.CustomViewGroupGoodActivity" />
+        <activity android:name=".customviewgroup.CustomViewGroupActivity" />
+        <activity android:name=".Test.TestActivity" />
         <activity
             android:name=".FullscreenFragmentLayer.FullscreenFragmentLayerExampleActivity"
             android:parentActivityName=".FullscreenFragmentLayer.FullscreenFragmentLayerActivity" />
@@ -225,19 +228,19 @@
         <activity
             android:name=".HorizontalScroll.HorizontalScrollActivity"
             android:label="@string/horizontal_scroll_demo"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Video.VideoActivity"
             android:label="@string/video_player"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Video.VideoGoodActivity"
-            android:theme="@style/globalTheme.NoActionBarTheme"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/globalTheme.NoActionBarTheme" />
         <activity
             android:name=".Video.VideoBadActivity"
-            android:theme="@style/globalTheme.NoActionBarTheme"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/globalTheme.NoActionBarTheme" />
     </application>
 
 </manifest>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".customviewgroup.CustomViewGroupGoodActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:background="@android:color/darker_gray"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:background="@android:color/black"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0px"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="clickView"
+                android:text="내가 좋아하는 과일"
+                android:background="@android:color/holo_red_dark"
+                />
+            <TextView
+                android:layout_width="0px"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="clickView"
+                android:text="사과"
+                android:background="@android:color/holo_green_dark"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:text="사과"
+            android:gravity="center"
+            android:background="@android:color/holo_orange_dark"
+            />
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:text="딸기"
+            android:gravity="center"
+            android:background="@android:color/holo_green_dark"
+            />
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:text="오렌지 "
+            android:gravity="center"
+            android:background="@android:color/holo_blue_dark"
+            />
+    </LinearLayout>
+</LinearLayout>

@@ -27,7 +27,7 @@ public class NestedScrollExampleActivity extends AppCompatActivity {
         initAccessibilityCheckBox();
     }
 
-
+    //CheckBox 접근성 초기화
     private void initAccessibilityCheckBox() {
 
         ImageView checkBox = findViewById(R.id.accessibilityCheckBox);
@@ -45,6 +45,23 @@ public class NestedScrollExampleActivity extends AppCompatActivity {
         });
 
         checkBox.setAccessibilityDelegate(checkBoxAccessibilityDelegate);
+
+
+//        LinearLayout checkBox = findViewById(R.id.accessibilityCheckBoxContainer);
+//        checkBox.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                isChecked = !isChecked;
+//                if (isChecked) {
+//                    activateAccessibility();
+//                } else {
+//                    deactivateAccessiblity();
+//                }
+//
+//            }
+//        });
+//
+//        checkBox.setAccessibilityDelegate(checkBoxAccessibilityDelegate);
     }
 
     final View.AccessibilityDelegate checkBoxAccessibilityDelegate = new View.AccessibilityDelegate() {
@@ -52,12 +69,14 @@ public class NestedScrollExampleActivity extends AppCompatActivity {
         public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
             super.onInitializeAccessibilityNodeInfo(host, info);
             // Avoid that the button description is also spoken
-            info.setClassName("android.widget.ToggleButton");
+            info.setClassName("android.widget.CheckBox");
+            //setCheckable을 적용해야 음성 안내
             info.setCheckable(true);
             info.setChecked(isChecked);
         }
     };
 
+    //접근성 비활성화
     private void deactivateAccessiblity() {
 
         TextView text1View = findViewById(R.id.text1);
