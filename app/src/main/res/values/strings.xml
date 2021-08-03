@@ -265,6 +265,7 @@
     <string name="hideControlButton">플레이어 컨트롤 숨기기</string>
     <string name="previousTrack">이전 트랙</string>
     <string name="nextTrack">다음 트랙</string>
+    <string name="totalTime">총 시간</string>
 
 
     <!--

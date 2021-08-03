@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -57,6 +58,14 @@ public class VideoGoodActivity extends AppCompatActivity {
         setTitle(getString(R.string.accessibilityExample));
         player = ExoPlayerFactory.newSimpleInstance(getApplicationContext());
         totaltime = findViewById(R.id.exo_duration);
+        ViewCompat.setAccessibilityDelegate(totaltime, new AccessibilityDelegateCompat() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                info.setTooltipText(getString(R.string.totalTime));
+            }
+        });
+
         nextTrack = findViewById(R.id.exo_next);
         nextTrack.setContentDescription(getString(R.string.nextTrack));
         ViewCompat.setAccessibilityDelegate(nextTrack, new AccessibilityDelegateCompat() {
@@ -77,18 +86,8 @@ public class VideoGoodActivity extends AppCompatActivity {
 
         timePosition = findViewById(R.id.exo_position);
         timePosition.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-        ViewCompat.setAccessibilityDelegate(timePosition, new AccessibilityDelegateCompat() {
-            @Override
-            public void sendAccessibilityEvent(View host, int eventType) {
-                if (eventType == TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
-                  return;
-                };
-                super.sendAccessibilityEvent(host, eventType);
-            }
-        });
 
         playerView = findViewById(R.id.player);
-        ViewCompat.replaceAccessibilityAction(playerView, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK, "", null);
         ViewCompat.setAccessibilityDelegate(playerView, new AccessibilityDelegateCompat() {
             @Override
             public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {

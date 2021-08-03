@@ -41,8 +41,6 @@ class DragListAdapter1 (val context: Context, val items: ArrayList<Int>) : Recyc
                 Toast.makeText(context, items[adapterPosition].toString() + " 클릭함", Toast.LENGTH_LONG).show()
             }
             contentText.accessibilityDelegate = object : View.AccessibilityDelegate() {
-
-
                 override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
                     super.onInitializeAccessibilityNodeInfo(host, info)
                     info?.className = SeekBar::class.java.name

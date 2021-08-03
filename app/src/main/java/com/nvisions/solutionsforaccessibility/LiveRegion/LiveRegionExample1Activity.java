@@ -51,9 +51,6 @@ public class LiveRegionExample1Activity extends AppCompatActivity implements 	Vi
         btnShrink.setOnClickListener(this);
         btnReset.setOnClickListener(this);
         btnHide.setOnClickListener(this);
-
-
-
     }
 
     @Override
