@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@android:color/black"
+    android:orientation="horizontal"
+    tools:context=".customviewgroup.CustomViewGroupBadActivity">
+    <TextView
+        android:layout_width="0px"
+        android:layout_height="70dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:onClick="clickView"
+        android:text="내가 좋아하는 과일"
+        android:background="@android:color/holo_red_dark"
+        />
+    <TextView
+        android:layout_width="0px"
+        android:layout_height="70dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:onClick="clickView"
+        android:text="사과"
+        android:background="@android:color/holo_green_dark"
+        />
+</LinearLayout>
