@@ -267,7 +267,10 @@
     <string name="nextTrack">다음 트랙</string>
     <string name="custom_viewgroup_title">커스텀 뷰그룹</string>
 
-
+    <!-- ViewGroupingTest -->
+    <string name="view_group_title">Example Title</string>
+    <string name="view_group_content">Example Content.\nHello World!</string>
+    <string name="view_group_button">Detail</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.

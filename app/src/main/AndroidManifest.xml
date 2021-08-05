@@ -15,7 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".customviewgroup.CustomViewGroupBadActivity"></activity>
+        <activity android:name=".customviewgroup2.CustomViewGroup2BadActivity"></activity>
+        <activity android:name=".customviewgroup2.CustomViewGroup2GoodActivity" />
+        <activity android:name=".customviewgroup2.CustomViewGroup2Activity" />
+        <activity android:name=".customviewgroup.CustomViewGroupBadActivity" />
         <activity android:name=".customviewgroup.CustomViewGroupGoodActivity" />
         <activity android:name=".customviewgroup.CustomViewGroupActivity" />
         <activity android:name=".Test.TestActivity" />
