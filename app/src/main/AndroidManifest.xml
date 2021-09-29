@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/globalTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".customviewgroup2.CustomViewGroup2BadActivity"></activity>
+        <activity android:name=".AccessibilityUtil.AccessibilityUtilActivity" />
+        <activity android:name=".customviewgroup2.CustomViewGroup2BadActivity" />
         <activity android:name=".customviewgroup2.CustomViewGroup2GoodActivity" />
         <activity android:name=".customviewgroup2.CustomViewGroup2Activity" />
         <activity android:name=".customviewgroup.CustomViewGroupBadActivity" />

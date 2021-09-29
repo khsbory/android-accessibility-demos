@@ -36,6 +36,7 @@ import kotlinx.android.synthetic.main.custom_control_radio_view.view.*
                 info?.isChecked = button1.isSelected
                 info?.isSelected = false
 
+
             }
         }
 

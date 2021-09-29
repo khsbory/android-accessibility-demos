@@ -197,5 +197,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/custom_viewgroup_title" />
+
+    <Button
+        android:id="@+id/accessibilityUtil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/accessibility_util_title" />
+
 </LinearLayout>
 </ScrollView>
