@@ -52,6 +52,7 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-core:2.13.3'
     implementation 'com.google.android.exoplayer:exoplayer-dash:2.13.3'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.13.3'
+    implementation 'androidx.compose.ui:ui:1.0.0-beta04'
 
     compileOnly 'com.google.android.wearable:wearable:2.8.1'
 }

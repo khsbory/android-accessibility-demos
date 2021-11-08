@@ -1,15 +1,10 @@
 package com.nvisions.solutionsforaccessibility.AccessibilityUtil;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
-import com.nvisions.solutionsforaccessibility.ContentGrouping.ContentGroupingBadActivity;
-import com.nvisions.solutionsforaccessibility.ContentGrouping.ContentGroupingGoodActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.nvisions.solutionsforaccessibility.R;
 
 public class AccessibilityUtilActivity extends AppCompatActivity {
@@ -35,8 +30,8 @@ public class AccessibilityUtilActivity extends AppCompatActivity {
         ImageView radioButton2 = findViewById(R.id.radioButton2);
         radioButton2.setOnClickListener(v -> v.setSelected(!v.isSelected()));
 
-        AccessibilityUtil.setAsRadioButton(radioButton1);
-        AccessibilityUtil.setAsRadioButton(radioButton2);
+        AccessibilityUtil.setAsRadioButton(radioButton1, false);
+        AccessibilityUtil.setAsRadioButton(radioButton2, false);
     }
 
 

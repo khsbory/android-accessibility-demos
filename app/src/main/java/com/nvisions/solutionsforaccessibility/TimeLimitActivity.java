@@ -24,15 +24,17 @@ import java.util.TimerTask;
 import static android.view.accessibility.AccessibilityManager.FLAG_CONTENT_CONTROLS;
 import static android.view.accessibility.AccessibilityManager.FLAG_CONTENT_TEXT;
 
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityUtil;
+
 public class TimeLimitActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_limit);
-
+        Context context = (Context) getApplicationContext();
         // detecting TalkBack and alert popup
-        if(!isTalkBackEnabled()) {
+        if (!AccessibilityUtil.isTalkBackOn(context)) {
              showTalkbackAlertPopup();
         }
     }
@@ -66,13 +68,6 @@ public class TimeLimitActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private boolean isTalkBackEnabled() {
-        AccessibilityManager accessibilityManager = (AccessibilityManager) getSystemService(Context.ACCESSIBILITY_SERVICE);
-        boolean isAccessibilityEnabled = accessibilityManager.isEnabled();
-        boolean isExploreByTouchEnabled = accessibilityManager.isTouchExplorationEnabled();
-
-        return isAccessibilityEnabled && isExploreByTouchEnabled;
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void showDialogWithoutGetRecommendedTimeoutMillis(View view) {

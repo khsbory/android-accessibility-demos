@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityUtil;
 import com.nvisions.solutionsforaccessibility.R;
 import com.nvisions.solutionsforaccessibility.gmarketSample.fragment.MeatFragment;
 import com.nvisions.solutionsforaccessibility.gmarketSample.fragment.MeatFragment2;
@@ -33,42 +34,8 @@ public class WithAccessibilityActivity extends AppCompatActivity {
         final TextView meat = findViewById(R.id.meat_txt);
         final TextView vegetable = findViewById(R.id.vegetable_txt);
         meat.setTextColor(Color.GREEN);
-        ViewCompat.setAccessibilityDelegate(meat, new AccessibilityDelegateCompat() {
-            @Override
-            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
-                super.onInitializeAccessibilityNodeInfo(host, info);
-                info.setRoleDescription("tab");
-                ColorStateList mList = meat.getTextColors();
-                int color = mList.getDefaultColor();
-                switch (color) {
-                    case Color.GREEN:
-                        info.setSelected(true);
-                        break;
-                    case Color.GRAY:
-                        info.setSelected(false);
-                        break;
-                }
-            }
-        });
-
-        ViewCompat.setAccessibilityDelegate(vegetable, new AccessibilityDelegateCompat() {
-            @Override
-            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
-                super.onInitializeAccessibilityNodeInfo(host, info);
-                info.setRoleDescription("tab");
-                ColorStateList mList2 = vegetable.getTextColors();
-                int color2 = mList2.getDefaultColor();
-                switch (color2) {
-                    case Color.GREEN:
-                        info.setSelected(true);
-                        break;
-                    case Color.GRAY:
-                        info.setSelected(false);
-                        break;
-                }
-            }
-        });
-
+        AccessibilityUtil.setAsTab(meat, true);
+        AccessibilityUtil.setAsTab(vegetable, false);
         Fragment meatFragment = new MeatFragment2();
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -83,7 +50,9 @@ public class WithAccessibilityActivity extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.frame_layout, fragment);
                 fragmentTransaction.commit();
                 meat.setTextColor(Color.GREEN);
+                AccessibilityUtil.setAsTab(meat, true);
                 vegetable.setTextColor(Color.GRAY);
+                AccessibilityUtil.setAsTab(vegetable, false);
             }
         });
         vegetable.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +63,9 @@ public class WithAccessibilityActivity extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.frame_layout, fragment);
                 fragmentTransaction.commit();
                 meat.setTextColor(Color.GRAY);
+                AccessibilityUtil.setAsTab(meat, false);
                 vegetable.setTextColor(Color.GREEN);
+                AccessibilityUtil.setAsTab(vegetable, true);
             }
         });
     }
