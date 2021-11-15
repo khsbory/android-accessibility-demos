@@ -1,13 +1,12 @@
 package com.nvisions.solutionsforaccessibility.AccessibilityUtil
 import android.accessibilityservice.AccessibilityService
 import android.content.Context
+import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.RadioButton
-import android.widget.ToggleButton
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
@@ -127,5 +126,86 @@ object AccessibilityKotlin {
         return isTalkBackOn
     }
 
+    fun expandCollapseButton(view: View, isExpanded: Boolean) {
+        view.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun performAccessibilityAction(
+                host: View?,
+                action: Int,
+                args: Bundle?
+            ): Boolean {
+                if (action == AccessibilityNodeInfo.ACTION_COLLAPSE || action == AccessibilityNodeInfo.ACTION_EXPAND) {
+                    view.performClick()
+                }
+                return super.performAccessibilityAction(host, action, args)
+            }
+            override fun onInitializeAccessibilityNodeInfo(
+                host: View?,
+                info: AccessibilityNodeInfo?
+            ) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.className = Button::class.java.name
+                if (isExpanded) {
+                    info?.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_COLLAPSE)
+                } else if (view.isSelected) {
+                    info?.isSelected = false
+                    info?.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_COLLAPSE)
+                } else {
+                    info?.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_EXPAND)
+                }
+            }
+        }
+    }
+
+    fun expandCollapseRadioButton(view: View, isChecked: Boolean) {
+        view.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(
+                host: View?,
+                info: AccessibilityNodeInfo?
+            ) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.className = RadioButton::class.java.name
+                info?.isCheckable = true
+                if (view.isSelected) {
+                    info?.isChecked = true
+                    info?.isSelected = false
+                    info?.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_COLLAPSE)
+                } else if (isChecked) {
+                    info?.isChecked = true
+                    info?.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_COLLAPSE)
+                } else {
+                    info?.isChecked = false
+                    info?.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_EXPAND)
+                }
+            }
+            override fun performAccessibilityAction(
+                host: View?,
+                action: Int,
+                args: Bundle?
+            ): Boolean {
+                if (action == AccessibilityNodeInfo.ACTION_COLLAPSE || action == AccessibilityNodeInfo.ACTION_EXPAND) {
+                    view.performClick()
+                }
+                return super.performAccessibilityAction(host, action, args)
+            }
+        }
+    }
+
+    fun sendFocusThisView(view: View) {
+        Handler().postDelayed( {
+            view.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+        }, 500)
+    }
+
+    fun setAsDropdown(view: View) {
+        view.accessibilityDelegate object :View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(
+                host: View?,
+                info: AccessibilityNodeInfo?
+            ) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info?.className(Spinner::class.java.name)
+            }
+        }
+    }
 }
 

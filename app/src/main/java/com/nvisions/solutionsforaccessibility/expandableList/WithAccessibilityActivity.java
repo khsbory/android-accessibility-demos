@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityUtil;
 import com.nvisions.solutionsforaccessibility.R;
 
 import java.util.ArrayList;
@@ -52,14 +53,7 @@ public class WithAccessibilityActivity extends AppCompatActivity {
 
             @Override
             public void onDrawerClosed(@NonNull View drawerView) {
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        filterButton.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
-                    }
-                },500);
-
+                AccessibilityUtil.sendFocusThisView(filterButton);
             }
 
             @Override

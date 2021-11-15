@@ -1,12 +1,16 @@
 package com.nvisions.solutionsforaccessibility.AccessibilityUtil;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.ToggleButton;
 
 import androidx.core.view.AccessibilityDelegateCompat;
@@ -14,7 +18,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
 public class AccessibilityUtil {
-
     public static void setAsButton(View view) {
         view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
             @Override
@@ -115,8 +118,84 @@ public class AccessibilityUtil {
 
     public static boolean isTalkBackOn(Context context) {
         AccessibilityManager accessibilityManager = (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
-        boolean isTalkBackOn = accessibilityManager.isTouchExplorationEnabled();
+         boolean isTalkBackOn = accessibilityManager.isTouchExplorationEnabled();
         return isTalkBackOn;
+    }
+
+    public static void expandCollapseButton(View view, boolean isExpanded) {
+        view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                info.setClassName(Button.class.getName());
+                if (isExpanded) {
+                    info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_COLLAPSE);
+                } else if (view.isSelected()) {
+                    info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_COLLAPSE);
+                    info.setSelected(false);
+                } else {
+                    info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_EXPAND);
+                }
+            }
+
+            @Override
+            public boolean performAccessibilityAction(View host, int action, Bundle args) {
+                if (action == AccessibilityNodeInfo.ACTION_COLLAPSE || action == AccessibilityNodeInfo.ACTION_EXPAND) {
+                view.performClick();
+                }
+                return super.performAccessibilityAction(host, action, args);
+            }
+        });
+    }
+
+    public static void collapseExpandRadioButton(View view, boolean isChecked) {
+        view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+            info.setClassName(RadioButton.class.getName());
+                info.setCheckable(true);
+                if (view.isSelected()) {
+                    info.setChecked(true);
+                    info.setSelected(false);
+                    info.addAction(AccessibilityNodeInfo.ACTION_COLLAPSE);
+                } else if (isChecked) {
+                    info.setChecked(true);
+                    info.addAction(AccessibilityNodeInfo.ACTION_COLLAPSE);
+                } else {
+                    info.setChecked(false);
+                    info.addAction(AccessibilityNodeInfo.ACTION_EXPAND);
+                }
+                            }
+
+            @Override
+            public boolean performAccessibilityAction(View host, int action, Bundle args) {
+                if (action == AccessibilityNodeInfo.ACTION_COLLAPSE || action == AccessibilityNodeInfo.ACTION_EXPAND) {
+                    view.performClick();
+                }
+                return super.performAccessibilityAction(host, action, args);
+            }
+        });
+    }
+
+    public static void sendFocusThisView(View view) {
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null);
+            };
+        }, 500);
+    }
+
+    public void setAsDropdown(View view) {
+        view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                info.setClassName(Spinner.class.getName());
+            }
+        });
     }
 }
 

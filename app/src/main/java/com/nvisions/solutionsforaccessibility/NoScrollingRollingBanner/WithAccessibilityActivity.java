@@ -1,32 +1,22 @@
 package com.nvisions.solutionsforaccessibility.NoScrollingRollingBanner;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.nvisions.solutionsforaccessibility.R;
 
-import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
-import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED;
-
 public class WithAccessibilityActivity extends AppCompatActivity {
     boolean playing = true;
-    boolean flag = true;
+     boolean flag = true;
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
@@ -44,20 +34,18 @@ public class WithAccessibilityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_scrolling_rolling_banner_accessibility);
         setTitle(getString(R.string.goodExample));
-        final ViewFlipper flipper = (ViewFlipper) findViewById(R.id.flipper);
-                flipper.setAccessibilityDelegate(new View.AccessibilityDelegate() {
-
-            @Override
-            //사용저 접근성이 변할때마 불리는 함수 입니다.
-            public boolean onRequestSendAccessibilityEvent(ViewGroup host, View child, AccessibilityEvent event) {
-                if (event.getEventType() == TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
-                    flag = false;
-                } else if (event.getEventType() == TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) {
-                    flag = true;
+            final ViewFlipper flipper = (ViewFlipper) findViewById(R.id.flipper);
+            flipper.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+                @Override
+                public boolean onRequestSendAccessibilityEvent(ViewGroup host, View child, AccessibilityEvent event) {
+                    if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
+                        flag = false;
+                    } else {
+                        flag = true;
+                    }
+                    return super.onRequestSendAccessibilityEvent(host, child, event);
                 }
-                return super.onRequestSendAccessibilityEvent(host, child, event);
-            }
-        });
+            });
         ImageView image1 = (ImageView) findViewById(R.id.image1);
         ImageView image2 = (ImageView) findViewById(R.id.image2);
         ImageView image3 = (ImageView) findViewById(R.id.image3);

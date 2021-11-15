@@ -96,8 +96,10 @@ public class CustomExpandableListViewAdapter extends BaseExpandableListAdapter {
                 info.setClassName(RadioButton.class.getName());
                 if (radioButton.isChecked()) {
                     info.setChecked(true);
+                    info.addAction(AccessibilityNodeInfo.ACTION_COLLAPSE);
                 } else {
                     info.setChecked(false);
+                    info.addAction(AccessibilityNodeInfo.ACTION_EXPAND);
                 }
                 info.setCheckable(true);
                 info.setContentDescription(getGroup(groupPosition) + ",레벨 1.");

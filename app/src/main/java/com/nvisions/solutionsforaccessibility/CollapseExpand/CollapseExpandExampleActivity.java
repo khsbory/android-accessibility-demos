@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityUtil;
 import com.nvisions.solutionsforaccessibility.R;
 
 public class CollapseExpandExampleActivity extends AppCompatActivity {
@@ -33,47 +34,14 @@ public class CollapseExpandExampleActivity extends AppCompatActivity {
 
     private void initButtons() {
         final TextView fruitButton = findViewById(R.id.button_fruit);
+        AccessibilityUtil.expandCollapseButton(fruitButton, false);
         fruitButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 isFruitContainerExpanded = !isFruitContainerExpanded;
                 toggleFruitContainer(v);
-            }
-        });
-
-        fruitButton.setAccessibilityDelegate(new View.AccessibilityDelegate() {
-            @Override
-            public boolean performAccessibilityAction(View host, int action, Bundle args) {
-                if (super.performAccessibilityAction(host, action, args)) {
-                    return true;
-                }
-                if (action == AccessibilityNodeInfo.ACTION_COLLAPSE) {
-                    Log.e(TAG, "performAccessibilityAction: collapse");
-                    isFruitContainerExpanded = false;
-                    collapseFruitContainer();
-                } else if (action == AccessibilityNodeInfo.ACTION_EXPAND) {
-                    Log.e(TAG, "performAccessibilityAction: expand");
-                    isFruitContainerExpanded = true;
-                    expandFruitContainer();
-                    return true;
-                }
-                return false;
-            }
-
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
-                super.onInitializeAccessibilityNodeInfo(host, info);
-                info.setClassName(Button.class.getName());
-                
-                if (isFruitContainerExpanded) {
-                    Log.e(TAG, "onInitializeAccessibilityNodeInfo: collapse");
-                    info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_COLLAPSE);
-                } else {
-                    Log.e(TAG, "onInitializeAccessibilityNodeInfo: expand");
-                    info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_EXPAND);
-                }
+                AccessibilityUtil.expandCollapseButton(fruitButton, isFruitContainerExpanded);
             }
         });
 
