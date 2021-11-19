@@ -19,6 +19,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityKotlin
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.activity_key_board_good_and_bad.*
 import kotlinx.android.synthetic.main.fragment_key_board_good.*
@@ -34,12 +35,8 @@ class KeyBoardGoodFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ViewCompat.setAccessibilityDelegate(editText, object : AccessibilityDelegateCompat() {
-            override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfoCompat?) {
-                super.onInitializeAccessibilityNodeInfo(host, info)
-                info?.hintText = "금액"
-            }
-        })
+        val accessibilityKotlin = AccessibilityKotlin
+        accessibilityKotlin.setAsEditTextHint(editText, "type number")
                 keyBoardView.layoutManager = GridLayoutManager(requireContext(), 3)
         keyAdapter = KeyBoardGoodAdapter()
         keyBoardView.adapter = keyAdapter

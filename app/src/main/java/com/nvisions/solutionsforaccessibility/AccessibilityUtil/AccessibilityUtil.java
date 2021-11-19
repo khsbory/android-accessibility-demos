@@ -188,7 +188,7 @@ public class AccessibilityUtil {
         }, 500);
     }
 
-    public void setAsDropdown(View view) {
+    public static void setAsDropdown(View view) {
         view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
             @Override
             public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
@@ -197,5 +197,25 @@ public class AccessibilityUtil {
             }
         });
     }
-}
+
+    public static void setEditTextHint(View view, String hintMessage) {
+        view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                info.setHintText(hintMessage);
+            }
+        });
+    }
+
+    public static void setAsIgnoreSelected(View view) {
+        view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                info.setSelected(false);
+            }
+        });
+    }
+    }
 
