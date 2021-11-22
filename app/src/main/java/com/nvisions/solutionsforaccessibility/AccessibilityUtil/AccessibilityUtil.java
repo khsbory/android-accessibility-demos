@@ -4,7 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
@@ -47,10 +49,27 @@ public class AccessibilityUtil {
         });
     }
 
+    public static boolean isChildAccessibilityFocused(ViewGroup viewGroup) {
+        boolean isFocused = false;
+        View view = null;
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
+            view = viewGroup.getChildAt(i);
+            if (view.isAccessibilityFocused()) {
+                isFocused = true;
+                break;
+            }
+        }
+
+        return isFocused;
+    }
+
     public static void setAsRadioButton(View view, boolean isChecked) {
+
+        view.isAccessibilityFocused();
         view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
             @Override
             public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+               Log.d("plusapps", "setAsRadioButton onInitializeAccessibilityNodeInfo");
                 super.onInitializeAccessibilityNodeInfo(host, info);
                 info.setClassName(RadioButton.class.getName());
                 info.setCheckable(true);

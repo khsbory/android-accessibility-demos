@@ -1,9 +1,9 @@
 package com.nvisions.solutionsforaccessibility.AccessibilityUtil
-import android.accessibilityservice.AccessibilityService
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.view.ViewGroup
 import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.*
@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.AccessibilityDelegateCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
-import java.security.AccessControlContext
 
 object AccessibilityKotlin {
     fun setAsButton(view: View) {
@@ -206,6 +205,19 @@ object AccessibilityKotlin {
                 info?.className = Spinner::class.java.name
             }
         }
+    }
+
+    fun isChildAccessibilityFocused(viewGroup: ViewGroup): Boolean {
+        var isFocused = false
+        var view: View? = null
+        for (i in 0 until viewGroup.childCount) {
+            view = viewGroup.getChildAt(i)
+            if (view.isAccessibilityFocused) {
+                isFocused = true
+                break
+            }
+        }
+        return isFocused
     }
 
     fun setAsEditTextHint(view: View, hintMessage: String) {
