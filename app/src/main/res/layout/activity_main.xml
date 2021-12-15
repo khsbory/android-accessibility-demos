@@ -204,5 +204,11 @@
         android:layout_height="wrap_content"
         android:text="@string/accessibility_util_title" />
 
+    <Button
+        android:id="@+id/customCollectionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/custom_collectionview_title" />
+
 </LinearLayout>
 </ScrollView>

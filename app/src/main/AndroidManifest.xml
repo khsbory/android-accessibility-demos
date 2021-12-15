@@ -245,6 +245,10 @@
             android:name=".Video.VideoBadActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/globalTheme.NoActionBarTheme" />
+        <activity
+            android:name=".customCollectionView.CustomCollectionViewGoodActivity"
+            android:label="@string/custom_collectionview_title"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

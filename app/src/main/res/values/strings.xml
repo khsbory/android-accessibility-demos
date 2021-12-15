@@ -272,6 +272,8 @@
     <string name="view_group_content">Example Content.\nHello World!</string>
     <string name="view_group_button">Detail</string>
     <string name="accessibility_util_title">Accessibility Util</string>
+
+    <string name="custom_collectionview_title">커스텀 콜렉션 뷰</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
