@@ -249,6 +249,8 @@
             android:name=".customCollectionView.CustomCollectionViewGoodActivity"
             android:label="@string/custom_collectionview_title"
             android:parentActivityName=".MainActivity" />
+
+
     </application>
 
 </manifest>

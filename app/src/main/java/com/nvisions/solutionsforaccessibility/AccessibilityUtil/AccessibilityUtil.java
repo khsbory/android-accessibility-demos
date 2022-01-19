@@ -1,16 +1,14 @@
 package com.nvisions.solutionsforaccessibility.AccessibilityUtil;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
-<<<<<<< HEAD
 import android.view.accessibility.AccessibilityEvent;
-=======
 import android.view.ViewGroup;
->>>>>>> 76d7aa615ec76671b779af98753dc4c14117b262
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
@@ -254,6 +252,28 @@ public class AccessibilityUtil {
                 }
             }
         }, 500);
+    }
+
+    public static void setAsKeyboardKey(View view) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+                @Override
+                public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+                    super.onInitializeAccessibilityNodeInfo(host, info);
+                    info.setTextEntryKey(true);
+                }
+            });
+        }
+    }
+
+    public static void setAsNone(View view) {
+        ViewCompat.setAccessibilityDelegate(view, new AccessibilityDelegateCompat() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                info.setRoleDescription(" ");
+            }
+        });
     }
 }
 

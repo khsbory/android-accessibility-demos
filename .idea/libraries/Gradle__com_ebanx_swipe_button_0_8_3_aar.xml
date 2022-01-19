@@ -31,6 +31,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/af02d2cc18159733f498245c7a77f0a1/jetified-swipe-button-0.8.3/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/af02d2cc18159733f498245c7a77f0a1/jetified-swipe-button-0.8.3/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/af02d2cc18159733f498245c7a77f0a1/jetified-swipe-button-0.8.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/90559b8c976864d39908e64e9d224036/jetified-swipe-button-0.8.3/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/90559b8c976864d39908e64e9d224036/jetified-swipe-button-0.8.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/90559b8c976864d39908e64e9d224036/jetified-swipe-button-0.8.3/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ebanx/swipe-button/0.8.3/ccb0e180ddcf0fb30a5a4d06e70c522f94c37970/swipe-button-0.8.3-javadoc.jar!/" />

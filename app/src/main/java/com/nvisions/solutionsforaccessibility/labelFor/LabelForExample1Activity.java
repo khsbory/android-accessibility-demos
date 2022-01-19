@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityUtil;
 import com.nvisions.solutionsforaccessibility.R;
 
 public class LabelForExample1Activity extends AppCompatActivity {
@@ -24,6 +25,8 @@ public class LabelForExample1Activity extends AppCompatActivity {
 
         final TextView errorText = (TextView)findViewById(R.id.errorText);
         final EditText name = (EditText)findViewById(R.id.nameInput);
+        AccessibilityUtil.setAsDropdown(name);
+        name.setHint("test");
         final EditText email = (EditText)findViewById(R.id.emailInput);
         final EditText phone = (EditText)findViewById(R.id.phoneInput);
         final TextView nameLabel = (TextView)findViewById(R.id.nameLabel);

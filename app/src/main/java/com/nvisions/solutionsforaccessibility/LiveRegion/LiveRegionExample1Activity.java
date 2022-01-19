@@ -2,7 +2,6 @@ package com.nvisions.solutionsforaccessibility.LiveRegion;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.TextView;
@@ -64,6 +63,7 @@ public class LiveRegionExample1Activity extends AppCompatActivity implements 	Vi
 
         switch(view.getId()){
             case R.id.btnAdd:
+                btnAdd.setVisibility(View.GONE);
                 value ++;
                 txtValue.setText(""+ value);
                                 break;

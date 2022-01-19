@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityUtilActivity;
 import com.nvisions.solutionsforaccessibility.CollapseExpand.CollapseExpandActivity;
 import com.nvisions.solutionsforaccessibility.ContentGrouping.ContentGroupingActivity;
 import com.nvisions.solutionsforaccessibility.CustomControl.CustomControlActivity;
@@ -22,14 +20,12 @@ import com.nvisions.solutionsforaccessibility.NestedScroll.NestedScrollActivity;
 import com.nvisions.solutionsforaccessibility.NoScrollingRollingBanner.NoScrollingRollingBannerActivity;
 import com.nvisions.solutionsforaccessibility.RatingBar.RatingBarActivity;
 import com.nvisions.solutionsforaccessibility.ScrollFocus.ScrollFocusActivity;
-import com.nvisions.solutionsforaccessibility.TabControl.TabControlActivity;
+import com.nvisions.solutionsforaccessibility.TabControl.TabBadActivity;
 import com.nvisions.solutionsforaccessibility.Test.TestActivity;
 import com.nvisions.solutionsforaccessibility.Video.VideoActivity;
 import com.nvisions.solutionsforaccessibility.VoiceSearch.VoiceSearchActivity;
 import com.nvisions.solutionsforaccessibility.WebView.WebViewActivity;
-
 import com.nvisions.solutionsforaccessibility.customCollectionView.CustomCollectionViewGoodActivity;
-import com.nvisions.solutionsforaccessibility.customviewgroup.CustomViewGroupActivity;
 import com.nvisions.solutionsforaccessibility.customviewgroup2.CustomViewGroup2Activity;
 import com.nvisions.solutionsforaccessibility.expandableList.ExpandableListSampleActivity;
 import com.nvisions.solutionsforaccessibility.gmarketSample.GmarketSampleActivity;
@@ -300,11 +296,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button accessibilityUtil = findViewById(R.id.accessibilityUtil);
-        accessibilityUtil.setOnClickListener(new View.OnClickListener() {
+        Button tabLayoutTest = findViewById(R.id.tabLayoutTest);
+        tabLayoutTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AccessibilityUtilActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TabBadActivity.class);
                 startActivity(intent);
             }
         });

@@ -37,8 +37,11 @@ object AccessibilityKotlin {
                 if (view.isSelected) {
                     info?.isChecked = true
                     info?.isSelected = false
+                    info?.isClickable = false
+                    info?.removeAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_CLICK)
                 } else if (isChecked) {
                     info?.isChecked = true
+                    info?.removeAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_CLICK)
                 } else {
                     info?.isChecked = false
                 }
