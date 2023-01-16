@@ -15,7 +15,6 @@ class ViewPagerAdapter2(private val context:Context, private val list:ArrayList<
         val inflater = LayoutInflater.from(container.context)
         val view = inflater.inflate(R.layout.custom_control_viewpager_layout, container, false)
         view.textView.text = list[position]
-        view.textView.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
                 container.addView(view)
                 view.setOnClickListener {
             val builder = AlertDialog.Builder(context)

@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityKotlin;
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityUtil;
 import com.nvisions.solutionsforaccessibility.R;
 
 public class CollapseExpandActivity extends AppCompatActivity implements View.OnClickListener {
@@ -18,6 +20,7 @@ public class CollapseExpandActivity extends AppCompatActivity implements View.On
 setTitle(getString(R.string.collapseExpand));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 Button example1 = (Button)findViewById(R.id.button1);
+        AccessibilityUtil.sendFocusThisView(example1);
             example1.setOnClickListener(this);
     }
 

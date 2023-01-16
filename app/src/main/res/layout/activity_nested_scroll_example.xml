@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:labelFor="@id/accessibilityCheckBox"
+            android:importantForAccessibility="no"
             android:text="@string/applyA11y"
             />
 
@@ -24,6 +24,7 @@
         android:id="@+id/accessibilityCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/applyA11y"
         android:background="@drawable/chkbox_unchecked"
         />
 

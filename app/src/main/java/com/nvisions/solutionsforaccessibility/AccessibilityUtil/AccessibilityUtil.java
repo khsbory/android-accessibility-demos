@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.core.view.AccessibilityDelegateCompat;
@@ -22,6 +23,30 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
 public class AccessibilityUtil {
+    public static void setContainerAsCheckbox(View containerView, CheckBox checkboxView, TextView textView) {
+        checkboxView.setClickable(false);
+        containerView.setContentDescription(textView.getText());
+        containerView.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                info.setCheckable(true);
+                info.setChecked(checkboxView.isChecked());
+                info.setClassName(CheckBox.class.getName());
+            }
+        });
+    }
+
+    public static void buttonAsRoleDescription(View view, String roleDescriptionMessage) {
+        ViewCompat.setAccessibilityDelegate(view, new AccessibilityDelegateCompat() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                info.setRoleDescription(roleDescriptionMessage);
+            }
+        });
+    }
+
     public static void setAsButton(View view) {
         view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
             @Override
@@ -51,35 +76,22 @@ public class AccessibilityUtil {
         });
     }
 
-    public static boolean isChildAccessibilityFocused(ViewGroup viewGroup) {
-        boolean isFocused = false;
-        View view = null;
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-            view = viewGroup.getChildAt(i);
-            if (view.isAccessibilityFocused()) {
-                isFocused = true;
-                break;
-            }
-        }
-
-        return isFocused;
-    }
-
     public static void setAsRadioButton(View view, boolean isChecked) {
-
-        view.isAccessibilityFocused();
         view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
             @Override
             public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
-                Log.d("plusapps", "setAsRadioButton onInitializeAccessibilityNodeInfo");
                 super.onInitializeAccessibilityNodeInfo(host, info);
                 info.setClassName(RadioButton.class.getName());
                 info.setCheckable(true);
                 if (view.isSelected()) {
                     info.setChecked(true);
                     info.setSelected(false);
+                    info.removeAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_CLICK);
+                    info.setClickable(false);
                 } else if (isChecked) {
                     info.setChecked(true);
+                    info.removeAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_CLICK);
+                    info.setClickable(false);
                 } else {
                     info.setChecked(false);
                 }
@@ -205,7 +217,9 @@ public class AccessibilityUtil {
             @Override
             public void run() {
                 view.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null);
-            };
+            }
+
+            ;
         }, 500);
     }
 
@@ -255,7 +269,7 @@ public class AccessibilityUtil {
     }
 
     public static void setAsKeyboardKey(View view) {
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             view.setAccessibilityDelegate(new View.AccessibilityDelegate() {
                 @Override
                 public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {

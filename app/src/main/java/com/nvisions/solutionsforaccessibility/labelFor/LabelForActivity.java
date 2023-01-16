@@ -4,14 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityUtil;
 import com.nvisions.solutionsforaccessibility.R;
 
 public class LabelForActivity extends AppCompatActivity implements View.OnClickListener {
     private Button example1;
     private Button example2;
+    private TextView text1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,8 @@ public class LabelForActivity extends AppCompatActivity implements View.OnClickL
         }
         Button example1 = findViewById(R.id.example1);
         Button example2 = findViewById(R.id.example2);
+        TextView text1 = findViewById(R.id.label_explain);
+        AccessibilityUtil.sendFocusThisView(text1);
         example1.setOnClickListener(this);
         example2.setOnClickListener(this);
     }

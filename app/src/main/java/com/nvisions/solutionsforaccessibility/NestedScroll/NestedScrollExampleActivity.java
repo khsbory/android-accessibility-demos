@@ -31,6 +31,7 @@ public class NestedScrollExampleActivity extends AppCompatActivity {
     private void initAccessibilityCheckBox() {
 
         ImageView checkBox = findViewById(R.id.accessibilityCheckBox);
+
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +70,7 @@ public class NestedScrollExampleActivity extends AppCompatActivity {
         public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
             super.onInitializeAccessibilityNodeInfo(host, info);
             // Avoid that the button description is also spoken
-            info.setClassName("android.widget.CheckBox");
+            info.setClassName("android.widget.ToggleButton");
             //setCheckable을 적용해야 음성 안내
             info.setCheckable(true);
             info.setChecked(isChecked);

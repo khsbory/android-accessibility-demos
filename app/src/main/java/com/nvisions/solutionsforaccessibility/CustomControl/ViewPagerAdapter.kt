@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.viewpager.widget.PagerAdapter
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityKotlin
 import com.nvisions.solutionsforaccessibility.R
 import kotlinx.android.synthetic.main.custom_control_viewpager_layout.view.*
 
@@ -15,7 +16,6 @@ class ViewPagerAdapter(private val context:Context, private val list:ArrayList<S
         val inflater = LayoutInflater.from(container.context)
         val view = inflater.inflate(R.layout.custom_control_viewpager_layout, container, false)
         view.textView.text = list[position]
-        view.contentDescription = "햄버거 브랜드, " + view.textView.text
                 container.addView(view)
                 view.setOnClickListener {
             val builder = AlertDialog.Builder(context)
@@ -32,7 +32,11 @@ class ViewPagerAdapter(private val context:Context, private val list:ArrayList<S
         container.removeView(`object` as View?)
     }
 
+	val a11y = AccessibilityKotlin
     override fun getCount(): Int {
+		if (a11y.isTalkBackOn(context)) {
+			return 3
+		}
         return list.size
     }
 

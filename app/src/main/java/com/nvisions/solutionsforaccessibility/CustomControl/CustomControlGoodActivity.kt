@@ -25,7 +25,7 @@ import kotlin.concurrent.timer
 class CustomControlGoodActivity : AppCompatActivity() {
     private var count:String = "1"
     private var type:String = "단품"
-    private val pagerList = arrayListOf("맥도날드", "롯데리아", "KFC")
+    private val pagerList = arrayListOf("맥도날드", "롯데리아", "KFC", "맥도날드", "롯데리아", "KFC")
     private var currentPage = 0
     private lateinit var timer:Timer
     private var timerStat = false
@@ -34,10 +34,6 @@ class CustomControlGoodActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.custom_control_good_activity)
-        Handler().postDelayed( {
-            viewPager.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
-            viewPager.requestFocus()
-        }, 1000)
         init()
     }
 
@@ -110,7 +106,8 @@ class CustomControlGoodActivity : AppCompatActivity() {
         bannerButton.accessibilityDelegate =object : View.AccessibilityDelegate() {
             override fun onInitializeAccessibilityNodeInfo(host: View?, info: AccessibilityNodeInfo?) {
                 super.onInitializeAccessibilityNodeInfo(host, info)
-                info?.className = SeekBar::class.java.name
+                    info?.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_BACKWARD)
+                info?.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_FORWARD)
                 info?.tooltipText = getString(R.string.bannerRolling)
             }
             override fun performAccessibilityAction(host: View?, action: Int, args: Bundle?): Boolean {

@@ -8,12 +8,14 @@ import android.os.Handler;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.nvisions.solutionsforaccessibility.AccessibilityUtil.AccessibilityUtil;
 import com.nvisions.solutionsforaccessibility.R;
 
 public class MusicGoodActivity extends AppCompatActivity {
@@ -126,11 +128,10 @@ public class MusicGoodActivity extends AppCompatActivity {
 
         mSeekBar.setAccessibilityDelegate(new View.AccessibilityDelegate() {
             @Override
-            public void sendAccessibilityEvent(View host, int eventType) {
-                if (!isFromUser && eventType == AccessibilityEvent.CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION) {
-                    return;
+            public void onInitializeAccessibilityEvent(View host, AccessibilityEvent event) {
+                if (isFromUser || event.getEventType() == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
+                    super.onInitializeAccessibilityEvent(host, event);
                 }
-                super.sendAccessibilityEvent(host, eventType);
             }
         });
     }
@@ -159,8 +160,12 @@ public class MusicGoodActivity extends AppCompatActivity {
         int pass = duration - due;
         String mPassText = getResources().getString(R.string.mPass);
         String second = getResources().getString(R.string.second);
-        mPass.setText("" + pass + second);
-        mPass.setContentDescription(mPassText + pass + second);
+
+        if (!mPass.isAccessibilityFocused()) {
+            mPass.setContentDescription(mPassText + pass + second);
+            mPass.setText("" + pass + second);
+        }
+
         mDuration.setText("" + duration + second);
         String mDuration2 = getResources().getString(R.string.mDuration);
         mDuration.setContentDescription(mDuration2 + duration + second);
