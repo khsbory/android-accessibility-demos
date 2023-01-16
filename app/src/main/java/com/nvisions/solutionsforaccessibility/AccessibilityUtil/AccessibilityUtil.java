@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -33,6 +34,20 @@ public class AccessibilityUtil {
                 info.setCheckable(true);
                 info.setChecked(checkboxView.isChecked());
                 info.setClassName(CheckBox.class.getName());
+            }
+        });
+    }
+
+    public static void setContainerAsSwitch(View containerView, Switch switchView, TextView textView) {
+        switchView.setClickable(false);
+        containerView.setContentDescription(textView.getText());
+        containerView.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
+                super.onInitializeAccessibilityNodeInfo(host, info);
+                info.setCheckable(true);
+                info.setChecked(switchView.isChecked());
+                info.setClassName(Switch.class.getName());
             }
         });
     }
